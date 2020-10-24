@@ -6,7 +6,7 @@
 
 ## Installation:
 
-Usage:  `sudo ./install.sh [OPTIONS...]`
+Usage:  `sudo ./install.sh [OPTIONS]`
 
 |  Options:           | Description: |
 |:--------------------|:-------------|
