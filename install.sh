@@ -257,7 +257,7 @@ uninstallTheme() {
   #Remove GRUB_THEME from config
   if grep "GRUB_THEME=" /etc/default/grub >/dev/null 2>&1; then
     #Remove GRUB_THEME
-    sudo sed -i "s|.*GRUB_THEME=.*||" /etc/default/grub
+    sudo sed -i '/GRUB_THEME=/d' /etc/default/grub
   else
     output "warning" "  GRUB_THEME not found, restoring original backup..."
     #Restore grub config backup
