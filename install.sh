@@ -35,16 +35,22 @@ getBackground() {
   if [[ "$1" == "" ]] || [[ "$1" == "list" ]]; then
     output "normal" "Available backgrounds:"
     for availableBackground in "backgrounds/4k/"*; do
-      output "normal" "  ${availableBackground##*/}"
+      availableBackground="${availableBackground##*/}"
+      availableBackground="${availableBackground^}"
+      output "success" "  ${availableBackground/.png}"
     done
     output "normal" "Or specify a file (e.g. './install.sh -i -b background.png')"
     exit 0
   fi
 
   background="${background/.png}"
-  if [[ ! -f "backgrounds/4k/$background.png" ]] && [[ ! -f "$background.png" ]]; then
-    output "error" "Invalid background, use './install.sh -b' to view available backgrounds"
-    exit 1
+  if [[ ! -f "$background.png" ]]; then
+    if [[ ! -f "backgrounds/4k/${background,,}.png" ]]; then
+      output "error" "Invalid background, use './install.sh -b' to view available backgrounds"
+      exit 1
+    else
+      background="${background,,}"
+    fi
   fi
   background="$background.png"
 }
