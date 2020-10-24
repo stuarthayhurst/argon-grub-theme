@@ -11,21 +11,39 @@ checkArg() {
   done
 }
 
+#Output colours
+successCol="\033[1;32m"
+messageCol="\033[1;36m"
+warningCol="\033[1;33m"
+errorCol="\033[1;31m"
+boldCol="\033[1;37m"
+resetCol="\033[0m"
+
+output() {
+  case $1 in
+    "success") echo -e "${successCol}${2}${resetCol}";;
+    "message") echo -e "${messageCol}${2}${resetCol}";;
+    "warning") echo -e "${warningCol}${2}${resetCol}";;
+    "error") echo -e "${errorCol}${2}${resetCol}";;
+    "normal"|*) echo -e "${boldCol}${2}${resetCol}"
+  esac
+}
+
 getBackground() {
   background="$1"
   checkArg "$background" || return 1
   if [[ "$1" == "" ]] || [[ "$1" == "list" ]]; then
-    echo "Available backgrounds:"
+    output "normal" "Available backgrounds:"
     for availableBackground in "backgrounds/4k/"*; do
-      echo "  ${availableBackground##*/}"
+      output "normal" "  ${availableBackground##*/}"
     done
-    echo "Or specify a file (e.g. './install.sh -i -b background.png')"
+    output "normal" "Or specify a file (e.g. './install.sh -i -b background.png')"
     exit 0
   fi
 
   background="${background/.png}"
   if [[ ! -f "backgrounds/4k/$background.png" ]] && [[ ! -f "$background.png" ]]; then
-    echo "Invalid background, use './install.sh -b' to view available backgrounds"
+    output "error" "Invalid background, use './install.sh -b' to view available backgrounds"
     exit 1
   fi
   background="$background.png"
@@ -39,12 +57,12 @@ getResolution() {
       4k|4K|3480x2160|2160p) resolution="4k";;
       2k|2K|2560x1440|1440p) resolution="2k";;
       1920x1080|1080p) resolution="1080p";;
-      ""|"list") echo "Valid resolutions: '1080p', '2k', '4k'"; exit 0;;
-      *) echo "Invalid resolution, using default"; resolution="1080p";;
+      ""|"list") output "normal" "Valid resolutions: '1080p', '2k', '4k'"; exit 0;;
+      *) output "error" "Invalid resolution, using default"; resolution="1080p";;
     esac
   else
     #Use default resolution
-    echo "No resolution specified, using 1080p"
+    output "warning" "No resolution specified, using 1080p"
     resolution="1080p"
     return 1
   fi
@@ -123,19 +141,19 @@ cleanAssets() {
 installTheme() {
   #Check user is root
   if [[ "$UID" != "0" ]]; then
-    echo "This script should be run as root"
+    output "error" "This script should be run as root"
     exit 1
   fi
 
   #Remove theme if installed, and recreate directory
-  echo "Preparing theme directory ($installDir/)..."
+  output "success" "Preparing theme directory ($installDir/)..."
   if [[ -d "$installDir" ]]; then
     rm -rf "$installDir"
   fi
   mkdir -p "$installDir"
 
   #Install theme components
-  echo "Installing theme assets..."
+  output "success" "Installing theme assets..."
   cp "common/"{*.png,*.pf2} "$installDir/"
   cp "config/theme-$resolution.txt" "$installDir/theme.txt"
   cp -r "assets/icons/$resolution" "$installDir/icons"
@@ -149,7 +167,7 @@ installTheme() {
   cp "$background" "$splashScreenPath"
 
   #Modify grub config
-  echo "Modifiying grub config..."
+  output "success" "Modifiying grub config..."
   cp -n "/etc/default/grub" "/etc/default/grub.bak"
 
   if grep "GRUB_THEME=" /etc/default/grub >/dev/null 2>&1; then
@@ -195,7 +213,7 @@ updateGrub() {
   checkCommand() {
     command -v "$1" > /dev/null
   }
-  echo "Updating grub..."
+  output "success" "Updating grub..."
   if checkCommand update-grub; then
     update-grub
   elif checkCommand grub-mkconfig; then
@@ -208,11 +226,17 @@ updateGrub() {
 }
 
 uninstallTheme() {
+  #Check user is root
+  if [[ "$UID" != "0" ]]; then
+    output "error" "This script should be run as root"
+    exit 1
+  fi
+
   #Delete assets
   if [[ -d "$installDir" ]]; then
     rm -rf "$installDir"
   else
-    echo "Theme wasn't installed, exiting"
+    output "warning" "Theme wasn't installed, exiting"
     exit 1
   fi
 
@@ -221,7 +245,7 @@ uninstallTheme() {
     rm -rf "$splashScreenPath"
   fi
 
-  echo "Modifiying grub config..."
+  output "success" "Modifiying grub config..."
   cp -n "/etc/default/grub" "/etc/default/grub.bak"
 
   #Remove GRUB_THEME from config
@@ -229,13 +253,13 @@ uninstallTheme() {
     #Remove GRUB_THEME
     sudo sed -i "s|.*GRUB_THEME=.*||" /etc/default/grub
   else
-    echo "GRUB_THEME not found, restoring original backup..."
+    output "warning" "  GRUB_THEME not found, restoring original backup..."
     #Restore grub config backup
     if [[ -f /etc/default/grub.bak ]]; then
       mv /etc/default/grub.bak /etc/default/grub
     else
-      echo "No '/etc/default/grub' backup found, exiting"
-      echo "You must manually remove the theme from '/etc/default/grub', then update grub"
+      output "error" "No '/etc/default/grub' backup found, exiting"
+      output "warning" "You must manually remove the theme from '/etc/default/grub', then update grub"
       exit 1
     fi
   fi
@@ -245,7 +269,7 @@ uninstallTheme() {
 }
 
 if [[ "$#" ==  "0" ]]; then
-  echo "At least one argument is required, use './install.sh --help' to view options"
+  output "error" "At least one argument is required, use './install.sh --help' to view options"
   exit 1
 fi
 
@@ -254,21 +278,21 @@ read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
   case $arg in
-    -h|--help) echo "Usage: ./install.sh [-OPTION]";
-      echo "Help:"
-      echo "-h | --help       : Display this page"
-      echo "-i | --install    : Install the theme"
-      echo "-u | --uninstall  : Uninstall the theme"
-      echo "-e | --boot       : Install the theme to '/boot/grub/themes'"
-      echo "-b | --background : Specify which background to use"
-      echo "                  - Leave blank to view available backgrounds"
-      echo "-r | --resolution : Use a specific resolution (Default: 1080p)"
-      echo "                  - Leave blank to view available resolutions"
-      echo "-g | --generate   : Generate icons and other assets"
-      echo "-c | --compress   : Compress icons and other assets"
-      echo "--clean           : Delete all assets except wallpapers"
-      echo -e "\nRequired arguments: [--install + --background / --uninstall / --generate / --compress / --clean]"; \
-      echo "Program written by: Stuart Hayhurst"; exit 0;;
+    -h|--help) output "normal"  "Usage: ./install.sh [-OPTION]";
+      output "normal"  "Help:"
+      output "normal"  "-h | --help       : Display this page"
+      output "normal"  "-i | --install    : Install the theme"
+      output "normal"  "-u | --uninstall  : Uninstall the theme"
+      output "normal"  "-e | --boot       : Install the theme to '/boot/grub/themes'"
+      output "normal"  "-b | --background : Specify which background to use"
+      output "normal"  "                  - Leave blank to view available backgrounds"
+      output "normal"  "-r | --resolution : Use a specific resolution (Default: 1080p)"
+      output "normal"  "                  - Leave blank to view available resolutions"
+      output "normal"  "-g | --generate   : Generate icons and other assets"
+      output "normal"  "-c | --compress   : Compress icons and other assets"
+      output "normal"  "--clean           : Delete all assets except wallpapers"
+      output "normal"  -e "\nRequired arguments: [--install + --background / --uninstall / --generate / --compress / --clean]"; \
+      output "success"  "Program written by: Stuart Hayhurst"; exit 0;;
     -i|--install) programOperation="install";;
     -u|--uninstall) programOperation="uninstall";;
     -e|--boot) installDir="/boot/grub/themes/argon";;
@@ -277,19 +301,19 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -g|--generate) programOperation="generate";;
     -c|--compress) programOperation="compress";;
     --clean) programOperation="clean";;
-    *) echo "Unknown parameter passed: $arg"; exit 1;;
+    *) output "error"  "Unknown parameter passed: $arg"; exit 1;;
   esac
   i=$((i + 1))
 done
 
 if [[ "$programOperation" == "install" ]]; then
   if [[ "$resolution" == "" ]]; then
-    echo "No resolution specified, using default of 1080p"
+    output "warning"  "No resolution specified, using default of 1080p"
     resolution="1080p"
   fi
   if [[ "$background" == "" ]]; then
-    echo "No background specified, use -b to list available backgrounds"
-    echo "  - Call the program with '-b [background]'"
+    output "error"  "No background specified, use -b to list available backgrounds"
+    output "warning"  "  - Call the program with '-b [background]'"
     exit 1
   fi
   installTheme
@@ -302,6 +326,6 @@ elif [[ "$programOperation" == "compress" ]]; then
 elif [[ "$programOperation" == "clean" ]]; then
   cleanAssets
 else
-  echo "One of '--install', '--uninstall', '--generate', '--compress' or '--clean' is required"
+  output "error"  "One of '--install', '--uninstall', '--generate', '--compress' or '--clean' is required"
   exit 1
 fi
