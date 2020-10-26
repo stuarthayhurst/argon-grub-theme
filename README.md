@@ -1,25 +1,24 @@
 ## argon-grub-theme
  - Modern theme for the grub bootloader, containing backgrounds, icons, fonts and styling
- - This theme is based off of [grub2-themes](https://github.com/vinceliuice/grub2-themes)
- - The modifications became a little too heavy for a fork, but commits are upstreamed where possible
  - Wallpaper source files can be found [here](https://github.com/Dragon8oy/argon-wallpapers)
 
 ## Installation:
 
 Usage:  `sudo ./install.sh [OPTIONS]`
 
-|  Options:           | Description: |
-|:--------------------|:-------------|
-| -h, --help          | Show a help page |
-| -i, --install       | Install the grub theme |
-| -u, --uninstall     | Uninstall the grub theme |
-| -e, --boot          | Install the grub theme into `/boot/grub/themes` instead |
-| -p, --preview       | Preview the grub theme (Works with other options) |
-| -b, --background    | Choose a background image (must be a .png, or bundled with the project) |
-| -r, --resolution    | Select the display resolution |
-| -g, --generate      | Generate the theme's assets |
-| -c, --compress      | Compress the theme's assets losslessly |
-| --clean             | Delete all the theme's assets |
+|  Options:            | Description: |
+|:---------------------|:-------------|
+| -h , --help          | Show a help page |
+| -i , --install       | Install the grub theme |
+| -u , --uninstall     | Uninstall the grub theme |
+| -e , --boot          | Install the grub theme into `/boot/grub/themes` instead |
+| -p , --preview       | Preview the grub theme (Works with other options) |
+| -b , --background    | Choose a background image (must be a .png, or bundled with the project) |
+| -r , --resolution    | Select the display resolution |
+| -fs, --fontsize      | Use a specific font size (10-32) |
+| -g , --generate      | Generate the theme's assets |
+| -c , --compress      | Compress the theme's assets losslessly |
+| --clean              | Delete all the theme's assets |
 Required arguments: [--install + --background / --uninstall / --generate / --compress / --clean]
 
 ### Examples:
@@ -57,3 +56,9 @@ Required arguments: [--install + --background / --uninstall / --generate / --com
  - Create a pull request from your branch or fork
  - If any issues occur, report then to the [issue](https://github.com/Dragon8oy/argon-grub-theme/issues) page
  - Thank you :)
+
+## Copyright and credits:
+ - Terminus font: Copyright (c) 2019 Dimitar Toshkov Zhekov
+ - DejaVu fonts: See `fonts/DejaVu-License.txt`
+ - Theme originally based off of [grub2-themes](https://github.com/vinceliuice/grub2-themes)
+   - Code is upstreamed where possible

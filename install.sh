@@ -74,6 +74,21 @@ getResolution() {
   fi
 }
 
+getFontSize() {
+  fontsize="${1/"px"}"
+  if checkArg "$fontsize"; then
+    if [[ ! "$fontsize" =~ ^[0-9]+$ ]] || [[ "$fontsize" -gt "32" ]] || [[ "$fontsize" -lt "10" ]]; then
+     output "warning" "Font size must be a number between 10 and 32, ignoring"
+     fontsize=""
+    fi
+  else
+    #Reset fontsize
+    output "warning" "Incorrect usage of --fontsize, ignoring"
+    fontsize=""
+    return 1
+  fi
+}
+
 processAssets() {
   assetTypes=("icons" "select")
   dpis=("96" "144" "192")
@@ -145,13 +160,9 @@ cleanAssets() {
 }
 
 installCore() {
-  #Install theme components
-  output "success" "Installing theme assets..."
-  cp "common/"{*.png,*.pf2} "$installDir/"
-  cp -r "assets/icons/$resolution" "$installDir/icons"
-  cp "assets/select/$resolution/"*.png "$installDir/"
-
   #Generate and install theme.txt
+  output "success" "Generating theme.txt..."
+  font_size="$fontsize"
   source "theme/theme-values.sh"
   fileContent="$(cat theme/theme-template.txt)"
   fileContent="${fileContent//"{icon_size_template}"/"$icon_size"}"
@@ -162,6 +173,19 @@ installCore() {
   fileContent="${fileContent//"{font_size_template}"/"$font_size"}"
   fileContent="${fileContent//"{font_name_template}"/"$font_name"}"
   echo "$fileContent" > "$installDir/theme.txt"
+
+  #Install theme components
+  output "success" "Installing theme assets..."
+  cp "common/"*.png "$installDir/"
+  cp -r "assets/icons/$resolution" "$installDir/icons"
+  cp "assets/select/$resolution/"*.png "$installDir/"
+
+  #Generate and install fonts
+  generateFont() {
+    grub-mkfont "$1" -o "$2" -s "$3"
+  }
+  generateFont "fonts/DejaVuSans.ttf" "$installDir/dejava_sans_$font_size.pf2" "$font_size"
+  generateFont "fonts/Terminus.ttf" "$installDir/terminus_$font_size.pf2" "$font_size"
 
   #Install background
   if [[ ! -f "$background" ]]; then
@@ -328,6 +352,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal"  "                  - Leave blank to view available backgrounds"
       output "normal"  "-r | --resolution : Use a specific resolution (Default: 1080p)"
       output "normal"  "                  - Leave blank to view available resolutions"
+      output "normal"  "-fs| --fontsize   : Use a specific font size (10-32)"
       output "normal"  "-g | --generate   : Generate icons and other assets"
       output "normal"  "-c | --compress   : Compress icons and other assets"
       output "normal"  "--clean           : Delete all assets except wallpapers"
@@ -339,6 +364,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -p|--preview) programOperation="preview";;
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -g|--generate) programOperation="generate";;
     -c|--compress) programOperation="compress";;
     --clean) programOperation="clean";;
