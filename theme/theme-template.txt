@@ -5,7 +5,7 @@
 title-text: ""
 desktop-image: "background.png"
 desktop-color: "#000000"
-terminal-font: "Terminus Regular 32"
+terminal-font: "Terminus Regular {font_size_template}"
 terminal-box: "terminal_box_*.png"
 terminal-left: "0"
 terminal-top: "0"
@@ -17,17 +17,17 @@ terminal-border: "0"
 + boot_menu {
   left = 30%
   top = 30%
-  width = 45%
-  height = 60%
-  item_font = "DejaVu Sans Regular 32"
+  width = 40%
+  height = 50%
+  item_font = "{font_name_template} {font_size_template}"
   item_color = "#cccccc"
   selected_item_color = "#ffffff"
-  icon_width = 64
-  icon_height = 64
-  item_icon_space = 36
-  item_height = 80
-  item_padding = 12
-  item_spacing = 24
+  icon_width = {icon_size_template}
+  icon_height = {icon_size_template}
+  item_icon_space = {item_icon_space_template}
+  item_height = {item_height_template}
+  item_padding = {item_padding_template}
+  item_spacing = {item_spacing_template}
   selected_item_pixmap_style = "select_*.png"
 }
 
@@ -40,5 +40,5 @@ terminal-border: "0"
   id = "__timeout__"
   text = "Booting in %d seconds"
   color = "#cccccc"
-  font = "DejaVu Sans Regular 32"
+  font = "{font_name_template} {font_size_template}"
 }

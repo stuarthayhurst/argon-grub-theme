@@ -1,0 +1,25 @@
+if [[ "$resolution" == "1080p" ]]; then
+  icon_size="32"
+  item_icon_space="20"
+  item_height="36"
+  item_padding="6"
+  item_spacing="10"
+  font_size="16"
+  font_name="Unifont Regular"
+elif [[ "$resolution" == "2k" ]]; then
+  icon_size="48"
+  item_icon_space="24"
+  item_height="56"
+  item_padding="8"
+  item_spacing="16"
+  font_size="24"
+  font_name="DejaVu Sans Regular"
+elif [[ "$resolution" == "4k" ]]; then
+  icon_size="64"
+  item_icon_space="36"
+  item_height="80"
+  item_padding="12"
+  item_spacing="24"
+  font_size="32"
+  font_name="DejaVu Sans Regular"
+fi

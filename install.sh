@@ -144,6 +144,32 @@ cleanAssets() {
   rm -rvf "./assets/select/"*
 }
 
+installCore() {
+  #Install theme components
+  output "success" "Installing theme assets..."
+  cp "common/"{*.png,*.pf2} "$installDir/"
+  cp -r "assets/icons/$resolution" "$installDir/icons"
+  cp "assets/select/$resolution/"*.png "$installDir/"
+
+  #Generate and install theme.txt
+  source "theme/theme-values.sh"
+  fileContent="$(cat theme/theme-template.txt)"
+  fileContent="${fileContent//"{icon_size_template}"/"$icon_size"}"
+  fileContent="${fileContent//"{item_icon_space_template}"/"$item_icon_space"}"
+  fileContent="${fileContent//"{item_height_template}"/"$item_height"}"
+  fileContent="${fileContent//"{item_padding_template}"/"$item_padding"}"
+  fileContent="${fileContent//"{item_spacing_template}"/"$item_spacing"}"
+  fileContent="${fileContent//"{font_size_template}"/"$font_size"}"
+  fileContent="${fileContent//"{font_name_template}"/"$font_name"}"
+  echo "$fileContent" > "$installDir/theme.txt"
+
+  #Install background
+  if [[ ! -f "$background" ]]; then
+    background="backgrounds/$resolution/$background"
+  fi
+  cp "$background" "$installDir/background.png"
+}
+
 installTheme() {
   #Check user is root
   if [[ "$UID" != "0" ]]; then
@@ -158,18 +184,10 @@ installTheme() {
   fi
   mkdir -p "$installDir"
 
-  #Install theme components
-  output "success" "Installing theme assets..."
-  cp "common/"{*.png,*.pf2} "$installDir/"
-  cp "config/theme-$resolution.txt" "$installDir/theme.txt"
-  cp -r "assets/icons/$resolution" "$installDir/icons"
-  cp "assets/select/$resolution/"*.png "$installDir/"
+  #Install files to $installDir
+  installCore
 
-  #Install background and splash screen
-  if [[ ! -f "$background" ]]; then
-    background="backgrounds/$resolution/$background"
-  fi
-  cp "$background" "$installDir/background.png"
+  #Install splash screen
   cp "$background" "$splashScreenPath"
 
   #Modify grub config
@@ -281,17 +299,8 @@ previewTheme() {
   fi
   installDir="$(mktemp -d)"
 
-  #Install theme components
-  cp "common/"{*.png,*.pf2} "$installDir/"
-  cp "config/theme-$resolution.txt" "$installDir/theme.txt"
-  cp -r "assets/icons/$resolution" "$installDir/icons"
-  cp "assets/select/$resolution/"*.png "$installDir/"
-
-  #Install background and splash screen
-  if [[ ! -f "$background" ]]; then
-    background="backgrounds/$resolution/$background"
-  fi
-  cp "$background" "$installDir/background.png"
+  #Install files to $installDir
+  installCore
 
   echo "Installed to $installDir"
   grub2-theme-preview "$installDir"
