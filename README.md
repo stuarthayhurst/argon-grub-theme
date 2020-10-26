@@ -15,7 +15,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -u, --uninstall     | Uninstall the grub theme |
 | -e, --boot          | Install the grub theme into `/boot/grub/themes` instead |
 | -p, --preview       | Preview the grub theme (Works with other options) |
-| -b, --background    | Use a custom background image (must be a .png) |
+| -b, --background    | Choose a background image (must be a .png, or bundled with the project) |
 | -r, --resolution    | Select the display resolution |
 | -g, --generate      | Generate the theme's assets |
 | -c, --compress      | Compress the theme's assets losslessly |
@@ -31,6 +31,11 @@ Required arguments: [--install + --background / --uninstall / --generate / --com
 
  - Uninstall the theme:
    - `sudo ./install.sh -u`
+
+## Dependencies:
+ - `inkscape` - Used to generate pngs from svgs (Used by --generate)
+ - `optipng` - Used to losslessly compress pngs (Used by --compress)
+ - `grub2-theme-preview` - Used to preview themes (used by --preview)
 
 ## Preview the theme:
  - Follow the instructions at [grub2-theme-preview](https://github.com/hartwork/grub2-theme-preview) to install the program
