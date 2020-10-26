@@ -297,7 +297,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal"  "-g | --generate   : Generate icons and other assets"
       output "normal"  "-c | --compress   : Compress icons and other assets"
       output "normal"  "--clean           : Delete all assets except wallpapers"
-      output "normal"  -e "\nRequired arguments: [--install + --background / --uninstall / --generate / --compress / --clean]"; \
+      output "normal"  "\nRequired arguments: [--install + --background / --uninstall / --generate / --compress / --clean]"; \
       output "success"  "Program written by: Stuart Hayhurst"; exit 0;;
     -i|--install) programOperation="install";;
     -u|--uninstall) programOperation="uninstall";;
