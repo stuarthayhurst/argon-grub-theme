@@ -16,10 +16,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -b , --background    | Choose a background image (must be a .png, or bundled with the project) |
 | -r , --resolution    | Select the display resolution |
 | -fs, --fontsize      | Use a specific font size (10-32) |
-| -g , --generate      | Generate the theme's assets |
-| -c , --compress      | Compress the theme's assets losslessly |
-| --clean              | Delete all the theme's assets |
-Required arguments: [--install + --background / --uninstall / --generate / --compress / --clean]
+Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Examples:
  - Install the theme for a 4k display, using the `Night` wallpaper:
@@ -33,11 +30,12 @@ Required arguments: [--install + --background / --uninstall / --generate / --com
 
 ## Screenshots:
 ![Gallery](docs/Gallery.gif)
+ - Individual images at end of document
 
 ## Dependencies:
  - `make` - Used for the build system
- - `inkscape` - Used to generate pngs from svgs (Used by `make assets`)
- - `optipng` - Used to losslessly compress pngs (Used by `make compress-*`)
+ - `inkscape` - Used to generate pngs from svgs (Used by `make generate-all`)
+ - `optipng` - Used to losslessly compress pngs (Used by `make compress-backgrounds`)
  - `grub2-theme-preview` - Used to preview themes (Used by --preview)
 
 ## Preview the theme:
@@ -57,11 +55,17 @@ Required arguments: [--install + --background / --uninstall / --generate / --com
 ![Night](docs/Night.png)
 ![Grey](docs/Grey.png)
 
+## Makefile options:
+ - `make clean` - Remove all generated assets
+ - `make generate-all` - Generate all assets
+ - `make compress-backgrounds` - Compress backgrounds losslessly
+
 ## Contributing:
  - If you made changes to any images, or added a new one:
-   - Run `./install.sh --clean`
-   - Run `./install.sh --generate`
-   - Run `./install.sh --compress`
+   - Run `make clean`
+   - Run `make generate-all`
+ - If the change was to a background, scale the background for each resolution, then:
+   - Run `make compress-backgrounds`
  - Create a pull request from your branch or fork
  - If any issues occur, report then to the [issue](https://github.com/Dragon8oy/argon-grub-theme/issues) page
  - Thank you :)

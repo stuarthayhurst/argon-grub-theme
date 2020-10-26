@@ -89,86 +89,6 @@ getFontSize() {
   fi
 }
 
-processAssets() {
-  assetTypes=("icons" "select" "terminal")
-  dpis=("96" "144" "192")
-
-  #Loop through assets and dpis to generate every asset
-  for assetType in "${assetTypes[@]}"; do
-    srcFile="assets/$assetType.svg"
-    assetDir="assets/$assetType"
-    for dpi in "${dpis[@]}"; do
-      #Generate asset output path
-      if [[ "$assetType" != "terminal" ]]; then
-        if [[ "$dpi" == "96" ]]; then
-          assetDir="assets/$assetType/1080p"
-        elif [[ "$dpi" == "144" ]]; then
-          assetDir="assets/$assetType/2k"
-        elif [[ "$dpi" == "192" ]]; then
-          assetDir="assets/$assetType/4k"
-        fi
-      else
-        if [[ "$dpi" == "96" ]]; then
-          assetDir="assets/$assetType"
-        else
-          skip="true"
-        fi
-      fi
-      if [[ "$skip" != "true" ]]; then
-        mkdir -p "$assetDir"
-        echo -e "\nUsing options \"$assetType\" \"$dpi\": \n"
-        while read -r line; do
-          #Split $line into the icon's id and icon name
-          iconId="${line%%,*}"
-          icon="${line##*,}"
-          if [[ "$line" != "" ]]; then
-            echo -n "${1^} $assetDir/$icon.png..."
-            if [[ "$1" == "generating" ]]; then
-              if [[ ! -f "$assetDir/$icon.png" ]]; then #Check if the icon already exists
-                inkscape  "--export-id=$iconId" \
-                          "--export-dpi=$dpi" \
-                          "--export-id-only" \
-                          "--export-filename=$assetDir/$icon.png" "$srcFile" >/dev/null 2>&1
-                echo " Done"
-              else
-                echo -e "\n  File '$assetDir/$icon.png' already exists"
-              fi
-            elif [[ "$1" == "compressing" ]]; then #Compress asset
-              if [[ -f "$assetDir/$icon.png" ]]; then #Check file exists first
-                optipng -o7 --quiet "$assetDir/$icon.png"
-              fi
-              echo " Done"
-            fi
-          fi
-        done < "assets/$assetType.csv"
-      fi
-      skip="false"
-    done
-  done
-}
-
-generateAssets() {
-  processAssets "generating"
-}
-
-compressAssets() {
-  processAssets "compressing"
-  #Compress backgrounds
-  echo ""
-  for resolution in "backgrounds/"*; do
-    for background in "$resolution/"*; do
-      echo -n "Compressing $background..."
-      optipng --quiet "$background"
-      echo " Done"
-    done
-  done
-}
-
-cleanAssets() {
-  rm -rvf "./assets/icons/"*
-  rm -rvf "./assets/select/"*
-}
-
 installCore() {
   #Generate and install theme.txt
   output "success" "Generating theme.txt..."
@@ -188,7 +108,6 @@ installCore() {
   output "success" "Installing theme assets..."
   cp -r "assets/icons/$resolution" "$installDir/icons"
   cp "assets/select/$resolution/"*.png "$installDir/"
-  cp "assets/terminal/"*.png "$installDir/"
 
   #Generate and install fonts
   generateFont() {
@@ -346,7 +265,7 @@ if [[ "$#" ==  "0" ]]; then
   exit 1
 fi
 
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-r" "--resolution" "-g" "--generate" "-c" "--compress" "--clean")
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-r" "--resolution" "--clean")
 read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
@@ -363,10 +282,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal"  "-r | --resolution : Use a specific resolution (Default: 1080p)"
       output "normal"  "                  - Leave blank to view available resolutions"
       output "normal"  "-fs| --fontsize   : Use a specific font size (10-32)"
-      output "normal"  "-g | --generate   : Generate icons and other assets"
-      output "normal"  "-c | --compress   : Compress icons and other assets"
-      output "normal"  "--clean           : Delete all assets except wallpapers"
-      output "normal"  "\nRequired arguments: [--install + --background / --uninstall / --generate / --compress / --clean]"; \
+      output "normal"  "\nRequired arguments: [--install + --background / --uninstall / --preview]"; \
       output "success"  "Program written by: Stuart Hayhurst"; exit 0;;
     -i|--install) programOperation="install";;
     -u|--uninstall) programOperation="uninstall";;
@@ -375,9 +291,6 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
-    -g|--generate) programOperation="generate";;
-    -c|--compress) programOperation="compress";;
-    --clean) programOperation="clean";;
     *) output "error"  "Unknown parameter passed: $arg"; exit 1;;
   esac
   i=$((i + 1))
@@ -403,13 +316,7 @@ elif [[ "$programOperation" == "uninstall" ]]; then
 elif [[ "$programOperation" == "preview" ]]; then
   warnArgs
   previewTheme
-elif [[ "$programOperation" == "generate" ]]; then
-  generateAssets
-elif [[ "$programOperation" == "compress" ]]; then
-  compressAssets
-elif [[ "$programOperation" == "clean" ]]; then
-  cleanAssets
 else
-  output "error"  "One of '--install', '--uninstall', '--preview', '--generate', '--compress' or '--clean' is required"
+  output "error"  "One of '--install', '--uninstall' or '--preview' is required"
   exit 1
 fi

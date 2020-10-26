@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32.000435"
+   height="31.495192"
+   version="1.1"
+   viewBox="0 0 8.4667817 8.3331032"
+   id="svg371"
+   sodipodi:docname="solus.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata375">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox="true"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1836"
+     inkscape:window-height="1016"
+     id="namedview373"
+     showgrid="false"
+     inkscape:zoom="4"
+     inkscape:cx="107.16678"
+     inkscape:cy="265.86868"
+     inkscape:window-x="2004"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg371"
+     inkscape:document-rotation="0">
+    <inkscape:grid
+       id="grid1162"
+       type="xygrid" />
+  </sodipodi:namedview>
+  <defs
+     id="defs37">
+    <style
+       id="current-color-scheme"
+       type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style29" />
+    <style
+       type="text/css"
+       id="style31" />
+    <style
+       type="text/css"
+       id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+  </defs>
+  <g
+     id="solus"
+     transform="matrix(1.0667,0,0,1.0667,-0.28310218,-0.13662294)">
+    <g
+       transform="matrix(0.63633,0,0,0.63602,10.606,-179.78)"
+       id="g205"
+       style="stroke-width:1.5935">
+      <circle
+         cx="-10.015"
+         cy="289.32001"
+         r="5.8210001"
+         id="circle199"
+         style="fill:#4c5263" />
+      <path
+         d="m -4.331,290.52 c -0.85,1.145 -2.418,1.757 -4.286,2.029 -1.95,0.283 -4.21,0.199 -6.226,0.027 0.096,0.144 0.202,0.284 0.311,0.419 1.942,0.154 3.964,0.755 5.854,0.48 1.577,-0.23 3.119,-1.232 4.096,-2.096 a 5.61,5.61 0 0 0 0.25,-0.86 z"
+         font-weight="400"
+         overflow="visible"
+         style="color:#000000;font-weight:400;text-indent:0;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000000;text-transform:none;white-space:normal;overflow:visible;isolation:auto;mix-blend-mode:normal;solid-color:#000000;fill:#ffffff;fill-rule:evenodd"
+         id="path201"
+         inkscape:connector-curvature="0" />
+      <path
+         d="m -8.561,292.94 c -1.976,0.279 -3.988,0.21 -5.97,0.058 1.275,1.627 3.493,2.447 5.54,2.052 1.978,-0.34 3.71,-1.788 4.408,-3.666 -1.174,0.833 -2.56,1.338 -3.978,1.556 z"
+         id="path203"
+         inkscape:connector-curvature="0"
+         style="fill:#5294e2" />
+    </g>
+    <path
+       d="M 2.6925,0.12808 C 2.26603,1.86918 1.0381,4.00998 0.2654,5.37618 1.6126,5.70027 3.1079,5.79483 4.2667,5.90049 4.246485,5.63769 4.05151,2.77819 4.0039,2.22719 3.52721,1.36316 3.13987,0.91649 2.6926,0.12809 Z m 1.6394,2.2302 c 0.63251,1.3023 0.63251,2.5908 0.2628,3.5422 C 5.1164,5.90374 5.9674,5.961779 6.8901,5.50661 6.13172,3.77461 4.3319,2.35831 4.3319,2.35831 Z M 5.5787,3.14602 C 5.97061,3.40882 6.34491,3.64815 6.6279,3.93246 7.01133,4.3172 7.20762,4.83694 7.15286,5.37616 7.66673,5.11728 8.0071,4.68689 8.20276,4.32626 7.86041,4.0113 7.26702,3.70022 6.62796,3.47398 6.27582,3.34878 5.90416,3.23531 5.57806,3.14598 Z"
+       id="path207"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff;fill-rule:evenodd;stroke-width:1.0207" />
+  </g>
+</svg>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="31.999748"
+   height="31.999748"
+   version="1.1"
+   viewBox="0 0 8.4666001 8.4666005"
+   id="svg371"
+   sodipodi:docname="endeavouros.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <metadata
+     id="metadata375">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox="true"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1836"
+     inkscape:window-height="1016"
+     id="namedview373"
+     showgrid="false"
+     inkscape:zoom="4"
+     inkscape:cx="107.16678"
+     inkscape:cy="265.86868"
+     inkscape:window-x="2004"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg371"
+     inkscape:document-rotation="0">
+    <inkscape:grid
+       id="grid1162"
+       type="xygrid" />
+  </sodipodi:namedview>
+  <defs
+     id="defs37">
+    <style
+       id="current-color-scheme"
+       type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style29" />
+    <style
+       type="text/css"
+       id="style31" />
+    <style
+       type="text/css"
+       id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+  </defs>
+  <g
+     id="endeavouros"
+     transform="translate(-38.653701,-256.71671)">
+    <circle
+       cx="42.887001"
+       cy="260.95001"
+       r="4.2333002"
+       style="fill:#f2f2f2;fill-rule:evenodd;stroke-width:0.26458;paint-order:stroke fill markers"
+       id="circle360" />
+    <g
+       transform="matrix(0.044769,0,0,0.044769,32.866,248.05)"
+       id="g368"
+       style="stroke-width:22.337">
+      <path
+         d="m 236.45,207.73 -82.586,129.36 c 0,0 27.833,1.4843 70.426,0 42.378,-1.4769 65.25,-3.2659 73.499,-15.903 6.2808,-9.6217 6.9831,-24.859 -18.174,-62.541 -17.205,-25.77 -43.164,-50.915 -43.164,-50.915 z"
+         id="path362"
+         inkscape:connector-curvature="0"
+         style="fill:#7e7ffe" />
+      <path
+         d="m 236.41,207.85 -90.873,106.84 c 0,0 20.874,5.1313 58.943,7.7221 37.657,2.5628 65.302,6.1494 74.991,-6.8112 8.3212,-11.131 8.858,-22.964 -9.271,-57.322 -12.437,-23.57 -33.79,-50.432 -33.79,-50.432 z"
+         id="path364"
+         inkscape:connector-curvature="0"
+         style="fill:#ff7f7e" />
+      <path
+         transform="matrix(0.26458,0,0,0.26458,0,201.75)"
+         d="m 893.53,23.049 -0.56836,0.66992 -266.23,417.01 c 36.515,5.3684 85.462,11.198 146.12,15.326 142.32,9.686 246.80996,23.241 283.42996,-25.744 31.45,-42.071 33.478,-86.792 -35.041,-216.65 -47.00396,-89.084 -127.70996,-190.61 -127.70996,-190.61 z"
+         id="path366"
+         inkscape:connector-curvature="0"
+         style="fill:#7d3fbe" />
+    </g>
+  </g>
+</svg>
