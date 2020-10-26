@@ -215,10 +215,10 @@ installTheme() {
   updateGrub
 }
 
+checkCommand() {
+  command -v "$1" > /dev/null
+}
 updateGrub() {
-  checkCommand() {
-    command -v "$1" > /dev/null
-  }
   output "success" "Updating grub..."
   if checkCommand update-grub; then
     update-grub
@@ -274,12 +274,36 @@ uninstallTheme() {
   updateGrub
 }
 
+previewTheme() {
+  if ! checkCommand grub2-theme-preview; then
+    echo "No working copy of grub2-theme-preview found"
+    echo "grub2-theme-preview: https://github.com/hartwork/grub2-theme-preview"
+  fi
+  installDir="$(mktemp -d)"
+
+  #Install theme components
+  cp "common/"{*.png,*.pf2} "$installDir/"
+  cp "config/theme-$resolution.txt" "$installDir/theme.txt"
+  cp -r "assets/icons/$resolution" "$installDir/icons"
+  cp "assets/select/$resolution/"*.png "$installDir/"
+
+  #Install background and splash screen
+  if [[ ! -f "$background" ]]; then
+    background="backgrounds/$resolution/$background"
+  fi
+  cp "$background" "$installDir/background.png"
+
+  echo "Installed to $installDir"
+  grub2-theme-preview "$installDir"
+  rm -rf "$installDir"
+}
+
 if [[ "$#" ==  "0" ]]; then
   output "error" "At least one argument is required, use './install.sh --help' to view options"
   exit 1
 fi
 
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-b" "--background" "-r" "--resolution" "-g" "--generate" "-c" "--compress" "--clean")
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-r" "--resolution" "-g" "--generate" "-c" "--compress" "--clean")
 read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
@@ -290,6 +314,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal"  "-i | --install    : Install the theme"
       output "normal"  "-u | --uninstall  : Uninstall the theme"
       output "normal"  "-e | --boot       : Install the theme to '/boot/grub/themes'"
+      output "normal"  "-p | --preview    : Preview the theme (Works with other options)"
       output "normal"  "-b | --background : Specify which background to use"
       output "normal"  "                  - Leave blank to view available backgrounds"
       output "normal"  "-r | --resolution : Use a specific resolution (Default: 1080p)"
@@ -302,6 +327,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -i|--install) programOperation="install";;
     -u|--uninstall) programOperation="uninstall";;
     -e|--boot) installDir="/boot/grub/themes/argon";;
+    -p|--preview) programOperation="preview";;
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -g|--generate) programOperation="generate";;
@@ -312,7 +338,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
   i=$((i + 1))
 done
 
-if [[ "$programOperation" == "install" ]]; then
+warnArgs() {
   if [[ "$resolution" == "" ]]; then
     output "warning"  "No resolution specified, using default of 1080p"
     resolution="1080p"
@@ -322,9 +348,16 @@ if [[ "$programOperation" == "install" ]]; then
     output "warning"  "  - Call the program with '-b [background]'"
     exit 1
   fi
+}
+
+if [[ "$programOperation" == "install" ]]; then
+  warnArgs
   installTheme
 elif [[ "$programOperation" == "uninstall" ]]; then
   uninstallTheme
+elif [[ "$programOperation" == "preview" ]]; then
+  warnArgs
+  previewTheme
 elif [[ "$programOperation" == "generate" ]]; then
   generateAssets
 elif [[ "$programOperation" == "compress" ]]; then
@@ -332,6 +365,6 @@ elif [[ "$programOperation" == "compress" ]]; then
 elif [[ "$programOperation" == "clean" ]]; then
   cleanAssets
 else
-  output "error"  "One of '--install', '--uninstall', '--generate', '--compress' or '--clean' is required"
+  output "error"  "One of '--install', '--uninstall', '--preview', '--generate', '--compress' or '--clean' is required"
   exit 1
 fi

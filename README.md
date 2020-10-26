@@ -14,6 +14,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -i, --install       | Install the grub theme |
 | -u, --uninstall     | Uninstall the grub theme |
 | -e, --boot          | Install the grub theme into `/boot/grub/themes` instead |
+| -p, --preview       | Preview the grub theme (Works with other options) |
 | -b, --background    | Use a custom background image (must be a .png) |
 | -r, --resolution    | Select the display resolution |
 | -g, --generate      | Generate the theme's assets |
@@ -31,8 +32,12 @@ Required arguments: [--install + --background / --uninstall / --generate / --com
  - Uninstall the theme:
    - `sudo ./install.sh -u`
 
-### Using a custom background:
+## Preview the theme:
+ - Follow the instructions at [grub2-theme-preview](https://github.com/hartwork/grub2-theme-preview) to install the program
+ - Run the install script with your desired options, but replace --install / -i with --preview / -p
+ - For example: `./install.sh --preview --background Crystals.png --resolution 4k`
 
+### Using a custom background:
  - Find the resolution of your display, and make sure your background matches the resolution
  - Place your custom background inside the root of the project
  - Run the installer like normal, but with `--background [filename.png]` and `-- resolution [YOUR_RESOLUTION]`
