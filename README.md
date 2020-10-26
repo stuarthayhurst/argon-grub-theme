@@ -32,14 +32,13 @@ Required arguments: [--install + --background / --uninstall / --generate / --com
    - `sudo ./install.sh -u`
 
 ## Screenshots:
-![Crystals](docs/Crystals.png)
-![Night](docs/Night.png)
-![Grey](docs/Grey.png)
+![Gallery](docs/Gallery.gif)
 
 ## Dependencies:
- - `inkscape` - Used to generate pngs from svgs (Used by --generate)
- - `optipng` - Used to losslessly compress pngs (Used by --compress)
- - `grub2-theme-preview` - Used to preview themes (used by --preview)
+ - `make` - Used for the build system
+ - `inkscape` - Used to generate pngs from svgs (Used by `make assets`)
+ - `optipng` - Used to losslessly compress pngs (Used by `make compress-*`)
+ - `grub2-theme-preview` - Used to preview themes (Used by --preview)
 
 ## Preview the theme:
  - Follow the instructions at [grub2-theme-preview](https://github.com/hartwork/grub2-theme-preview) to install the program
@@ -52,6 +51,11 @@ Required arguments: [--install + --background / --uninstall / --generate / --com
  - Run the installer like normal, but with `--background [filename.png]` and `-- resolution [YOUR_RESOLUTION]`
    - Resolutions: (1920x1080 -> --1080p, 2560x1080 -> --ultrawide, 2560x1440 -> --2k, 3840x2160 -> --4k)
    - Make sure to replace `[YOUR_RESOLUTION]` with your resolution and `[THEME]` with the theme
+
+## Gallery:
+![Crystals](docs/Crystals.png)
+![Night](docs/Night.png)
+![Grey](docs/Grey.png)
 
 ## Contributing:
  - If you made changes to any images, or added a new one:
