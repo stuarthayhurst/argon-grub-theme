@@ -90,7 +90,7 @@ getFontSize() {
 }
 
 processAssets() {
-  assetTypes=("icons" "select")
+  assetTypes=("icons" "select" "terminal")
   dpis=("96" "144" "192")
 
   #Loop through assets and dpis to generate every asset
@@ -99,40 +99,50 @@ processAssets() {
     assetDir="assets/$assetType"
     for dpi in "${dpis[@]}"; do
       #Generate asset output path
-      if [[ "$dpi" == "96" ]]; then
-        assetDir="assets/$assetType/1080p"
-      elif [[ "$dpi" == "144" ]]; then
-        assetDir="assets/$assetType/2k"
-      elif [[ "$dpi" == "192" ]]; then
-        assetDir="assets/$assetType/4k"
-      fi
-      mkdir -p "$assetDir"
-      echo -e "\nUsing options \"$assetType\" \"$dpi\": \n"
-      while read -r line; do
-        #Split $line into the icon's id and icon name
-        iconId="${line%%,*}"
-        icon="${line##*,}"
-
-        if [[ "$line" != "" ]]; then
-          echo -n "${1^} $assetDir/$icon.png..."
-          if [[ "$1" == "generating" ]]; then
-            if [[ ! -f "$assetDir/$icon.png" ]]; then #Check if the icon already exists
-              inkscape  "--export-id=$iconId" \
-                        "--export-dpi=$dpi" \
-                        "--export-id-only" \
-                        "--export-filename=$assetDir/$icon.png" "$srcFile" >/dev/null 2>&1
-              echo " Done"
-            else
-              echo -e "\n  File '$assetDir/$icon.png' already exists"
-            fi
-          elif [[ "$1" == "compressing" ]]; then #Compress asset
-            if [[ -f "$assetDir/$icon.png" ]]; then #Check file exists first
-              optipng -o7 --quiet "$assetDir/$icon.png"
-            fi
-            echo " Done"
-          fi
+      if [[ "$assetType" != "terminal" ]]; then
+        if [[ "$dpi" == "96" ]]; then
+          assetDir="assets/$assetType/1080p"
+        elif [[ "$dpi" == "144" ]]; then
+          assetDir="assets/$assetType/2k"
+        elif [[ "$dpi" == "192" ]]; then
+          assetDir="assets/$assetType/4k"
         fi
-     done < "assets/$assetType.csv"
+      else
+        if [[ "$dpi" == "96" ]]; then
+          assetDir="assets/$assetType"
+        else
+          skip="true"
+        fi
+      fi
+      if [[ "$skip" != "true" ]]; then
+        mkdir -p "$assetDir"
+        echo -e "\nUsing options \"$assetType\" \"$dpi\": \n"
+        while read -r line; do
+          #Split $line into the icon's id and icon name
+          iconId="${line%%,*}"
+          icon="${line##*,}"
+          if [[ "$line" != "" ]]; then
+            echo -n "${1^} $assetDir/$icon.png..."
+            if [[ "$1" == "generating" ]]; then
+              if [[ ! -f "$assetDir/$icon.png" ]]; then #Check if the icon already exists
+                inkscape  "--export-id=$iconId" \
+                          "--export-dpi=$dpi" \
+                          "--export-id-only" \
+                          "--export-filename=$assetDir/$icon.png" "$srcFile" >/dev/null 2>&1
+                echo " Done"
+              else
+                echo -e "\n  File '$assetDir/$icon.png' already exists"
+              fi
+            elif [[ "$1" == "compressing" ]]; then #Compress asset
+              if [[ -f "$assetDir/$icon.png" ]]; then #Check file exists first
+                optipng -o7 --quiet "$assetDir/$icon.png"
+              fi
+              echo " Done"
+            fi
+          fi
+        done < "assets/$assetType.csv"
+      fi
+      skip="false"
     done
   done
 }
@@ -176,9 +186,9 @@ installCore() {
 
   #Install theme components
   output "success" "Installing theme assets..."
-  cp "common/"*.png "$installDir/"
   cp -r "assets/icons/$resolution" "$installDir/icons"
   cp "assets/select/$resolution/"*.png "$installDir/"
+  cp "assets/terminal/"*.png "$installDir/"
 
   #Generate and install fonts
   generateFont() {
