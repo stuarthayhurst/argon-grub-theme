@@ -21,7 +21,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | --clean              | Delete all the theme's assets |
 Required arguments: [--install + --background / --uninstall / --generate / --compress / --clean]
 
-### Examples:
+## Examples:
  - Install the theme for a 4k display, using the `Night` wallpaper:
    - `sudo ./install.sh --install --resolution 4k --background Night`
 
@@ -30,6 +30,11 @@ Required arguments: [--install + --background / --uninstall / --generate / --com
 
  - Uninstall the theme:
    - `sudo ./install.sh -u`
+
+## Screenshots:
+![Crystals](docs/Crystals.png)
+![Night](docs/Night.png)
+![Grey](docs/Grey.png)
 
 ## Dependencies:
  - `inkscape` - Used to generate pngs from svgs (Used by --generate)
@@ -41,7 +46,7 @@ Required arguments: [--install + --background / --uninstall / --generate / --com
  - Run the install script with your desired options, but replace --install / -i with --preview / -p
  - For example: `./install.sh --preview --background Crystals.png --resolution 4k`
 
-### Using a custom background:
+## Using a custom background:
  - Find the resolution of your display, and make sure your background matches the resolution
  - Place your custom background inside the root of the project
  - Run the installer like normal, but with `--background [filename.png]` and `-- resolution [YOUR_RESOLUTION]`
