@@ -270,20 +270,20 @@ read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
   case $arg in
-    -h|--help) output "normal"  "Usage: ./install.sh [-OPTION]";
-      output "normal"  "Help:"
-      output "normal"  "-h | --help       : Display this page"
-      output "normal"  "-i | --install    : Install the theme"
-      output "normal"  "-u | --uninstall  : Uninstall the theme"
-      output "normal"  "-e | --boot       : Install the theme to '/boot/grub/themes'"
-      output "normal"  "-p | --preview    : Preview the theme (Works with other options)"
-      output "normal"  "-b | --background : Specify which background to use"
-      output "normal"  "                  - Leave blank to view available backgrounds"
-      output "normal"  "-r | --resolution : Use a specific resolution (Default: 1080p)"
-      output "normal"  "                  - Leave blank to view available resolutions"
-      output "normal"  "-fs| --fontsize   : Use a specific font size (10-32)"
-      output "normal"  "\nRequired arguments: [--install + --background / --uninstall / --preview]"; \
-      output "success"  "Program written by: Stuart Hayhurst"; exit 0;;
+    -h|--help) output "normal" "Usage: ./install.sh [-OPTION]";
+      output "normal" "Help:"
+      output "normal" "-h | --help       : Display this page"
+      output "normal" "-i | --install    : Install the theme"
+      output "normal" "-u | --uninstall  : Uninstall the theme"
+      output "normal" "-e | --boot       : Install the theme to '/boot/grub/themes'"
+      output "normal" "-p | --preview    : Preview the theme (Works with other options)"
+      output "normal" "-b | --background : Specify which background to use"
+      output "normal" "                  - Leave blank to view available backgrounds"
+      output "normal" "-r | --resolution : Use a specific resolution (Default: 1080p)"
+      output "normal" "                  - Leave blank to view available resolutions"
+      output "normal" "-fs| --fontsize   : Use a specific font size (10-32)"
+      output "normal" "\nRequired arguments: [--install + --background / --uninstall / --preview]"; \
+      output "success" "Program written by: Stuart Hayhurst"; exit 0;;
     -i|--install) programOperation="install";;
     -u|--uninstall) programOperation="uninstall";;
     -e|--boot) installDir="/boot/grub/themes/argon";;
@@ -291,19 +291,19 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
-    *) output "error"  "Unknown parameter passed: $arg"; exit 1;;
+    *) output "error" "Unknown parameter passed: $arg"; exit 1;;
   esac
   i=$((i + 1))
 done
 
 warnArgs() {
   if [[ "$resolution" == "" ]]; then
-    output "warning"  "No resolution specified, using default of 1080p"
+    output "warning" "No resolution specified, using default of 1080p"
     resolution="1080p"
   fi
   if [[ "$background" == "" ]]; then
-    output "error"  "No background specified, use -b to list available backgrounds"
-    output "warning"  "  - Call the program with '-b [background]'"
+    output "error" "No background specified, use -b to list available backgrounds"
+    output "warning" "  - Call the program with '-b [background]'"
     exit 1
   fi
 }
@@ -317,6 +317,6 @@ elif [[ "$programOperation" == "preview" ]]; then
   warnArgs
   previewTheme
 else
-  output "error"  "One of '--install', '--uninstall' or '--preview' is required"
+  output "error" "One of '--install', '--uninstall' or '--preview' is required"
   exit 1
 fi
