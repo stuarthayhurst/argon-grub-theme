@@ -13,7 +13,7 @@ checkArg() {
 
 #Output colours
 successCol="\033[1;32m"
-messageCol="\033[1;36m"
+listCol="\033[1;36m"
 warningCol="\033[1;33m"
 errorCol="\033[1;31m"
 boldCol="\033[1;37m"
@@ -22,7 +22,7 @@ resetCol="\033[0m"
 output() {
   case $1 in
     "success") echo -e "${successCol}${2}${resetCol}";;
-    "message") echo -e "${messageCol}${2}${resetCol}";;
+    "list") echo -e "${listCol}${2}${resetCol}";;
     "warning") echo -e "${warningCol}${2}${resetCol}";;
     "error") echo -e "${errorCol}${2}${resetCol}";;
     "normal"|*) echo -e "${boldCol}${2}${resetCol}"
@@ -33,7 +33,7 @@ getBackground() {
   background="$1"
   checkArg "$background" || return 1
   if [[ "$1" == "" ]] || [[ "$1" == "list" ]]; then
-    output "normal" "Available backgrounds:"
+    output "list" "Available backgrounds:"
     for availableBackground in "backgrounds/4k/"*; do
       availableBackground="${availableBackground##*/}"
       availableBackground="${availableBackground^}"
