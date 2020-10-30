@@ -16,6 +16,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -b , --background    | Choose a background image (must be a .png, or bundled with the project) |
 | -r , --resolution    | Select the display resolution |
 | -fs, --fontsize      | Use a specific font size |
+| -f , --font          | Use a specific font |
 Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Examples:
@@ -24,6 +25,9 @@ Required arguments: [--install + --background / --uninstall / --preview]
 
  - Preview the theme with a fontsize of 32:
    - `./install.sh -p -b Crystals -fs 32`
+
+ - Preview the theme with a different font:
+   - `./install.sh -p -b Crystals -f Terminus.ttf`
 
  - Install the theme into /boot/grub/themes:
    - `sudo ./install.sh -i -e -b Night`
@@ -79,7 +83,8 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - Thank you :)
 
 ## Copyright and credits:
- - Terminus font: Copyright (c) 2019 Dimitar Toshkov Zhekov
+ - Terminus font: Copyright (c) 2019 Dimitar Toshkov Zhekov, `fonts/Terminus-License.txt`
  - DejaVu fonts: See `fonts/DejaVu-License.txt`
+ - Unifont: The GNU Project - `fonts/Unifont-License.txt`
  - Theme originally based off of [grub2-themes](https://github.com/vinceliuice/grub2-themes)
    - Code is upstreamed where possible

@@ -25,7 +25,7 @@ output() {
     "list") echo -e "${listCol}${2}${resetCol}";;
     "warning") echo -e "${warningCol}${2}${resetCol}";;
     "error") echo -e "${errorCol}${2}${resetCol}";;
-    "normal"|*) echo -e "${boldCol}${2}${resetCol}"
+    "normal"|*) echo -e "${boldCol}${2}${resetCol}";;
   esac
 }
 
@@ -89,6 +89,29 @@ getFontSize() {
   fi
 }
 
+getFontFile() {
+  fontfile="$1"
+  checkArg "$fontfile" || return 1
+  if [[ "$1" == "" ]] || [[ "$1" == "list" ]]; then
+    output "list" "Available fonts:"
+    for availableFont in "fonts/"*".ttf"; do
+      availableFont="${availableFont##*/}"
+      output "success" "  $availableFont"
+    done
+    output "normal" "Or specify a file (e.g. './install.sh -i -f Font.ttf')"
+    exit 0
+  fi
+
+  if [[ ! -f "$fontfile" ]]; then
+    if [[ ! -f "fonts/${fontfile}" ]]; then
+      output "error" "Invalid fontfile, use './install.sh -f' to view available fonts"
+      exit 1
+    fi
+  fi
+  fontfile="$fontfile"
+}
+
+
 generateIcons() {
   #generateIcons "resolution" "icons/select" "default/install" "svgFile"
   generateIcon() {
@@ -130,28 +153,17 @@ generateIcons() {
   fi
 }
 
-generateThemeValues() {
+generateThemeSizes() {
   icon_size="$(($1 * 2))"
   item_icon_space="$((icon_size / 2 + 2))"
   item_height="$((icon_size / 6 + icon_size))"
   item_padding="$((icon_size / 4))"
   item_spacing="$((icon_size / 3))"
-  font_name="${font_name:-DejaVu Sans Regular}"
 }
 
 installCore() {
-  #Generate and install theme.txt
-  output "success" "Generating theme.txt..."
-  generateThemeValues "$fontsize"
-  fileContent="$(cat assets/theme.txt)"
-  fileContent="${fileContent//"{icon_size_template}"/"$icon_size"}"
-  fileContent="${fileContent//"{item_icon_space_template}"/"$item_icon_space"}"
-  fileContent="${fileContent//"{item_height_template}"/"$item_height"}"
-  fileContent="${fileContent//"{item_padding_template}"/"$item_padding"}"
-  fileContent="${fileContent//"{item_spacing_template}"/"$item_spacing"}"
-  fileContent="${fileContent//"{font_size_template}"/"$fontsize"}"
-  fileContent="${fileContent//"{font_name_template}"/"$font_name"}"
-  echo "$fileContent" > "$installDir/theme.txt"
+  #Generate theme size values
+  generateThemeSizes "$fontsize"
 
   #Generate and set path for icons
   if [[ ! -d "./assets/icons/${icon_size}px" ]]; then
@@ -172,10 +184,33 @@ installCore() {
 
   #Generate and install fonts
   generateFont() {
-    grub-mkfont "$1" -o "$2" -s "$3"
+    #"Input" "output" "size" "font family"
+    if checkCommand grub-mkfont; then
+      grub-mkfont "$1" -o "$2" -s "$3" -n "$4" $5
+    else
+      output "error" "grub-mkfont couldn't be found, exiting"
+      exit 1
+    fi
   }
-  generateFont "fonts/DejaVuSans.ttf" "$installDir/dejava_sans_$fontsize.pf2" "$fontsize"
-  generateFont "fonts/Terminus.ttf" "$installDir/terminus_16.pf2" "16"
+  output "success" "Generating fonts..."
+  generateFont "fonts/$fontfile" "$installDir/${fontfile%.*}_$fontsize.pf2" "$fontsize" "Display"
+  generateFont "fonts/Terminus.ttf" "$installDir/Terminus_16.pf2" "16" "Console" "-b"
+  font_name="$(file "$installDir/${fontfile%.*}_$fontsize.pf2")"
+  font_name="${font_name#*": GRUB2 font "}"
+  font_name="${font_name//'"'}"
+  console_font_name="Console Bold 16"
+
+  #Fill out and install theme.txt
+  output "success" "Creating theme.txt..."
+  fileContent="$(cat assets/theme.txt)"
+  fileContent="${fileContent//"{icon_size_template}"/"$icon_size"}"
+  fileContent="${fileContent//"{item_icon_space_template}"/"$item_icon_space"}"
+  fileContent="${fileContent//"{item_height_template}"/"$item_height"}"
+  fileContent="${fileContent//"{item_padding_template}"/"$item_padding"}"
+  fileContent="${fileContent//"{item_spacing_template}"/"$item_spacing"}"
+  fileContent="${fileContent//"{font_name_template}"/"$font_name"}"
+  fileContent="${fileContent//"{console_font_name_template}"/"$console_font_name"}"
+  echo "$fileContent" > "$installDir/theme.txt"
 
   #Install background
   if [[ ! -f "$background" ]]; then
@@ -329,7 +364,7 @@ if [[ "$#" ==  "0" ]]; then
   exit 1
 fi
 
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-r" "--resolution" "-fs" "--fontsize" "--font-size")
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-r" "--resolution" "-fs" "--fontsize" "--font-size" "-f" "--font")
 read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
@@ -346,6 +381,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal" "-r | --resolution : Use a specific resolution (Default: 1080p)"
       output "normal" "                  - Leave blank to view available resolutions"
       output "normal" "-fs| --fontsize   : Use a specific font size"
+      output "normal" "-f | --font       : Use a specific font"
       output "normal" "\nRequired arguments: [--install + --background / --uninstall / --preview]"; \
       output "success" "Program written by: Stuart Hayhurst"; exit 0;;
     -i|--install) programOperation="install";;
@@ -355,6 +391,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -f|--font) getFontFile "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -g|--generate) generateIcons "${args["$((i + 1))"]}" "${args["$((i + 2))"]}" "${args["$((i + 3))"]}" "${args["$((i + 4))"]}"; exit;;
     *) output "error" "Unknown parameter passed: $arg"; exit 1;;
   esac
@@ -370,6 +407,10 @@ warnArgs() {
     output "warning" "No fontsize specified, use -fs [VALUE] to set a font size"
     output "warning" "  - Default of 24 will be used"
     fontsize="24"
+  fi
+  if [[ "$fontfile" == "" ]]; then
+    output "warning" "No font specified, use -f [FONTFILE] to set a font, using DejaVu Sans"
+    fontfile="DejaVuSans.ttf"
   fi
   if [[ "$background" == "" ]]; then
     output "error" "No background specified, use -b to list available backgrounds"

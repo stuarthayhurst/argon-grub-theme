@@ -5,7 +5,7 @@
 title-text: ""
 desktop-image: "background.png"
 desktop-color: "#000000"
-terminal-font: "Terminus Regular 16"
+terminal-font: "{console_font_name_template}"
 terminal-box: "terminal_box_*.png"
 terminal-left: "0%"
 terminal-top: "0%"
@@ -19,7 +19,7 @@ terminal-border: "0"
   top = 30%
   width = 40%
   height = 50%
-  item_font = "{font_name_template} {font_size_template}"
+  item_font = "{font_name_template}"
   item_color = "#cccccc"
   selected_item_color = "#ffffff"
   icon_width = {icon_size_template}
@@ -40,5 +40,5 @@ terminal-border: "0"
   id = "__timeout__"
   text = "Booting in %d seconds"
   color = "#cccccc"
-  font = "{font_name_template} {font_size_template}"
+  font = "{font_name_template}"
 }
