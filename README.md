@@ -22,6 +22,9 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - Install the theme for a 4k display, using the `Night` wallpaper:
    - `sudo ./install.sh --install --resolution 4k --background Night`
 
+ - Preview the theme with a fontsize of 32:
+   - `./install.sh -p -b Crystals -fs 32`
+
  - Install the theme into /boot/grub/themes:
    - `sudo ./install.sh -i -e -b Night`
 
@@ -33,8 +36,12 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - Individual images at end of document
 
 ## Dependencies:
+  #### Mandatory:
  - `make` - Used for the build system
  - `inkscape` - Used to generate pngs from svgs (Used by `make generate-all`)
+   - `inkscape` is needed if the fontsize used isn't 16, 24 or 32
+   - `imagemagick / convert` can be used as an alternative
+  #### Optional:
  - `optipng` - Used to losslessly compress pngs (Used by `make compress-backgrounds`)
  - `grub2-theme-preview` - Used to preview themes (Used by --preview)
 
@@ -56,13 +63,14 @@ Required arguments: [--install + --background / --uninstall / --preview]
 ![Grey](docs/Grey.png)
 
 ## Makefile options:
- - `make clean` - Remove all generated assets
+ - `make clean` - Remove assets generated at build time
+ - `make full-clean` - Remove all generated assets
  - `make generate-all` - Generate all assets
  - `make compress-backgrounds` - Compress backgrounds losslessly
 
 ## Contributing:
  - If you made changes to any images, or added a new one:
-   - Run `make clean`
+   - Run `make full-clean`
    - Run `make generate-all`
  - If the change was to a background, scale the background for each resolution, then:
    - Run `make compress-backgrounds`

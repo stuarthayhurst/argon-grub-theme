@@ -7,11 +7,14 @@ BACKGROUNDS4k=$(wildcard ./backgrounds/4k/*.png)
 ICONSVGS=$(wildcard ./assets/svg/icons/*.svg)
 SELECTSVGS=$(wildcard ./assets/svg/select/*.svg)
 
-.PHONY: clean compress-backgrounds generate-icons generate-select generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS1080p) $(BACKGROUNDS2k) $(BACKGROUNDS4k)
+.PHONY: clean full-clean compress-backgrounds generate-icons generate-select generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS1080p) $(BACKGROUNDS2k) $(BACKGROUNDS4k)
 
 clean:
+	rm -rvf "./build"
+full-clean:
 	rm -rvf "./assets/icons/"*
 	rm -rvf "./assets/select/"*
+	rm -rvf "./build"
 compress-backgrounds:
 	read -ra backgrounds <<< "$$(echo ./backgrounds/*/*.png)"; \
 	make "$${backgrounds[@]}" "-j$$(nproc)"
@@ -25,32 +28,16 @@ generate-all:
 	make generate-icons generate-select
 
 $(ICONSVGS): ./assets/svg/icons/%.svg: ./Makefile
-	dpis=("96" "144" "192"); \
-	for dpi in "$${dpis[@]}"; do \
-	  if [[ "$$dpi" == "96" ]]; then \
-	    resolution="1080p"; \
-	  elif [[ "$$dpi" == "144" ]]; then \
-	    resolution="2k"; \
-	  elif [[ "$$dpi" == "192" ]]; then \
-	    resolution="4k"; \
-	  fi; \
-	  mkdir -p "./assets/icons/$$resolution"; \
-	  icon="$@"; icon="$${icon##*/}"; icon="$${icon/.svg/.png}"; \
-	  inkscape "--export-dpi=$$dpi" "--export-filename=./assets/icons/$$resolution/$$icon" "$@" >/dev/null 2>&1; \
+	resolutions=("32" "48" "64"); \
+	for resolution in "$${resolutions[@]}"; do \
+	  icon="$@"; \
+	  ./install.sh "--generate" "$$resolution" "icons" "default" "$$icon"; \
 	done
 $(SELECTSVGS): ./assets/svg/select/%.svg: ./Makefile
-	dpis=("96" "144" "192"); \
-	for dpi in "$${dpis[@]}"; do \
-	  if [[ "$$dpi" == "96" ]]; then \
-	    resolution="1080p"; \
-	  elif [[ "$$dpi" == "144" ]]; then \
-	    resolution="2k"; \
-	  elif [[ "$$dpi" == "192" ]]; then \
-	    resolution="4k"; \
-	  fi; \
-	  mkdir -p "./assets/select/$$resolution"; \
-	  select="$@"; select="$${select##*/}"; select="$${select/.svg/.png}"; \
-	  inkscape "--export-dpi=$$dpi" "--export-filename=./assets/select/$$resolution/$$select" "$@" >/dev/null 2>&1; \
+	resolutions=("37" "56" "74"); \
+	for resolution in "$${resolutions[@]}"; do \
+	  select="$@"; \
+	  ./install.sh "--generate" "$$resolution" "select" "default" "$$select"; \
 	done
 
 $(BACKGROUNDS1080p): ./backgrounds/1080p/%.png: ./Makefile

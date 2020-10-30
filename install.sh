@@ -77,8 +77,8 @@ getResolution() {
 getFontSize() {
   fontsize="${1/"px"}"
   if checkArg "$fontsize"; then
-    if [[ ! "$fontsize" =~ ^[0-9]+$ ]] || [[ "$fontsize" -gt "32" ]] || [[ "$fontsize" -lt "10" ]]; then
-     output "warning" "Font size must be a number between 10 and 32, ignoring"
+    if [[ ! "$fontsize" =~ ^[0-9]+$ ]]; then
+     output "warning" "Font size must be an integer, ignoring"
      fontsize=""
     fi
   else
@@ -89,32 +89,93 @@ getFontSize() {
   fi
 }
 
+generateIcons() {
+  #generateIcons "resolution" "icons/select" "default/install" "svgFile"
+  generateIcon() {
+    pngFile="${svgFile##*/}"
+    pngFile="${pngFile/.svg/.png}"
+    if checkCommand inkscape; then
+      inkscape "-h" "$assetSize" "--export-filename=$buildDir/$pngFile" "$svgFile" >/dev/null 2>&1
+    elif checkCommand convert; then
+      output "warning" "Low quality: Inkscape not found, using imagemagick..."
+      convert -scale "x$assetSize" -extent "x$assetSize" -background none "$svgFile" "$buildDir/$pngFile"
+    else
+      output "error" "Neither inkscape or convert are available"
+      output "warning" "Please install inkscape or imagemagick (preferably inkscape)"
+    fi
+  }
+  assetSize="${1/px}"
+  if [[ "$3" == "default" ]] && [[ "$2" == "select" ]]; then
+    case $assetSize in
+      "37") assetSizeDir="32";;
+      "56") assetSizeDir="48";;
+      "74") assetSizeDir="64";;
+    esac
+  else
+    assetSizeDir="$assetSize"
+  fi
+  if [[ "$3" == "default" ]]; then
+    buildDir="./assets/$2/${assetSizeDir}px"
+  elif [[ "$3" == "install" ]]; then
+    buildDir="./build/$2"
+  fi
+  mkdir -p "$buildDir"
+  if [[ "$3" == "default" ]]; then
+    svgFile="./$4"
+    generateIcon
+  else
+    for svgFile in "./assets/svg/$2/"*; do
+      generateIcon
+    done
+  fi
+}
+
+generateThemeValues() {
+  icon_size="$(($1 * 2))"
+  item_icon_space="$((icon_size / 2 + 2))"
+  item_height="$((icon_size / 6 + icon_size))"
+  item_padding="$((icon_size / 4))"
+  item_spacing="$((icon_size / 3))"
+  font_name="${font_name:-DejaVu Sans Regular}"
+}
+
 installCore() {
   #Generate and install theme.txt
   output "success" "Generating theme.txt..."
-  font_size="$fontsize"
-  source "theme/theme-values.sh"
-  fileContent="$(cat theme/theme-template.txt)"
+  generateThemeValues "$fontsize"
+  fileContent="$(cat assets/theme.txt)"
   fileContent="${fileContent//"{icon_size_template}"/"$icon_size"}"
   fileContent="${fileContent//"{item_icon_space_template}"/"$item_icon_space"}"
   fileContent="${fileContent//"{item_height_template}"/"$item_height"}"
   fileContent="${fileContent//"{item_padding_template}"/"$item_padding"}"
   fileContent="${fileContent//"{item_spacing_template}"/"$item_spacing"}"
-  fileContent="${fileContent//"{font_size_template}"/"$font_size"}"
+  fileContent="${fileContent//"{font_size_template}"/"$fontsize"}"
   fileContent="${fileContent//"{font_name_template}"/"$font_name"}"
   echo "$fileContent" > "$installDir/theme.txt"
 
+  #Generate and set path for icons
+  if [[ ! -d "./assets/icons/${icon_size}px" ]]; then
+    output "success" "Generating theme assets..."
+    generateIcons "$icon_size" "icons" "install"
+    generateIcons "$item_height" "select" "install"
+    iconDir="./build/icons"
+    selectDir="./build/select"
+  else
+    iconDir="./assets/icons/${icon_size}px"
+    selectDir="./assets/select/${icon_size}px"
+  fi
+
   #Install theme components
   output "success" "Installing theme assets..."
-  cp -r "assets/icons/$resolution" "$installDir/icons"
-  cp "assets/select/$resolution/"*.png "$installDir/"
+  cp -r "$iconDir" "$installDir/icons"
+  cp "$selectDir/"*.png "$installDir/"
 
   #Generate and install fonts
   generateFont() {
     grub-mkfont "$1" -o "$2" -s "$3"
   }
-  generateFont "fonts/DejaVuSans.ttf" "$installDir/dejava_sans_$font_size.pf2" "$font_size"
-  generateFont "fonts/Terminus.ttf" "$installDir/terminus_$font_size.pf2" "$font_size"
+  generateFont "fonts/DejaVuSans.ttf" "$installDir/dejava_sans_$fontsize.pf2" "$fontsize"
+  generateFont "fonts/Terminus.ttf" "$installDir/terminus_16.pf2" "16"
 
   #Install background
   if [[ ! -f "$background" ]]; then
@@ -162,6 +223,8 @@ installTheme() {
     gfxmode="GRUB_GFXMODE=3840x2160,auto"
   elif [[ "$resolution" == '2k' ]]; then
     gfxmode="GRUB_GFXMODE=2560x1440,auto"
+  else
+    gfxmode="auto"
   fi
 
   if grep "GRUB_GFXMODE=" /etc/default/grub >/dev/null 2>&1; then
@@ -247,15 +310,16 @@ uninstallTheme() {
 
 previewTheme() {
   if ! checkCommand grub2-theme-preview; then
-    echo "No working copy of grub2-theme-preview found"
-    echo "grub2-theme-preview: https://github.com/hartwork/grub2-theme-preview"
+    output "error" "No working copy of grub2-theme-preview found"
+    output "warning" "grub2-theme-preview: https://github.com/hartwork/grub2-theme-preview"
+    exit 1
   fi
   installDir="$(mktemp -d)"
 
   #Install files to $installDir
   installCore
 
-  echo "Installed to $installDir"
+  output "success" "Installed to $installDir"
   grub2-theme-preview "$installDir"
   rm -rf "$installDir"
 }
@@ -281,7 +345,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal" "                  - Leave blank to view available backgrounds"
       output "normal" "-r | --resolution : Use a specific resolution (Default: 1080p)"
       output "normal" "                  - Leave blank to view available resolutions"
-      output "normal" "-fs| --fontsize   : Use a specific font size (10-32)"
+      output "normal" "-fs| --fontsize   : Use a specific font size"
       output "normal" "\nRequired arguments: [--install + --background / --uninstall / --preview]"; \
       output "success" "Program written by: Stuart Hayhurst"; exit 0;;
     -i|--install) programOperation="install";;
@@ -291,6 +355,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -g|--generate) generateIcons "${args["$((i + 1))"]}" "${args["$((i + 2))"]}" "${args["$((i + 3))"]}" "${args["$((i + 4))"]}"; exit;;
     *) output "error" "Unknown parameter passed: $arg"; exit 1;;
   esac
   i=$((i + 1))
@@ -300,6 +365,11 @@ warnArgs() {
   if [[ "$resolution" == "" ]]; then
     output "warning" "No resolution specified, using default of 1080p"
     resolution="1080p"
+  fi
+  if [[ "$fontsize" == "" ]]; then
+    output "warning" "No fontsize specified, use -fs [VALUE] to set a font size"
+    output "warning" "  - Default of 24 will be used"
+    fontsize="24"
   fi
   if [[ "$background" == "" ]]; then
     output "error" "No background specified, use -b to list available backgrounds"

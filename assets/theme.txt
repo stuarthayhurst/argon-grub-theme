@@ -5,7 +5,7 @@
 title-text: ""
 desktop-image: "background.png"
 desktop-color: "#000000"
-terminal-font: "Terminus Regular {font_size_template}"
+terminal-font: "Terminus Regular 16"
 terminal-box: "terminal_box_*.png"
 terminal-left: "0%"
 terminal-top: "0%"
