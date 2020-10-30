@@ -15,7 +15,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -p , --preview       | Preview the grub theme (Works with other options) |
 | -b , --background    | Choose a background image (must be a .png, or bundled with the project) |
 | -r , --resolution    | Select the display resolution |
-| -fs, --fontsize      | Use a specific font size (10-32) |
+| -fs, --fontsize      | Use a specific font size |
 Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Examples:
