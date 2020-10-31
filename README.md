@@ -55,6 +55,10 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - Run the install script with your desired options, but replace --install / -i with --preview / -p
  - For example: `./install.sh --preview --background Crystals.png --resolution 4k`
 
+## Using a different resolution:
+ - Use `./install.sh -r` to list available resolutions, and `./install.sh -r [RESOLUTION]` to use one
+ - Any resolution can be used with `./install.sh -r custom` and a custom background
+
 ## Using a custom background:
  - Find the resolution of your display, and make sure your background matches the resolution
  - Place your custom background inside the root of the project

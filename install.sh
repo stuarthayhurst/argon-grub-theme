@@ -74,7 +74,8 @@ getResolution() {
       4k|4K|3480x2160|2160p) resolution="4k";;
       2k|2K|2560x1440|1440p) resolution="2k";;
       1920x1080|1080p) resolution="1080p";;
-      ""|"list") output "normal" "Valid resolutions: '1080p', '2k', '4k'"; exit 0;;
+      "custom") resolution="custom";;
+      ""|"list") output "normal" "Valid resolutions: '1080p', '2k', '4k', 'custom'"; exit 0;;
       *) output "error" "Invalid resolution, using default"; resolution="1080p";;
     esac
   else
