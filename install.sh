@@ -184,9 +184,13 @@ installCore() {
 
   #Generate and install fonts
   generateFont() {
-    #"Input" "output" "size" "font family"
+    #"input" "output" "size" "font family"
     if checkCommand grub-mkfont; then
-      grub-mkfont "$1" -o "$2" -s "$3" -n "$4" $5
+      if [[ "$forceBoldFont" == "true" ]] || [[ "$5" == "-b" ]]; then
+        grub-mkfont "$1" -o "$2" -s "$3" -n "$4" "-b"
+      else
+        grub-mkfont "$1" -o "$2" -s "$3" -n "$4"
+      fi
     else
       output "error" "grub-mkfont couldn't be found, exiting"
       exit 1
@@ -364,7 +368,7 @@ if [[ "$#" ==  "0" ]]; then
   exit 1
 fi
 
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-r" "--resolution" "-fs" "--fontsize" "--font-size" "-f" "--font")
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-r" "--resolution" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold")
 read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
@@ -382,6 +386,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal" "                  - Leave blank to view available resolutions"
       output "normal" "-fs| --fontsize   : Use a specific font size"
       output "normal" "-f | --font       : Use a specific font"
+      output "normal" "-l | --bold       : Force font to be bold"
       output "normal" "\nRequired arguments: [--install + --background / --uninstall / --preview]"; \
       output "success" "Program written by: Stuart Hayhurst"; exit 0;;
     -i|--install) programOperation="install";;
@@ -392,6 +397,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -f|--font) getFontFile "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -l|--bold) forceBoldFont="true";;
     -g|--generate) generateIcons "${args["$((i + 1))"]}" "${args["$((i + 2))"]}" "${args["$((i + 3))"]}" "${args["$((i + 4))"]}"; exit;;
     *) output "error" "Unknown parameter passed: $arg"; exit 1;;
   esac

@@ -17,6 +17,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -r , --resolution    | Select the display resolution |
 | -fs, --fontsize      | Use a specific font size |
 | -f , --font          | Use a specific font |
+| -l , --bold          | Force font to be bold |
 Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Examples:
