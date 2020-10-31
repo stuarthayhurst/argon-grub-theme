@@ -427,8 +427,9 @@ warnArgs() {
     fontsize="24"
   fi
   if [[ "$fontfile" == "" ]]; then
-    output "warning" "No font specified, use -f [FONTFILE] to set a font, using DejaVu Sans"
-    fontfile="DejaVuSans.ttf"
+    output "warning" "No font specified, use -f [FONTFILE] to set a font, using Terminus Bold"
+    forceBoldFont="true"
+    fontfile="Terminus.ttf"
   fi
   if [[ "$background" == "" ]]; then
     output "error" "No background specified, use -b to list available backgrounds"
