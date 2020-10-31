@@ -1,7 +1,16 @@
 #!/bin/bash
 
+#Path variables
 installDir="/usr/share/grub/themes/argon"
 splashScreenPath="/boot/grub/splash0.png"
+
+#Output colours
+successCol="\033[1;32m"
+listCol="\033[1;36m"
+warningCol="\033[1;33m"
+errorCol="\033[1;31m"
+boldCol="\033[1;37m"
+resetCol="\033[0m"
 
 checkArg() {
   for validArg in "${validArgList[@]}"; do
@@ -11,13 +20,15 @@ checkArg() {
   done
 }
 
-#Output colours
-successCol="\033[1;32m"
-listCol="\033[1;36m"
-warningCol="\033[1;33m"
-errorCol="\033[1;31m"
-boldCol="\033[1;37m"
-resetCol="\033[0m"
+checkCommand() {
+  command -v "$1" > /dev/null
+}
+
+checkRoot() {
+  if [[ "$UID" != "0" ]]; then
+    return 1
+  fi
+}
 
 output() {
   case $1 in
@@ -225,7 +236,7 @@ installCore() {
 
 installTheme() {
   #Check user is root
-  if [[ "$UID" != "0" ]]; then
+  if ! checkRoot; then
     output "error" "This script should be run as root"
     exit 1
   fi
@@ -288,9 +299,6 @@ installTheme() {
   updateGrub
 }
 
-checkCommand() {
-  command -v "$1" > /dev/null
-}
 updateGrub() {
   output "success" "Updating grub..."
   if checkCommand update-grub; then
@@ -306,7 +314,7 @@ updateGrub() {
 
 uninstallTheme() {
   #Check user is root
-  if [[ "$UID" != "0" ]]; then
+  if ! checkRoot; then
     output "error" "This script should be run as root"
     exit 1
   fi
@@ -351,6 +359,10 @@ previewTheme() {
   if ! checkCommand grub2-theme-preview; then
     output "error" "No working copy of grub2-theme-preview found"
     output "warning" "grub2-theme-preview: https://github.com/hartwork/grub2-theme-preview"
+    if checkRoot; then
+      output "warning" "If grub2-theme-preview was installed without the -g switch, it won't be available"
+      output "warning" "Running './install.sh' again without root may work"
+    fi
     exit 1
   fi
   installDir="$(mktemp -d)"
