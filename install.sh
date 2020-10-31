@@ -115,7 +115,13 @@ getFontFile() {
   fi
 
   if [[ ! -f "$fontfile" ]]; then
-    if [[ ! -f "fonts/${fontfile}" ]]; then
+    if [[ -f "fonts/${fontfile}" ]]; then
+      fontfile="$fontfile"
+    elif [[ -f "fonts/${fontfile}.ttf" ]]; then
+      fontfile="$fontfile".ttf
+    elif [[ -f "fonts/${fontfile}.ttf" ]]; then
+      fontfile="$fontfile".otf
+    else
       output "error" "Invalid fontfile, use './install.sh -f' to view available fonts"
       exit 1
     fi
