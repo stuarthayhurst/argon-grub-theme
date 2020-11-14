@@ -24,6 +24,10 @@ generate-icons:
 generate-select:
 	read -ra select <<< "$$(echo ./assets/svg/select/*.svg)"; \
 	make "$${select[@]}" "-j$$(nproc)"
+generate-gif:
+	cd docs/; \
+	optipng *.png; \
+	convert -delay 150 *.png +dither -alpha off -loop 0 Gallery.gif
 generate-all:
 	make generate-icons generate-select
 
