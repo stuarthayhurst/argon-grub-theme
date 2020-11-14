@@ -1,5 +1,6 @@
 ## argon-grub-theme
- - Modern theme for the grub bootloader, containing backgrounds, icons, fonts and styling
+ - Configurable, modern theme for the grub bootloader, containing backgrounds, icons, fonts and styling
+ - Backgrounds, fonts and fontsize can all be customised
  - Wallpaper source files can be found [here](https://github.com/Dragon8oy/argon-wallpapers)
 
 ## Installation:
