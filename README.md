@@ -67,6 +67,14 @@ Required arguments: [--install + --background / --uninstall / --preview]
    - Resolutions: (1920x1080 -> --1080p, 2560x1080 -> --ultrawide, 2560x1440 -> --2k, 3840x2160 -> --4k)
    - Make sure to replace `[YOUR_RESOLUTION]` with your resolution and `[THEME]` with the theme
 
+## Forcing an icon:
+ - Find the name / class of the icon in `assets/svg/icons/`
+   - For example, `assets/svg/icons/linuxmint.svg` would be `linuxmint`
+ - Add the class to the corresponding entry in `/boot/grub/grub.cfg`:
+   - Change: `menuentry 'Linux Mint 18.3 Cinnamon 64-bit' --class ubuntu --class gnu-linux --class gnu`
+   - To: `menuentry 'Linux Mint 18.3 Cinnamon 64-bit' --class linuxmint --class ubuntu --class gnu-linux --class gnu`
+ - Save the file and exit
+
 ## Gallery:
 ![Crystals](docs/Crystals.png)
 ![Night](docs/Night.png)
