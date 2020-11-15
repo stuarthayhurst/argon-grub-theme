@@ -232,6 +232,10 @@ installCore() {
   fileContent="${fileContent//"{item_spacing_template}"/"$item_spacing"}"
   fileContent="${fileContent//"{font_name_template}"/"$font_name"}"
   fileContent="${fileContent//"{console_font_name_template}"/"$console_font_name"}"
+  #Append the help label if enabled
+  if [[ "$helpLabel" == "true" ]]; then
+    fileContent+="$(echo -e "\n"; cat "assets/help-label.txt")"
+  fi
   echo "$fileContent" > "$installDir/theme.txt"
 
   #Install background
@@ -406,7 +410,8 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal" "-fs| --fontsize   : Use a specific font size"
       output "normal" "-f | --font       : Use a specific font"
       output "normal" "-l | --bold       : Force font to be bold"
-      output "normal" "\nRequired arguments: [--install + --background / --uninstall / --preview]"; \
+      output "normal" "-hl| --help-label : Add a help label to the bottom of the theme"
+      output "normal" "\nRequired arguments: [--install + --background / --uninstall / --preview]"
       output "success" "Program written by: Stuart Hayhurst"; exit 0;;
     -i|--install) programOperation="install";;
     -u|--uninstall) programOperation="uninstall";;
@@ -417,6 +422,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -f|--font) getFontFile "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -l|--bold) forceBoldFont="true";;
+    -hl|--help-label) helpLabel="true";;
     -g|--generate) generateIcons "${args["$((i + 1))"]}" "${args["$((i + 2))"]}" "${args["$((i + 3))"]}" "${args["$((i + 4))"]}"; exit;;
     *) output "error" "Unknown parameter passed: $arg"; exit 1;;
   esac

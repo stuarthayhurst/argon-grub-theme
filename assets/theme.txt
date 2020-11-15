@@ -1,19 +1,18 @@
-# GRUB2 gfxmenu Linux theme
-# Designed for any resolution
+# GRUB2 gfxmenu Argon theme
+# Designed for any resolution (specific values filled in by script)
 
-# Global Property
+# Global properties
 title-text: ""
 desktop-image: "background.png"
 desktop-color: "#000000"
 terminal-font: "{console_font_name_template}"
-terminal-box: "terminal_box_*.png"
 terminal-left: "0%"
 terminal-top: "0%"
 terminal-width: "100%"
 terminal-height: "100%"
 terminal-border: "0"
 
-# Show the boot menu
+# Styling for the boot menu
 + boot_menu {
   left = 25%
   top = 30%
@@ -31,7 +30,7 @@ terminal-border: "0"
   selected_item_pixmap_style = "select_*.png"
 }
 
-# Show a countdown message using the label component
+# Styling for a boot countdown
 + label {
   top = 80%
   left = 35%

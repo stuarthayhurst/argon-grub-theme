@@ -19,6 +19,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -fs, --fontsize      | Use a specific font size |
 | -f , --font          | Use a specific font |
 | -l , --bold          | Force font to be bold |
+| -hl, --help-label    | Add a help label to the bottom of the theme |
 Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Examples:

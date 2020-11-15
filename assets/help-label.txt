@@ -1,0 +1,10 @@
+#Show help options
++ label {
+  top = 100%-20
+  left = 80%
+  width = 20%
+  align = "center"
+  font = "{console_font_name_template}"
+  color = "#cccccc"
+  text = "E: Edit selection   C: Open terminal"
+}
