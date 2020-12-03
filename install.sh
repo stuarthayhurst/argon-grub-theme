@@ -319,7 +319,7 @@ updateGrub() {
   elif checkCommand zypper; then
     grub2-mkconfig -o /boot/grub2/grub.cfg
   elif checkCommand dnf; then
-    grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+    grub2-mkconfig -o /boot/grub2/grub.cfg || grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
   fi
 }
 
