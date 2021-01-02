@@ -285,7 +285,7 @@ installTheme() {
   elif [[ "$resolution" == '2k' ]]; then
     gfxmode="GRUB_GFXMODE=2560x1440,auto"
   else
-    gfxmode="auto"
+    gfxmode="GRUB_GFXMODE=auto"
   fi
 
   if grep "GRUB_GFXMODE=" /etc/default/grub >/dev/null 2>&1; then
