@@ -26,6 +26,9 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - Install the theme for a 4k display, using the `Night` wallpaper:
    - `sudo ./install.sh --install --resolution 4k --background Night`
 
+ - Install the theme for a 4k display, using the `Night` wallpaper and a font size of 32:
+   - `sudo ./install.sh --install --resolution 4k --background Night --fontsize 32`
+
  - Preview the theme with a fontsize of 32:
    - `./install.sh -p -b Crystals -fs 32`
 
