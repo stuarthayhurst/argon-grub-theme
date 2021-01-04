@@ -318,7 +318,7 @@ installTheme() {
   installCore
 
   #Install splash screen
-  cp "$background" "$splashScreenPath"
+  cp "$installDir/background.png" "$splashScreenPath"
 
   #Modify grub config
   output "success" "Modifiying grub config..."
@@ -433,7 +433,7 @@ if [[ "$#" ==  "0" ]]; then
   exit 1
 fi
 
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold")
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "--custom-background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold" "-hl" "--helplabel" "--help-label" "-g" "--generate")
 read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
@@ -465,7 +465,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -e|--boot) installDir="/boot/grub/themes/argon";;
     -p|--preview) programOperation="preview";;
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
-    -c|--custom) getCustomBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -c|--custom|--custom-background) getCustomBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -fc|--fontcolour|--font-colour) getFontColour "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
