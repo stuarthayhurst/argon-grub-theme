@@ -501,20 +501,27 @@ warnArgs() {
   if [[ "$background" == "" ]] && [[ "$backgroundColour" == "" ]]; then
     output "error" "No background or colour specified, use -b to list available backgrounds"
     output "warning" "  - Call the program with '-b [background]'"
-    exit 1
+    return 1
   fi
   if [[ "$background" != "" ]] && [[ "$backgroundColour" != "" ]]; then
     output "error" "Use either a background or a colour, not both"
-    exit 1
+    return 1
   fi
   if [[ "$backgroundColour" != "" ]] && ! checkCommand convert; then
     output "error" "Imagemagick / convert is required to use a custom background colour"
-    exit 1
+    return 1
   fi
 }
 
 if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview" ]]; then
-  echo ""; warnArgs; echo ""
+  argWarnings="$(warnArgs)" || argsFailed="true"
+  if [[ "$argWarnings" != "" ]]; then
+    echo ""; echo "$argWarnings"; echo ""
+    if [[ "$argsFailed" == "true" ]]; then
+      exit 1
+    fi
+  fi
+
   output "success" "Using the following settings:"
   output "list" "Resolution: ${resolution^}"
   if [[ "$background" != "" ]]; then
