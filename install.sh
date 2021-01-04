@@ -484,13 +484,23 @@ warnArgs() {
   fi
 }
 
-if [[ "$programOperation" == "install" ]]; then
+if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview" ]]; then
   warnArgs
+  output "success" "Using the following settings:"
+  output "list" "Resolution: $resolution"
+  output "list" "Background: ${background^}"
+  output "list" "Font colour: ${font_colour^}"
+  output "list" "Selected font colour: ${selected_font_colour^}"
+  output "list" "Font size: $fontsize"
+  output "list" "Font file: $fontfile"
+  forceBoldFont="${forceBoldFont:-false}"; output "list" "Force bold: ${forceBoldFont^}"
+fi
+
+if [[ "$programOperation" == "install" ]]; then
   installTheme
 elif [[ "$programOperation" == "uninstall" ]]; then
   uninstallTheme
 elif [[ "$programOperation" == "preview" ]]; then
-  warnArgs
   previewTheme
 else
   output "error" "One of '--install', '--uninstall' or '--preview' is required"
