@@ -12,6 +12,7 @@ errorCol="\033[1;31m"
 boldCol="\033[1;37m"
 resetCol="\033[0m"
 
+#Checks whether argument is a program argument or data
 checkArg() {
   for validArg in "${validArgList[@]}"; do
     if [[ "$1" == "$validArg" ]]; then
@@ -20,16 +21,19 @@ checkArg() {
   done
 }
 
+#Check whether a command exists, silently
 checkCommand() {
   command -v "$1" > /dev/null
 }
 
+#Checks whether the current user is root or not
 checkRoot() {
   if [[ "$UID" != "0" ]]; then
     return 1
   fi
 }
 
+#Output messages with colours based off of categories
 output() {
   case $1 in
     "success") echo -e "${successCol}${2}${resetCol}";;
@@ -40,6 +44,7 @@ output() {
   esac
 }
 
+#Processes the background argument (listing and validating)
 getBackground() {
   background="$1"
   checkArg "$background" || return 1
@@ -66,6 +71,7 @@ getBackground() {
   background="$background.png"
 }
 
+#Processes the resolutiom argument (listing, validating)
 getResolution() {
   resolution="$1"
   if checkArg "$resolution"; then
@@ -86,6 +92,7 @@ getResolution() {
   fi
 }
 
+#Processes the font colour argument (validating)
 getFontColour() {
   font_colour="${1%,*}"
   selected_font_colour="${1#*,}"
@@ -98,6 +105,7 @@ getFontColour() {
   fi
 }
 
+#Processes the font size argument (validating)
 getFontSize() {
   fontsize="${1/"px"}"
   if checkArg "$fontsize"; then
@@ -113,6 +121,7 @@ getFontSize() {
   fi
 }
 
+#Processes the font argument (listing, validating)
 getFontFile() {
   fontfile="$1"
   checkArg "$fontfile" || return 1
@@ -141,7 +150,7 @@ getFontFile() {
   fontfile="$fontfile"
 }
 
-
+#Generates assets for the theme is a custom resolution is required
 generateIcons() {
   #generateIcons "resolution" "icons/select" "default/install" "svgFile"
   generateIcon() {
@@ -183,15 +192,29 @@ generateIcons() {
   fi
 }
 
-generateThemeSizes() {
-  icon_size="$(($1 * 2))"
-  item_icon_space="$((icon_size / 2 + 2))"
-  item_height="$((icon_size / 6 + icon_size))"
-  item_padding="$((icon_size / 4))"
-  item_spacing="$((icon_size / 3))"
-}
-
 installCore() {
+  generateFont() {
+    #"input" "output" "size" "font family"
+    if checkCommand grub-mkfont; then
+      if [[ "$forceBoldFont" == "true" ]] || [[ "$5" == "-b" ]]; then
+        grub-mkfont "$1" -o "$2" -s "$3" -n "$4" "-b"
+      else
+        grub-mkfont "$1" -o "$2" -s "$3" -n "$4"
+      fi
+    else
+      output "error" "grub-mkfont couldn't be found, exiting"
+      exit 1
+    fi
+  }
+
+  generateThemeSizes() {
+    icon_size="$(($1 * 2))"
+    item_icon_space="$((icon_size / 2 + 2))"
+    item_height="$((icon_size / 6 + icon_size))"
+    item_padding="$((icon_size / 4))"
+    item_spacing="$((icon_size / 3))"
+  }
+
   #Generate theme size values
   generateThemeSizes "$fontsize"
 
@@ -213,20 +236,6 @@ installCore() {
   cp "$selectDir/"*.png "$installDir/"
 
   #Generate and install fonts
-  generateFont() {
-    #"input" "output" "size" "font family"
-    if checkCommand grub-mkfont; then
-      if [[ "$forceBoldFont" == "true" ]] || [[ "$5" == "-b" ]]; then
-        grub-mkfont "$1" -o "$2" -s "$3" -n "$4" "-b"
-      else
-        grub-mkfont "$1" -o "$2" -s "$3" -n "$4"
-      fi
-    else
-      output "error" "grub-mkfont couldn't be found, exiting"
-      exit 1
-    fi
-  }
-
   output "success" "Generating fonts..."
   generateFont "fonts/$fontfile" "$installDir/${fontfile%.*}_$fontsize.pf2" "$fontsize" "Display"
   generateFont "fonts/Terminus.ttf" "$installDir/Terminus_16.pf2" "16" "Console" "-b"
@@ -261,6 +270,19 @@ installCore() {
 }
 
 installTheme() {
+  updateGrub() {
+    output "success" "Updating grub..."
+    if checkCommand update-grub; then
+      update-grub
+    elif checkCommand grub-mkconfig; then
+      grub-mkconfig -o /boot/grub/grub.cfg
+    elif checkCommand zypper; then
+      grub2-mkconfig -o /boot/grub2/grub.cfg
+    elif checkCommand dnf; then
+      grub2-mkconfig -o /boot/grub2/grub.cfg || grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+    fi
+  }
+
   #Check user is root
   if ! checkRoot; then
     output "error" "This script should be run as root"
@@ -323,19 +345,6 @@ installTheme() {
 
   #Update grub config
   updateGrub
-}
-
-updateGrub() {
-  output "success" "Updating grub..."
-  if checkCommand update-grub; then
-    update-grub
-  elif checkCommand grub-mkconfig; then
-    grub-mkconfig -o /boot/grub/grub.cfg
-  elif checkCommand zypper; then
-    grub2-mkconfig -o /boot/grub2/grub.cfg
-  elif checkCommand dnf; then
-    grub2-mkconfig -o /boot/grub2/grub.cfg || grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
-  fi
 }
 
 uninstallTheme() {
