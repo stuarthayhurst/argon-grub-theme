@@ -433,7 +433,7 @@ if [[ "$#" ==  "0" ]]; then
   exit 1
 fi
 
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "--custom-background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold" "-hl" "--helplabel" "--help-label" "-g" "--generate")
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "--custom-background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold" "-hl" "--helplabel" "--help-label" "-g" "--generate" "--auto")
 read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
@@ -473,6 +473,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -l|--bold) forceBoldFont="true";;
     -hl|--helplabel|--help-label) helpLabel="true";;
     -g|--generate) generateIcons "${args["$((i + 1))"]}" "${args["$((i + 2))"]}" "${args["$((i + 3))"]}" "${args["$((i + 4))"]}"; exit;;
+    --auto) auto="true";;
     *) output "error" "Unknown parameter passed: $arg"; exit 1;;
   esac
   i=$((i + 1))
@@ -534,6 +535,10 @@ if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview"
   output "list" "Font size: $fontsize"
   output "list" "Font file: $fontfile"
   forceBoldFont="${forceBoldFont:-false}"; output "list" "Force bold: ${forceBoldFont^}"
+
+  if [[ "$auto" != "true" ]]; then
+    echo ""; output "normal" "Press enter to continue..."; read -r
+  fi
 fi
 
 if [[ "$programOperation" == "install" ]]; then
