@@ -7,21 +7,22 @@
 
 Usage:  `sudo ./install.sh [OPTIONS]`
 
-|  Options:            | Description: |
-|:---------------------|:-------------|
-| -h , --help          | Show a help page |
-| -i , --install       | Install the grub theme |
-| -u , --uninstall     | Uninstall the grub theme |
-| -e , --boot          | Install the grub theme into `/boot/grub/themes` instead |
-| -p , --preview       | Preview the grub theme (Works with other options) |
-| -b , --background    | Choose a background image (must be a .png, or bundled with the project) |
-| -r , --resolution    | Select the display resolution |
-| -fc, --fontcolour    | Use a specific font colour (HTML (must be quoted) and SVG 1.0 colours supported) |
-|                      | Use the format: "textcolour,selectedcolour"
-| -fs, --fontsize      | Use a specific font size |
-| -f , --font          | Use a specific font |
-| -l , --bold          | Force font to be bold |
-| -hl, --help-label    | Add a help label to the bottom of the theme |
+|  Options:         | Description: |
+|:------------------|:-------------|
+| -h , --help       | Show a help page |
+| -i , --install    | Install the grub theme |
+| -u , --uninstall  | Uninstall the grub theme |
+| -e , --boot       | Install the grub theme into `/boot/grub/themes` instead |
+| -p , --preview    | Preview the grub theme (Works with other options) |
+| -b , --background | Choose a background image (must be a .png, or bundled with the project) |
+| -cb, --custom     | Use a solid colour as a background (HTML value, must be quoted)
+| -r , --resolution | Select the display resolution |
+| -fc, --fontcolour | Use a specific font colour (HTML (must be quoted) and SVG 1.0 colours supported) |
+|                   | Use the format: "textcolour,selectedcolour"
+| -fs, --fontsize   | Use a specific font size |
+| -f , --font       | Use a specific font |
+| -l , --bold       | Force font to be bold |
+| -hl, --help-label | Add a help label to the bottom of the theme |
 Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Examples:
@@ -31,8 +32,11 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - Install the theme for a 4k display, using the `Night` wallpaper and a font size of 32:
    - `sudo ./install.sh --install --resolution 4k --background Night --fontsize 32`
 
+ - Install the theme for a custom resolution, using a solid magenta wallpaper:
+   - `sudo ./install.sh --install --resolution custom --custom #ff00ff`
+
  - Preview the theme with a fontsize of 32, a white font colour and black selected font colour:
-   - `./install.sh -p -b Crystals -fs 32 -fc white,black`
+   - `./install.sh -p -b Crystals -fs 32 -fc white,#000000`
 
  - Preview the theme with a different font:
    - `./install.sh -p -b Crystals -f Terminus.ttf`
@@ -50,6 +54,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
 ## Dependencies:
   #### Mandatory:
  - `make` - Used for the build system
+ - `imagemagick / convert` - Used to generate backgrounds with custom colours
  - `inkscape` - Used to generate pngs from svgs (Used by `make generate-all`)
    - `inkscape` is needed if the fontsize used isn't 16, 24 or 32
    - `imagemagick / convert` can be used as an alternative

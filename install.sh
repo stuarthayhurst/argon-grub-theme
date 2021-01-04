@@ -71,6 +71,19 @@ getBackground() {
   background="$background.png"
 }
 
+#Processes the custom background argument (validating)
+getCustomBackground() {
+  backgroundColour="${1}"
+  #Check $background_colour is valid (not another argument)
+  if ! checkArg "$backgroundColour" || [[ "$backgroundColour" == "" ]]; then
+    #Give error message if it failed
+    output "warning" "Invalid or no background colour found, ignoring"
+    backgroundColour=""
+    return 1
+  fi
+}
+
+
 #Processes the resolutiom argument (listing, validating)
 getResolution() {
   resolution="$1"
@@ -97,7 +110,7 @@ getFontColour() {
   font_colour="${1%,*}"
   selected_font_colour="${1#*,}"
   #Check $font_colour is valid (not another argument)
-  if ! checkArg "$font_colour" || ! checkArg "$selected_font_colour"; then
+  if ! checkArg "$font_colour" || ! checkArg "$selected_font_colour" || [[ "$font_colour" == "" ]] || [[ "$selected_font_colour" == "" ]]; then
     #Give error message if it failed
     output "warning" "Invalid or no font colour found, ignoring"
     font_colour=""
@@ -263,10 +276,15 @@ installCore() {
   echo "$fileContent" > "$installDir/theme.txt"
 
   #Install background
-  if [[ ! -f "$background" ]]; then
-    background="backgrounds/$resolution/$background"
+  if [[ "$background" != "" ]]; then
+    if [[ ! -f "$background" ]]; then
+      background="backgrounds/$resolution/$background"
+    fi
+    cp "$background" "$installDir/background.png"
+  else
+    output "success" "Generating custom background..."
+    convert -size 100x100 -depth 24 "xc:$backgroundColour" "PNG8:$installDir/background.png"
   fi
-  cp "$background" "$installDir/background.png"
 }
 
 installTheme() {
@@ -415,7 +433,7 @@ if [[ "$#" ==  "0" ]]; then
   exit 1
 fi
 
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold")
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold")
 read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
@@ -428,6 +446,8 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal" "-e | --boot       : Install the theme to '/boot/grub/themes'"
       output "normal" "-p | --preview    : Preview the theme (Works with other options)"
       output "normal" "-b | --background : Specify which background to use"
+      output "normal" "                  - Leave blank to view available backgrounds"
+      output "normal" "-c | --custom     : Specify which background to use"
       output "normal" "                  - Leave blank to view available backgrounds"
       output "normal" "-r | --resolution : Use a specific resolution (Default: 1080p)"
       output "normal" "                  - Leave blank to view available resolutions"
@@ -445,6 +465,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -e|--boot) installDir="/boot/grub/themes/argon";;
     -p|--preview) programOperation="preview";;
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -c|--custom) getCustomBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -fc|--fontcolour|--font-colour) getFontColour "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
@@ -477,18 +498,30 @@ warnArgs() {
     forceBoldFont="true"
     fontfile="Terminus.ttf"
   fi
-  if [[ "$background" == "" ]]; then
-    output "error" "No background specified, use -b to list available backgrounds"
+  if [[ "$background" == "" ]] && [[ "$backgroundColour" == "" ]]; then
+    output "error" "No background or colour specified, use -b to list available backgrounds"
     output "warning" "  - Call the program with '-b [background]'"
+    exit 1
+  fi
+  if [[ "$background" != "" ]] && [[ "$backgroundColour" != "" ]]; then
+    output "error" "Use either a background or a colour, not both"
+    exit 1
+  fi
+  if [[ "$backgroundColour" != "" ]] && ! checkCommand convert; then
+    output "error" "Imagemagick / convert is required to use a custom background colour"
     exit 1
   fi
 }
 
 if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview" ]]; then
-  warnArgs
+  echo ""; warnArgs; echo ""
   output "success" "Using the following settings:"
-  output "list" "Resolution: $resolution"
-  output "list" "Background: ${background^}"
+  output "list" "Resolution: ${resolution^}"
+  if [[ "$background" != "" ]]; then
+    output "list" "Background: ${background^}"
+  else
+    output "list" "Background: ${backgroundColour}"
+  fi
   output "list" "Font colour: ${font_colour^}"
   output "list" "Selected font colour: ${selected_font_colour^}"
   output "list" "Font size: $fontsize"
