@@ -19,8 +19,8 @@ terminal-border: "0"
   width = 50%
   height = 50%
   item_font = "{font_name_template}"
-  item_color = "#cccccc"
-  selected_item_color = "#ffffff"
+  item_color = "{font_colour_template}"
+  selected_item_color = "{selected_font_colour_template}"
   icon_width = {icon_size_template}
   icon_height = {icon_size_template}
   item_icon_space = {item_icon_space_template}
@@ -38,6 +38,6 @@ terminal-border: "0"
   align = "center"
   id = "__timeout__"
   text = "Booting in %d seconds"
-  color = "#cccccc"
+  color = "{font_colour_template}"
   font = "{font_name_template}"
 }

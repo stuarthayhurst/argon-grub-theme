@@ -33,7 +33,7 @@ checkRoot() {
 output() {
   case $1 in
     "success") echo -e "${successCol}${2}${resetCol}";;
-    "list") echo -e "${listCol}${2}${resetCol}";;
+    "list"|"minor") echo -e "${listCol}${2}${resetCol}";;
     "warning") echo -e "${warningCol}${2}${resetCol}";;
     "error") echo -e "${errorCol}${2}${resetCol}";;
     "normal"|*) echo -e "${boldCol}${2}${resetCol}";;
@@ -82,6 +82,18 @@ getResolution() {
     #Use default resolution
     output "warning" "No resolution specified, using 1080p"
     resolution="1080p"
+    return 1
+  fi
+}
+
+getFontColour() {
+  font_colour="${1%,*}"
+  selected_font_colour="${1#*,}"
+  #Check $font_colour is valid (not another argument)
+  if ! checkArg "$font_colour" || ! checkArg "$selected_font_colour"; then
+    #Give error message if it failed
+    output "warning" "Invalid or no font colour found, ignoring"
+    font_colour=""
     return 1
   fi
 }
@@ -214,6 +226,7 @@ installCore() {
       exit 1
     fi
   }
+
   output "success" "Generating fonts..."
   generateFont "fonts/$fontfile" "$installDir/${fontfile%.*}_$fontsize.pf2" "$fontsize" "Display"
   generateFont "fonts/Terminus.ttf" "$installDir/Terminus_16.pf2" "16" "Console" "-b"
@@ -225,6 +238,10 @@ installCore() {
   #Fill out and install theme.txt
   output "success" "Creating theme.txt..."
   fileContent="$(cat assets/theme.txt)"
+  #Append the help label if enabled
+  if [[ "$helpLabel" == "true" ]]; then
+    fileContent+="$(echo -e "\n"; cat "assets/help-label.txt")"
+  fi
   fileContent="${fileContent//"{icon_size_template}"/"$icon_size"}"
   fileContent="${fileContent//"{item_icon_space_template}"/"$item_icon_space"}"
   fileContent="${fileContent//"{item_height_template}"/"$item_height"}"
@@ -232,10 +249,8 @@ installCore() {
   fileContent="${fileContent//"{item_spacing_template}"/"$item_spacing"}"
   fileContent="${fileContent//"{font_name_template}"/"$font_name"}"
   fileContent="${fileContent//"{console_font_name_template}"/"$console_font_name"}"
-  #Append the help label if enabled
-  if [[ "$helpLabel" == "true" ]]; then
-    fileContent+="$(echo -e "\n"; cat "assets/help-label.txt")"
-  fi
+  fileContent="${fileContent//"{font_colour_template}"/"$font_colour"}"
+  fileContent="${fileContent//"{selected_font_colour_template}"/"$selected_font_colour"}"
   echo "$fileContent" > "$installDir/theme.txt"
 
   #Install background
@@ -391,7 +406,7 @@ if [[ "$#" ==  "0" ]]; then
   exit 1
 fi
 
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-r" "--resolution" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold")
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold")
 read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
@@ -407,6 +422,9 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal" "                  - Leave blank to view available backgrounds"
       output "normal" "-r | --resolution : Use a specific resolution (Default: 1080p)"
       output "normal" "                  - Leave blank to view available resolutions"
+      output "normal" "-fc| --fontcolour : Use a specific font colour"
+      output "normal" "                  - HTML (must be quoted) and SVG 1.0 colours supported"
+      output "normal" "                  - Use the format: \"textcolour,selectedcolour\""
       output "normal" "-fs| --fontsize   : Use a specific font size"
       output "normal" "-f | --font       : Use a specific font"
       output "normal" "-l | --bold       : Force font to be bold"
@@ -419,10 +437,11 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -p|--preview) programOperation="preview";;
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -fc|--fontcolour|--font-colour) getFontColour "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -f|--font) getFontFile "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -l|--bold) forceBoldFont="true";;
-    -hl|--help-label) helpLabel="true";;
+    -hl|--helplabel|--help-label) helpLabel="true";;
     -g|--generate) generateIcons "${args["$((i + 1))"]}" "${args["$((i + 2))"]}" "${args["$((i + 3))"]}" "${args["$((i + 4))"]}"; exit;;
     *) output "error" "Unknown parameter passed: $arg"; exit 1;;
   esac
@@ -434,8 +453,13 @@ warnArgs() {
     output "warning" "No resolution specified, using default of 1080p"
     resolution="1080p"
   fi
+  if [[ "$font_colour" == "" ]]; then
+    output "minor" "No font colour specified, use -fc [VALUE] to set a font colour"
+    font_colour="#cccccc"
+    selected_font_colour="#ffffff"
+  fi
   if [[ "$fontsize" == "" ]]; then
-    output "warning" "No fontsize specified, use -fs [VALUE] to set a font size"
+    output "warning" "No font size specified, use -fs [VALUE] to set a font size"
     output "warning" "  - Default of 24 will be used"
     fontsize="24"
   fi

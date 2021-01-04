@@ -5,6 +5,6 @@
   width = 20%
   align = "center"
   font = "{console_font_name_template}"
-  color = "#cccccc"
+  color = "{font_colour_template}"
   text = "E: Edit selection   C: Open terminal"
 }

@@ -16,6 +16,8 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -p , --preview       | Preview the grub theme (Works with other options) |
 | -b , --background    | Choose a background image (must be a .png, or bundled with the project) |
 | -r , --resolution    | Select the display resolution |
+| -fc, --fontcolour    | Use a specific font colour (HTML (must be quoted) and SVG 1.0 colours supported) |
+|                      | Use the format: "textcolour,selectedcolour"
 | -fs, --fontsize      | Use a specific font size |
 | -f , --font          | Use a specific font |
 | -l , --bold          | Force font to be bold |
