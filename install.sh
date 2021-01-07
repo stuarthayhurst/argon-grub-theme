@@ -481,47 +481,49 @@ done
 
 warnArgs() {
   if [[ "$resolution" == "" ]]; then
-    output "warning" "No resolution specified, using default of 1080p"
+    argWarnings+="$(output "warning" "No resolution specified, using default of 1080p\n")"
     resolution="1080p"
   fi
   if [[ "$font_colour" == "" ]]; then
-    output "minor" "No font colour specified, use -fc [VALUE] to set a font colour"
+    argWarnings+="$(output "minor" "No font colour specified, use -fc [VALUE] to set a font colour\n")"
     font_colour="#cccccc"
     selected_font_colour="#ffffff"
   fi
   if [[ "$fontsize" == "" ]]; then
-    output "warning" "No font size specified, use -fs [VALUE] to set a font size"
-    output "warning" "  - Default of 24 will be used"
+    argWarnings+="$(output "warning" "No font size specified, use -fs [VALUE] to set a font size\n")"
+    argWarnings+="$(output "warning" "  - Default of 24 will be used\n")"
     fontsize="24"
   fi
   if [[ "$fontfile" == "" ]]; then
-    output "warning" "No font specified, use -f [FONTFILE] to set a font, using Terminus Bold"
+    argWarnings+="$(output "warning" "No font specified, use -f [FONTFILE] to set a font, using Terminus Bold\n")"
     forceBoldFont="true"
     fontfile="Terminus.ttf"
   fi
   if [[ "$background" == "" ]] && [[ "$backgroundColour" == "" ]]; then
-    output "error" "No background or colour specified, use -b to list available backgrounds"
-    output "warning" "  - Call the program with '-b [background]'"
-    return 1
+    argWarnings+="$(output "error" "No background or colour specified, use -b to list available backgrounds\n")"
+    argWarnings+="$(output "warning" "  - Call the program with '-b [background]'\n")"
+    argsFailed="true"
   fi
   if [[ "$background" != "" ]] && [[ "$backgroundColour" != "" ]]; then
-    output "error" "Use either a background or a colour, not both"
-    return 1
+    argWarnings+="$(output "error" "Use either a background or a colour, not both\n")"
+    argsFailed="true"
   fi
   if [[ "$backgroundColour" != "" ]] && ! checkCommand convert; then
-    output "error" "Imagemagick / convert is required to use a custom background colour"
-    return 1
+    argWarnings+="$(output "error" "Imagemagick / convert is required to use a custom background colour\n")"
+    argsFailed="true"
   fi
-}
 
-if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview" ]]; then
-  argWarnings="$(warnArgs)" || argsFailed="true"
   if [[ "$argWarnings" != "" ]]; then
     echo ""; echo "$argWarnings"; echo ""
     if [[ "$argsFailed" == "true" ]]; then
       exit 1
     fi
   fi
+}
+
+if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview" ]]; then
+  #Check all required arguments are present and set default values
+  warnArgs
 
   output "success" "Using the following settings:"
   output "list" "Resolution: ${resolution^}"
