@@ -32,8 +32,8 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - Install the theme for a 4k display, using the `Night` wallpaper and a font size of 32:
    - `sudo ./install.sh --install --resolution 4k --background Night --fontsize 32`
 
- - Install the theme for a custom resolution, using a solid magenta wallpaper:
-   - `sudo ./install.sh --install --resolution custom --custom #ff00ff`
+ - Install the theme for a custom resolution (1024x720), using a solid magenta wallpaper:
+   - `sudo ./install.sh --install --resolution 1024x720 --custom #ff00ff`
 
  - Preview the theme with a fontsize of 32, a white font colour and black selected font colour:
    - `./install.sh -p -b Crystals -fs 32 -fc white,#000000`
