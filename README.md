@@ -15,7 +15,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -e , --boot       | Install the grub theme into `/boot/grub/themes` instead |
 | -p , --preview    | Preview the grub theme (Works with other options) |
 | -b , --background | Choose a background image (must be a .png, or bundled with the project) |
-| -cb, --custom     | Use a solid colour as a background (HTML value, must be quoted)
+| -c , --custom     | Use a solid colour as a background (HTML value, must be quoted)
 | -r , --resolution | Select the display resolution |
 | -fc, --fontcolour | Use a specific font colour (HTML (must be quoted) and SVG 1.0 colours supported) |
 |                   | Use the format: "textcolour,selectedcolour"
