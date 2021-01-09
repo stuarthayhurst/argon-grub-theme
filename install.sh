@@ -93,8 +93,9 @@ getResolution() {
       4k|4K|3480x2160|2160p) resolution="4k";;
       2k|2K|2560x1440|1440p) resolution="2k";;
       1920x1080|1080p) resolution="1080p";;
+      *x*) resolution="$resolution"; echo "Custom resolution found, using \"$resolution\"";;
       "custom") resolution="custom";;
-      ""|"list") output "normal" "Valid resolutions: '1080p', '2k', '4k', 'custom'"; exit 0;;
+      ""|"list") output "normal" "Valid resolutions: '1080p', '2k', '4k', 'custom' or '[WIDTH]x[HEIGHT]'"; exit 0;;
       *) output "error" "Invalid resolution, using default"; resolution="1080p";;
     esac
   else
@@ -278,12 +279,27 @@ installCore() {
   #Install background
   if [[ "$background" != "" ]]; then
     if [[ ! -f "$background" ]]; then
-      background="backgrounds/$resolution/$background"
+      if [[ -d "backgrounds/$resolution" ]]; then
+        background="backgrounds/$resolution/$background"
+      else
+        output "error" "Couldn't find \"backgrounds/$resolution/$background\", please report this issue, including a full log of the program's output"
+        exit 1
+      fi
     fi
     cp "$background" "$installDir/background.png"
   else
+    #Set the resolution to generate an image for
+    if [[ "$resolution" == "1080p" ]]; then
+      customBackgroundRes="1920x1080"
+    elif [[ "$resolution" == "4k" ]]; then
+      customBackgroundRes="3840x2160"
+    elif [[ "$resolution" == "2k" ]]; then
+      customBackgroundRes="2560x1440"
+    else
+      customBackgroundRes="$resolution"
+    fi
     output "success" "Generating custom background..."
-    convert -size 100x100 -depth 24 "xc:$backgroundColour" "PNG8:$installDir/background.png"
+    convert -size "$customBackgroundRes" -depth 24 "xc:$backgroundColour" "PNG8:$installDir/background.png"
   fi
 }
 
@@ -333,14 +349,16 @@ installTheme() {
   fi
 
   #Set the correct resolution for grub
-  if [[ "$resolution" == '1080p' ]]; then
+  if [[ "$resolution" == "1080p" ]]; then
     gfxmode="GRUB_GFXMODE=1920x1080,auto"
-  elif [[ "$resolution" == '4k' ]]; then
+  elif [[ "$resolution" == "4k" ]]; then
     gfxmode="GRUB_GFXMODE=3840x2160,auto"
-  elif [[ "$resolution" == '2k' ]]; then
+  elif [[ "$resolution" == "2k" ]]; then
     gfxmode="GRUB_GFXMODE=2560x1440,auto"
-  else
+  elif [[ "$resolution" == "custom" ]]; then
     gfxmode="GRUB_GFXMODE=auto"
+  else
+    gfxmode="GRUB_GFXMODE=$resolution,auto"
   fi
 
   if grep "GRUB_GFXMODE=" /etc/default/grub >/dev/null 2>&1; then
@@ -385,6 +403,7 @@ uninstallTheme() {
     rm -rf "$splashScreenPath"
   fi
 
+  #Backup existing grub config
   output "success" "Modifiying grub config..."
   cp -n "/etc/default/grub" "/etc/default/grub.bak"
 
@@ -504,8 +523,18 @@ warnArgs() {
     argWarnings+="$(output "warning" "  - Call the program with '-b [background]'\n")"
     argsFailed="true"
   fi
+  if [[ "$background" != "" ]] && [[ ! -f "$background" ]]; then
+    if [[ ! -d "backgrounds/$resolution" ]]; then
+      argWarnings+="$(output "error" "The default background can't be used with a custom resolution, other than \"custom\"\n")"
+      argsFailed="true"
+    fi
+  fi
   if [[ "$background" != "" ]] && [[ "$backgroundColour" != "" ]]; then
     argWarnings+="$(output "error" "Use either a background or a colour, not both\n")"
+    argsFailed="true"
+  fi
+  if [[ "$backgroundColour" != "" ]] && [[ "$resolution" == "custom" ]]; then
+    argWarnings+="$(output "error" "To use a custom colour background, a resolution must be used, other than \"custom\"\n")"
     argsFailed="true"
   fi
   if [[ "$backgroundColour" != "" ]] && ! checkCommand convert; then
@@ -514,7 +543,7 @@ warnArgs() {
   fi
 
   if [[ "$argWarnings" != "" ]]; then
-    echo ""; echo "$argWarnings"; echo ""
+    echo ""; echo "$argWarnings"
     if [[ "$argsFailed" == "true" ]]; then
       exit 1
     fi
