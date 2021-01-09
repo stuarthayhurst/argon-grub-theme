@@ -52,7 +52,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Screenshots:
 ![Gallery](docs/Gallery.gif)
- - Individual images at end of document
+ - Some individual images at end of document
 
 ## Dependencies:
   #### Mandatory:
@@ -93,6 +93,8 @@ Required arguments: [--install + --background / --uninstall / --preview]
 ![Crystals](docs/Crystals.png)
 ![Night](docs/Night.png)
 ![Grey](docs/Grey.png)
+![Magenta](docs/Magenta.png)
+![Green](docs/Green.png)
 
 ## Makefile options:
  - `make clean` - Remove assets generated at build time
