@@ -10,10 +10,10 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 |  Options:         | Description: |
 |:------------------|:-------------|
 | -h , --help       | Show a help page |
-| -i , --install    | Install the grub theme |
-| -u , --uninstall  | Uninstall the grub theme |
+| -i , --install    | Install the grub theme (root) |
+| -u , --uninstall  | Uninstall the grub theme (root) |
 | -e , --boot       | Install the grub theme into `/boot/grub/themes` instead |
-| -p , --preview    | Preview the grub theme (Works with other options) |
+| -p , --preview    | Preview the grub theme (Works with other options, non-root) |
 | -b , --background | Choose a background image (must be a .png, or bundled with the project) |
 | -c , --custom     | Use a solid colour as a background (HTML value, must be quoted)
 | -r , --resolution | Select the display resolution |
