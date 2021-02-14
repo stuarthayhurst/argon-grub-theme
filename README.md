@@ -17,8 +17,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -b , --background | Choose a background image (must be a .png, or bundled with the project) |
 | -c , --custom     | Use a solid colour as a background (HTML value, must be quoted)
 | -r , --resolution | Select the display resolution |
-| -fc, --fontcolour | Use a specific font colour (HTML (must be quoted) and SVG 1.0 colours supported) |
-|                   | Use the format: "textcolour,selectedcolour"
+| -fc, --fontcolour | Use a specific font colour (HTML (must be quoted) and SVG 1.0 colours supported) <br> Use the format: -fc "textcolour,selectedcolour" |
 | -fs, --fontsize   | Use a specific font size |
 | -f , --font       | Use a specific font |
 | -l , --bold       | Force font to be bold |
