@@ -38,7 +38,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
    - `sudo ./install.sh --install --resolution 1024x720 --custom #ff00ff`
 
  - Preview the theme with a fontsize of 32, a white font colour and black selected font colour:
-   - `./install.sh -p -b Crystals -fs 32 -fc white,#000000`
+   - `./install.sh -p -b Crystals -fs 32 -fc "white,#000000"`
 
  - Preview the theme with a different font:
    - `./install.sh -p -b Crystals -f Terminus.ttf`
