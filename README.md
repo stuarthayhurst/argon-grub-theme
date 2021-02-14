@@ -12,16 +12,17 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -h , --help       | Show a help page |
 | -i , --install    | Install the grub theme (root) |
 | -u , --uninstall  | Uninstall the grub theme (root) |
-| -e , --boot       | Install the grub theme into `/boot/grub/themes` instead |
+| -e , --boot       | Install the grub theme into `/boot/grub/themes` |
 | -p , --preview    | Preview the grub theme (Works with other options, non-root) |
-| -b , --background | Choose a background image (must be a .png, or bundled with the project) |
+| -b , --background | Choose a background image (must be a .png, or bundled with the project) <br> - Leave blank to view available backgrounds|
 | -c , --custom     | Use a solid colour as a background (HTML value, must be quoted)
-| -r , --resolution | Select the display resolution |
-| -fc, --fontcolour | Use a specific font colour (HTML (must be quoted) and SVG 1.0 colours supported) <br> Use the format: -fc "textcolour,selectedcolour" |
+| -r , --resolution | Select the display resolution <br> - Leave blank to view available resolutions |
+| -f , --font       | Specify which font to use (file) <br> - Leave blank to view available fonts |
+| -fc, --fontcolour | Use a specific font colour (HTML (must be quoted) and SVG 1.0 colours supported) <br> - Use the format: -fc "textcolour,selectedcolour" |
 | -fs, --fontsize   | Use a specific font size |
-| -f , --font       | Use a specific font |
 | -l , --bold       | Force font to be bold |
 | -hl, --help-label | Add a help label to the bottom of the theme |
+
 Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Examples:
