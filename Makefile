@@ -29,7 +29,7 @@ generate-gif:
 	optipng *.png; \
 	convert -delay 150 *.png +dither -alpha off -loop 0 Gallery.gif
 generate-all:
-	make generate-icons generate-select
+	make generate-icons generate-select generate-gif
 
 $(ICONSVGS): ./assets/svg/icons/%.svg: ./Makefile
 	resolutions=("32" "48" "64"); \
