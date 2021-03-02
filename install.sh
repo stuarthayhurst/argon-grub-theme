@@ -357,31 +357,22 @@ installTheme() {
   output "success" "Modifiying grub config..."
   cp -n "/etc/default/grub" "/etc/default/grub.bak"
 
-  if grep "GRUB_THEME=" /etc/default/grub >/dev/null 2>&1; then
-    #Replace GRUB_THEME
-    sed -i "s|.*GRUB_THEME=.*|GRUB_THEME=\"$installDir/theme.txt\"|" /etc/default/grub
-  else
-    #Append GRUB_THEME
-    echo "GRUB_THEME=\"$installDir/theme.txt\"" >> /etc/default/grub
-  fi
+  updateConfigVal() { #$1: search string, $2: replace string, $3: boolean to append replace string
+    #Replace $1 with $2
+    if grep "$1" /etc/default/grub >/dev/null 2>&1; then
+      sed -i "s|.*$1.*|$2|" /etc/default/grub
+    else
+      #Append $2 if $3 is true and $1 is missing
+      if [[ "$3" == "true" ]]; then
+        echo "$2" >> /etc/default/grub
+      fi
+    fi
+  }
 
-  if grep "GRUB_GFXMODE=" /etc/default/grub >/dev/null 2>&1; then
-    #Replace GRUB_GFXMODE
-    sed -i "s|.*GRUB_GFXMODE=.*|${gfxmode}|" /etc/default/grub
-  else
-    #Append GRUB_GFXMODE
-    echo "${gfxmode}" >> /etc/default/grub
-  fi
-
-  if grep "GRUB_TERMINAL=console" /etc/default/grub >/dev/null 2>&1 || grep "GRUB_TERMINAL=\"console\"" /etc/default/grub >/dev/null 2>&1; then
-    #Replace GRUB_TERMINAL
-    sed -i "s|.*GRUB_TERMINAL=.*|#GRUB_TERMINAL=console|" /etc/default/grub
-  fi
-
-  if grep "GRUB_TERMINAL_OUTPUT=console" /etc/default/grub >/dev/null 2>&1 || grep "GRUB_TERMINAL_OUTPUT=\"console\"" /etc/default/grub >/dev/null 2>&1; then
-      #Replace GRUB_TERMINAL_OUTPUT
-    sed -i "s|.*GRUB_TERMINAL_OUTPUT=.*|#GRUB_TERMINAL_OUTPUT=console|" /etc/default/grub
-  fi
+  updateConfigVal "GRUB_THEME=" "GRUB_THEME=\"$installDir/theme.txt\"" "true"
+  updateConfigVal "GRUB_GFXMODE=" "$gfxmode" "true"
+  updateConfigVal "GRUB_TERMINAL=console" "#GRUB_TERMINAL=console"
+  updateConfigVal "GRUB_TERMINAL_OUTPUT=console" "#GRUB_TERMINAL_OUTPUT=console"
 
   #Update grub config
   updateGrub
