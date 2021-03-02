@@ -24,6 +24,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -hl, --help-label | Add a help label to the bottom of the theme |
 
 Required arguments: [--install + --background / --uninstall / --preview]
+ - If the repository is updated, `make clean` should be run, to erase cached assets
 
 ## Examples:
  - Install the theme for a 4k display, using the `Night` wallpaper:
@@ -64,6 +65,11 @@ Required arguments: [--install + --background / --uninstall / --preview]
   #### Optional:
  - `optipng` - Used to losslessly compress pngs (Used by `make compress-backgrounds` and `make generate-gif`)
  - `grub2-theme-preview` - Used to preview themes (Used by --preview)
+
+## Updating:
+ - Update the repository: `git clone https://github.com/Dragon8oy/argon-grub-theme.git`
+ - Clear the asset cache: `make clean`
+ - Install like normal
 
 ## Preview the theme:
  - Follow the instructions at [grub2-theme-preview](https://github.com/hartwork/grub2-theme-preview) to install the program
