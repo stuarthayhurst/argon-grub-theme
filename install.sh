@@ -34,13 +34,18 @@ checkRoot() {
 }
 
 #Output messages with colours based off of categories
+#$3 - whether or not to output a newline, $2 - actual message
 output() {
+  extraContent="\n"
+  if [[ "$3" == "noNewline" ]]; then
+    extraContent=""
+  fi
   case $1 in
-    "success") echo -e "${successCol}${2}${resetCol}";;
-    "list"|"minor") echo -e "${listCol}${2}${resetCol}";;
-    "warning") echo -e "${warningCol}${2}${resetCol}";;
-    "error") echo -e "${errorCol}${2}${resetCol}";;
-    "normal"|*) echo -e "${boldCol}${2}${resetCol}";;
+    "success") echo -en "${successCol}${2}${resetCol}${extraContent}";;
+    "list"|"minor") echo -en "${listCol}${2}${resetCol}${extraContent}";;
+    "warning") echo -en "${warningCol}${2}${resetCol}${extraContent}";;
+    "error") echo -en "${errorCol}${2}${resetCol}${extraContent}";;
+    "normal"|*) echo -en "${boldCol}${2}${resetCol}${extraContent}";;
   esac
 }
 
@@ -82,7 +87,6 @@ getCustomBackground() {
     return 1
   fi
 }
-
 
 #Processes the resolutiom argument (listing, validating)
 getResolution() {
@@ -193,7 +197,7 @@ generateIcons() {
   if [[ "$3" == "default" ]]; then
     buildDir="./assets/$2/${assetSizeDir}px"
   elif [[ "$3" == "install" ]]; then
-    buildDir="./build/$2"
+    buildDir="./build/$2/${assetSizeDir}px"
   fi
   mkdir -p "$buildDir"
   if [[ "$3" == "default" ]]; then
@@ -232,16 +236,28 @@ installCore() {
   #Generate theme size values
   generateThemeSizes "$fontsize"
 
-  #Generate and set path for icons
-  if [[ ! -d "./assets/icons/${icon_size}px" ]]; then
-    output "success" "Generating theme assets..."
-    generateIcons "$icon_size" "icons" "install"
-    generateIcons "$item_height" "select" "install"
-    iconDir="./build/icons"
-    selectDir="./build/select"
-  else
+  #Generate assets and set path
+  if [[ -d "./assets/icons/${icon_size}px" ]]; then #Decide whether assets need to be generated
     iconDir="./assets/icons/${icon_size}px"
     selectDir="./assets/select/${icon_size}px"
+  else
+    checkIconCached() { #$1: asset name, $2: resolution, $3: pretty name
+      #Decide if the assets have been cached
+      output "success" "Generating $3..." "noNewline"
+      if [[ ! -d "./build/$1/${2}px" ]]; then
+        generateIcons "$2" "$1" "install"
+        output "success" " done"
+      else
+        output "success" " found cached $3"
+      fi
+    }
+
+    #Check if icons are cached and regenerate if not
+    checkIconCached "icons" "$icon_size" "icons"
+    checkIconCached "select" "$item_height" "assets"
+
+    iconDir="./build/icons/${icon_size}px"
+    selectDir="./build/select/${item_height}px"
   fi
 
   #Install theme components
