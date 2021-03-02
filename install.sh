@@ -94,11 +94,11 @@ getResolution() {
   if checkArg "$resolution"; then
     #Check if it's a valid resolution, otherwise use default
     case "$resolution" in
-      4k|4K|3480x2160|2160p) resolution="4k";;
-      2k|2K|2560x1440|1440p) resolution="2k";;
-      1920x1080|1080p) resolution="1080p";;
-      *x*) resolution="$resolution"; echo "Custom resolution found, using \"$resolution\"";;
-      "custom") resolution="custom";;
+      4k|4K|3480x2160|2160p) resolution="4k"; gfxmode="GRUB_GFXMODE=3840x2160,auto";;
+      2k|2K|2560x1440|1440p) resolution="2k"; gfxmode="GRUB_GFXMODE=2560x1440,auto";;
+      1920x1080|1080p) resolution="1080p"; gfxmode="GRUB_GFXMODE=1920x1080,auto";;
+      *x*) resolution="$resolution"; gfxmode="GRUB_GFXMODE=$resolution,auto"; echo "Custom resolution found, using \"$resolution\"";;
+      "custom") resolution="custom"; gfxmode="GRUB_GFXMODE=auto";;
       ""|"list") output "normal" "Valid resolutions: '1080p', '2k', '4k', 'custom' or '[WIDTH]x[HEIGHT]'"; exit 0;;
       *) output "error" "Invalid resolution, using default"; resolution="1080p";;
     esac
@@ -106,6 +106,7 @@ getResolution() {
     #Use default resolution
     output "warning" "No resolution specified, using 1080p"
     resolution="1080p"
+    gfxmode="GRUB_GFXMODE=1920x1080,auto"
     return 1
   fi
 }
@@ -364,19 +365,6 @@ installTheme() {
     echo "GRUB_THEME=\"$installDir/theme.txt\"" >> /etc/default/grub
   fi
 
-  #Set the correct resolution for grub
-  if [[ "$resolution" == "1080p" ]]; then
-    gfxmode="GRUB_GFXMODE=1920x1080,auto"
-  elif [[ "$resolution" == "4k" ]]; then
-    gfxmode="GRUB_GFXMODE=3840x2160,auto"
-  elif [[ "$resolution" == "2k" ]]; then
-    gfxmode="GRUB_GFXMODE=2560x1440,auto"
-  elif [[ "$resolution" == "custom" ]]; then
-    gfxmode="GRUB_GFXMODE=auto"
-  else
-    gfxmode="GRUB_GFXMODE=$resolution,auto"
-  fi
-
   if grep "GRUB_GFXMODE=" /etc/default/grub >/dev/null 2>&1; then
     #Replace GRUB_GFXMODE
     sed -i "s|.*GRUB_GFXMODE=.*|${gfxmode}|" /etc/default/grub
@@ -519,6 +507,7 @@ warnArgs() {
   if [[ "$resolution" == "" ]]; then
     argWarnings+="$(output "warning" "No resolution specified, using default of 1080p\n")"
     resolution="1080p"
+    gfxmode="GRUB_GFXMODE=1920x1080,auto"
   fi
   if [[ "$font_colour" == "" ]]; then
     argWarnings+="$(output "minor" "No font colour specified, use -fc [VALUE] to set a font colour\n")"
