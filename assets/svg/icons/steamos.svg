@@ -7,127 +7,58 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="32.000622"
-   height="32.000622"
+   sodipodi:docname="steam.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)"
+   id="svg8"
    version="1.1"
-   viewBox="0 0 8.4668312 8.4668317"
-   id="svg371"
-   sodipodi:docname="steamos.svg"
-   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+   viewBox="0 0 8.4666662 8.4666669"
+   height="32"
+   width="32">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     inkscape:window-maximized="1"
+     inkscape:window-y="0"
+     inkscape:window-x="0"
+     inkscape:window-height="1016"
+     inkscape:window-width="1836"
+     units="px"
+     showgrid="false"
+     inkscape:document-rotation="0"
+     inkscape:current-layer="svg8"
+     inkscape:document-units="px"
+     inkscape:cy="15.048545"
+     inkscape:cx="19.284902"
+     inkscape:zoom="11.313709"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     borderopacity="1.0"
+     bordercolor="#666666"
+     pagecolor="#ffffff"
+     id="base" />
   <metadata
-     id="metadata375">
+     id="metadata5">
     <rdf:RDF>
       <cc:Work
          rdf:about="">
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
-  <sodipodi:namedview
-     inkscape:snap-bbox-edge-midpoints="true"
-     inkscape:bbox-nodes="true"
-     inkscape:snap-bbox="true"
-     pagecolor="#ffffff"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1836"
-     inkscape:window-height="1016"
-     id="namedview373"
-     showgrid="false"
-     inkscape:zoom="4"
-     inkscape:cx="107.16678"
-     inkscape:cy="265.86868"
-     inkscape:window-x="2004"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg371"
-     inkscape:document-rotation="0">
-    <inkscape:grid
-       id="grid1162"
-       type="xygrid" />
-  </sodipodi:namedview>
-  <defs
-     id="defs37">
-    <style
-       id="current-color-scheme"
-       type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style29" />
-    <style
-       type="text/css"
-       id="style31" />
-    <style
-       type="text/css"
-       id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-  </defs>
   <g
-     id="steamos"
-     transform="matrix(1.1429,0,0,1.1429,-0.60470839,-0.60477696)">
+     id="g850"
+     style="display:inline">
     <path
-       d="m 4.2332,0.52916 c 2.0458,0 3.7041,1.6583 3.7041,3.7041 0,2.0458 -1.6583,3.7041 -3.7041,3.7041 -2.0458,0 -3.7041,-1.6583 -3.7041,-3.7041 0,-2.0458 1.6583,-3.7041 3.7041,-3.7041 z"
-       id="path210"
-       inkscape:connector-curvature="0"
-       style="fill:#4d4d4d;stroke-width:0.25165" />
-    <g
-       transform="matrix(0.16282,0,0,0.16282,0.32563,0.48845)"
-       id="g220"
-       style="fill:#ffffff;stroke-width:1.4219">
-      <path
-         d="m 26,18 v 9.625 l 3.684,0.957 4.287,-6.742 H 30.346 L 26,18"
-         id="path212"
-         inkscape:connector-curvature="0" />
-      <path
-         d="m 31,11 a 6,6 0 0 0 -6,6 6,6 0 0 0 6,6 6,6 0 0 0 6,-6 6,6 0 0 0 -6,-6 z m 0,2 a 4,4 0 0 1 4,4 4,4 0 0 1 -4,4 4,4 0 0 1 -4,-4 4,4 0 0 1 4,-4 z m 0,2 a 2,2 0 0 0 -2,2 2,2 0 0 0 2,2 2,2 0 0 0 2,-2 2,2 0 0 0 -2,-2 z m -16,6 a 4,4 0 0 0 -4,4 4,4 0 0 0 4,4 4,4 0 0 0 4,-4 4,4 0 0 0 -4,-4 z m 0,1 a 3,3 0 0 1 3,3 3,3 0 0 1 -3,3 3,3 0 0 1 -3,-3 3,3 0 0 1 3,-3 z"
-         id="path214"
-         inkscape:connector-curvature="0" />
-      <rect
-         transform="matrix(0.8931,0.44985,-0.45815,0.88887,0,0)"
-         x="22.784"
-         y="13.579"
-         width="17.423"
-         height="3.964"
-         rx="1.982"
-         id="rect216" />
-      <path
-         d="m 27,27 a 4,4 0 0 0 -4,4 4,4 0 0 0 4,4 4,4 0 0 0 4,-4 4,4 0 0 0 -4,-4 z m 0,1 a 3,3 0 0 1 3,3 3,3 0 0 1 -3,3 3,3 0 0 1 -3,-3 3,3 0 0 1 3,-3 z"
-         id="path218"
-         inkscape:connector-curvature="0" />
-    </g>
+       id="path838"
+       style="fill:#153791;fill-opacity:1;stroke-width:0.625171;paint-order:stroke fill markers"
+       d="M 8.4663467,4.2348417 C 8.4883007,5.9310635 7.3769282,7.5657743 5.791218,8.1696702 4.2165742,8.8166872 2.2799465,8.3798032 1.135828,7.1194746 -0.04077599,5.8894175 -0.33983839,3.9273445 0.41721901,2.4028653 1.1340872,0.85908081 2.8528766,-0.13417089 4.5487541,0.01472651 c 1.6936492,0.104564 3.2414524,1.33437479 3.7256376,2.96021489 0.127099,0.4070816 0.192059,0.8334503 0.191955,1.2599003 z" />
+    <path
+       id="path31-2"
+       style="display:inline;fill:#ffffff;stroke-width:0.00487364"
+       d="M 5.6308685,1.5288149 C 4.8385573,1.5116909 4.1079703,2.1645282 4.0364579,2.9535543 c -0.00645,0.1572176 -0.068368,0.27844 -0.1611502,0.39898 L 3.0037412,4.6204232 C 2.7368461,4.5990007 2.4637545,4.6703045 2.2413028,4.8192653 L 0.01489281,3.8794981 c -0.0425158,0.5029567 0.0062535,1.0134106 0.1430348,1.4992768 C 0.67955111,5.59982 1.2020145,5.8202 1.723113,6.0416605 1.8219359,6.6617164 2.4629727,7.1248247 3.0836865,7.0185625 3.6667602,6.9467857 4.1367481,6.3977102 4.1181179,5.8108598 L 5.6308692,4.7367008 C 6.4231804,4.7538244 7.1537674,4.1009872 7.2252795,3.3119608 7.3307876,2.5268927 6.7636714,1.7282828 5.987507,1.5689373 5.8706259,1.5422876 5.7507508,1.5288014 5.6308685,1.5288149 Z M 0.01489281,3.8794981 c 0.01068,-0.032136 -0.00817,9.13e-5 0,0 z M 5.6308685,2.041408 C 6.2324133,2.024828 6.7652539,2.5821981 6.7214561,3.1821915 6.7107592,3.7837173 6.129582,4.2905841 5.5319933,4.2196078 4.9314153,4.1816194 4.4513152,3.5782542 4.5493207,2.9847048 4.6137553,2.4549977 5.0967354,2.0334259 5.6308685,2.041408 Z m -0.00641,0.2645621 C 5.1257896,2.2934024 4.7080912,2.8034826 4.8189216,3.2897033 4.8971263,3.7791835 5.4687377,4.0967596 5.9258518,3.905101 6.3945694,3.7435321 6.6089268,3.1258135 6.3409308,2.7087983 6.1949698,2.4599902 5.9129783,2.3014853 5.6244607,2.3059701 Z M 2.9052155,4.9144653 C 3.4273871,4.8949982 3.8838095,5.3962671 3.8159969,5.9140749 3.7797235,6.443841 3.2146145,6.8469189 2.7017231,6.7090092 2.4283459,6.6463335 2.190607,6.4489538 2.0787778,6.1918157 2.4087895,6.3003488 2.7368997,6.5695723 3.1007237,6.4574544 3.5139067,6.3502524 3.7112341,5.8073649 3.4632392,5.4600131 3.2685974,5.1698119 2.8890727,5.1213045 2.5979942,4.9698437 2.6961956,4.9338769 2.8006338,4.9150518 2.9052155,4.9144653 Z m -1.1178905,1.3520151 0.00372,0.0093 z"
+       sodipodi:nodetypes="cccccccccccccccccccccccccccccccccccccc" />
   </g>
 </svg>
