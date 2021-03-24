@@ -215,14 +215,18 @@ installCore() {
   generateFont() {
     #"input" "output" "size" "font family"
     if checkCommand grub-mkfont; then
-      if [[ "$forceBoldFont" == "true" ]] || [[ "$5" == "-b" ]]; then
-        grub-mkfont "$1" -o "$2" -s "$3" -n "$4" "-b"
-      else
-        grub-mkfont "$1" -o "$2" -s "$3" -n "$4"
-      fi
+      mkfontCommand="grub-mkfont"
+    elif checkCommand grub2-mkfont; then
+      mkfontCommand="grub2-mkfont"
     else
-      output "error" "grub-mkfont couldn't be found, exiting"
+      output "error" "Neither grub-mkfont grub2-mkfont could be found, exiting"
       exit 1
+    fi
+
+    if [[ "$forceBoldFont" == "true" ]] || [[ "$5" == "-b" ]]; then
+      $mkfontCommand "$1" -o "$2" -s "$3" -n "$4" "-b"
+    else
+      $mkfontCommand "$1" -o "$2" -s "$3" -n "$4"
     fi
   }
 
