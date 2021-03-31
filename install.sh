@@ -2,7 +2,13 @@
 
 #Path variables
 installDir="/usr/share/grub/themes/argon"
-splashScreenPath="/boot/grub/splash0.png"
+
+#Set path to splash screen based off of which /boot/grub directory is present
+if [[ -d "/boot/grub" ]]; then
+  splashScreenPath="/boot/grub/splash0.png"
+elif [[ -d "/boot/grub2" ]]; then
+  splashScreenPath="/boot/grub2/splash0.png"
+fi
 
 #Output colours
 successCol="\033[1;32m"
