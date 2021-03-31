@@ -96,9 +96,9 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - Save the file and exit
 
 ## Gallery:
-![Crystals](docs/Crystals.png)
-![Night](docs/Night.png)
-![Grey](docs/Grey.png)
+![Crystals](docs/1-Crystals.png)
+![Night](docs/1-Night.png)
+![Grey](docs/1-Grey.png)
 ![Magenta](docs/Magenta.png)
 ![Green](docs/Green.png)
 
