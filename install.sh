@@ -49,6 +49,17 @@ output() {
   esac
 }
 
+setInstallToBoot() {
+  if [[ -d "/boot/grub" ]]; then
+    installDir="/boot/grub/themes/argon"
+  elif [[ -d "/boot/grub2" ]]; then
+    installDir="/boot/grub2/themes/argon"
+  else
+    echo "No grub directory could be found in /boot, exiting"
+    exit 1
+  fi
+}
+
 #Processes the background argument (listing and validating)
 getBackground() {
   background="$1"
@@ -481,7 +492,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "success" "Program written by: Stuart Hayhurst"; exit 0;;
     -i|--install) programOperation="install";;
     -u|--uninstall) programOperation="uninstall";;
-    -e|--boot) installDir="/boot/grub/themes/argon";;
+    -e|--boot) setInstallToBoot;;
     -p|--preview) programOperation="preview";;
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -c|--custom|--custom-background) getCustomBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
