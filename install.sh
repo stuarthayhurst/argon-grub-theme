@@ -166,7 +166,7 @@ getFontFile() {
       fontfile="$fontfile"
     elif [[ -f "fonts/${fontfile}.ttf" ]]; then
       fontfile="$fontfile".ttf
-    elif [[ -f "fonts/${fontfile}.ttf" ]]; then
+    elif [[ -f "fonts/${fontfile}.otf" ]]; then
       fontfile="$fontfile".otf
     else
       output "error" "Invalid fontfile, use './install.sh -f' to view available fonts"
