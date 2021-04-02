@@ -3,12 +3,13 @@
 #Path variables
 installDir="/usr/share/grub/themes/argon"
 
-#Set path to splash screen based off of which /boot/grub directory is present
+#Set bootPath for future reference, and to set splashScreenPath
 if [[ -d "/boot/grub" ]]; then
-  splashScreenPath="/boot/grub/splash0.png"
+  bootPath="/boot/grub"
 elif [[ -d "/boot/grub2" ]]; then
-  splashScreenPath="/boot/grub2/splash0.png"
+  bootPath="/boot/grub2"
 fi
+splashScreenPath="$bootPath/splash0.png"
 
 #Output colours
 successCol="\033[1;32m"
@@ -53,17 +54,6 @@ output() {
     "error") echo -en "${errorCol}${2}${resetCol}${extraContent}";;
     "normal"|*) echo -en "${boldCol}${2}${resetCol}${extraContent}";;
   esac
-}
-
-setInstallToBoot() {
-  if [[ -d "/boot/grub" ]]; then
-    installDir="/boot/grub/themes/argon"
-  elif [[ -d "/boot/grub2" ]]; then
-    installDir="/boot/grub2/themes/argon"
-  else
-    echo "No grub directory could be found in /boot, exiting"
-    exit 1
-  fi
 }
 
 #Processes the background argument (listing and validating)
@@ -498,7 +488,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "success" "Program written by: Stuart Hayhurst"; exit 0;;
     -i|--install) programOperation="install";;
     -u|--uninstall) programOperation="uninstall";;
-    -e|--boot) setInstallToBoot;;
+    -e|--boot) installDir="$bootPath/themes/argon";;
     -p|--preview) programOperation="preview";;
     -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -c|--custom|--custom-background) getCustomBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
