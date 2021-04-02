@@ -231,10 +231,9 @@ installCore() {
     fi
 
     if [[ "$forceBoldFont" == "true" ]] || [[ "$5" == "-b" ]]; then
-      $mkfontCommand "$1" -o "$2" -s "$3" -n "$4" "-b"
-    else
-      $mkfontCommand "$1" -o "$2" -s "$3" -n "$4"
+      forceBoldFont="-b"
     fi
+    $mkfontCommand "$1" -o "$2" -s "$3" -n "$4" "$forceBoldFont"
   }
 
   generateThemeSizes() {
