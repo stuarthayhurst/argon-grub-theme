@@ -1,7 +1,7 @@
 ## argon-grub-theme
  - Configurable, modern theme for the grub bootloader, containing backgrounds, icons, fonts and styling
  - Backgrounds, fonts and fontsize can all be customised
- - Wallpaper source files can be found [here](https://github.com/Dragon8oy/argon-wallpapers)
+ - Wallpaper source files can be found [here](https://github.com/stuarthayhurst/argon-wallpapers)
  - Some of the icons used are from [here](https://github.com/vinceliuice/grub2-themes)
 
 ## Installation:
@@ -68,7 +68,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - `grub2-theme-preview` - Used to preview themes (Used by --preview)
 
 ## Updating:
- - Update the repository: `git clone https://github.com/Dragon8oy/argon-grub-theme.git`
+ - Update the repository: `git clone https://github.com/stuarthayhurst/argon-grub-theme.git`
  - Clear the asset cache: `make clean`
  - Install like normal
 
@@ -117,7 +117,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - If the change was to a background, scale the background for each resolution, then:
    - Run `make compress-backgrounds`
  - Create a pull request from your branch or fork
- - If any issues occur, report then to the [issue](https://github.com/Dragon8oy/argon-grub-theme/issues) page
+ - If any issues occur, report then to the [issue](https://github.com/stuarthayhurst/argon-grub-theme/issues) page
  - Thank you :)
 
 ## Copyright and credits:
