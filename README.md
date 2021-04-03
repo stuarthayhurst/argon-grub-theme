@@ -2,6 +2,7 @@
  - Configurable, modern theme for the grub bootloader, containing backgrounds, icons, fonts and styling
  - Backgrounds, fonts and fontsize can all be customised
  - Wallpaper source files can be found [here](https://github.com/Dragon8oy/argon-wallpapers)
+ - Some of the icons used are from [here](https://github.com/vinceliuice/grub2-themes)
 
 ## Installation:
 
