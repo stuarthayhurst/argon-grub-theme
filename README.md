@@ -99,6 +99,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
 ![Crystals](docs/1-Crystals.png)
 ![Night](docs/1-Night.png)
 ![Grey](docs/1-Grey.png)
+![Multi-distro Crystals](docs/2-Crystals.png)
 ![Magenta](docs/Magenta.png)
 ![Green](docs/Green.png)
 
