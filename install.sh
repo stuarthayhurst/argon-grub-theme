@@ -178,12 +178,33 @@ getFontFile() {
 
 #Generates assets for the theme is a custom resolution is required
 generateIcons() {
+  #Version comparison function
+  compareVersions() {
+    if [[ "$1" != "$(echo -e "$1\n$2" | sort -V | head -n 1)" ]]; then
+      return
+    else
+      if [[ "$1" == "$2" ]]; then
+        return
+      fi
+      return 1
+    fi
+  }
+
   #generateIcons "resolution" "icons/select" "default/install" "svgFile"
   generateIcon() {
     pngFile="${svgFile##*/}"
     pngFile="${pngFile/.svg/.png}"
     if checkCommand inkscape; then
-      inkscape "-h" "$assetSize" "--export-filename=$buildDir/$pngFile" "$svgFile" >/dev/null 2>&1
+      #Get inkscape version
+      inkscapeVersion="$(inkscape --version 2>/dev/null | head -n 1)"
+      inkscapeVersion="${inkscapeVersion%%(*}"
+      inkscapeVersion="${inkscapeVersion//Inkscape }"
+      #Use correct command for version
+      if compareVersions "$inkscapeVersion" "1.0"; then
+        inkscape "-h" "$assetSize" "--export-filename=$buildDir/$pngFile" "$svgFile" >/dev/null 2>&1
+      else
+        inkscape "-h" "$assetSize" "--export-png=$buildDir/$pngFile" "$svgFile" >/dev/null 2>&1
+      fi
     elif checkCommand convert; then
       output "warning" "Low quality: Inkscape not found, using imagemagick..."
       convert -scale "x$assetSize" -extent "x$assetSize" -background none "$svgFile" "$buildDir/$pngFile"
