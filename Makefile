@@ -7,7 +7,7 @@ BACKGROUNDS4k=$(wildcard ./backgrounds/4k/*.png)
 ICONSVGS=$(wildcard ./assets/svg/icons/*.svg)
 SELECTSVGS=$(wildcard ./assets/svg/select/*.svg)
 
-.PHONY: clean full-clean compress-backgrounds generate-icons generate-select generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS1080p) $(BACKGROUNDS2k) $(BACKGROUNDS4k)
+.PHONY: clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS1080p) $(BACKGROUNDS2k) $(BACKGROUNDS4k)
 
 clean:
 	rm -rvf "./build"
