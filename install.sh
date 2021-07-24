@@ -211,7 +211,9 @@ generateIcons() {
     else
       output "error" "Neither inkscape nor convert are available"
       output "warning" "Please install inkscape or imagemagick (preferably inkscape)"
+      return
     fi
+    optipng -strip all -nc "$buildDir/$pngFile"
   }
   assetSize="${1/px}"
   if [[ "$3" == "default" ]] && [[ "$2" == "select" ]]; then
