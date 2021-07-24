@@ -66,7 +66,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
    - `inkscape` is needed if the fontsize used isn't 16, 24 or 32
    - `imagemagick / convert` can be used as an alternative
   #### Optional:
- - `optipng` - Used to losslessly compress pngs (Used by `make compress-backgrounds` and `make generate-gif`)
+ - `optipng` - Used to losslessly compress pngs (Used by `make compress-backgrounds`, `make generate-gif` and `make generate-icons`)
  - `grub2-theme-preview` - Used to preview themes (Used by --preview)
 
 ## Updating:
