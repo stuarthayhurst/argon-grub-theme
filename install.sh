@@ -209,7 +209,7 @@ generateIcons() {
       output "warning" "Low quality: Inkscape not found, using imagemagick..."
       convert -scale "x$assetSize" -extent "x$assetSize" -background none "$svgFile" "$buildDir/$pngFile"
     else
-      output "error" "Neither inkscape or convert are available"
+      output "error" "Neither inkscape nor convert are available"
       output "warning" "Please install inkscape or imagemagick (preferably inkscape)"
     fi
   }
@@ -247,7 +247,7 @@ installCore() {
     elif checkCommand grub2-mkfont; then
       mkfontCommand="grub2-mkfont"
     else
-      output "error" "Neither grub-mkfont grub2-mkfont could be found, exiting"
+      output "error" "Neither grub-mkfont nor grub2-mkfont could be found, exiting"
       exit 1
     fi
 
