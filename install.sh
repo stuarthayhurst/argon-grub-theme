@@ -213,7 +213,12 @@ generateIcons() {
       output "warning" "Please install inkscape or imagemagick (preferably inkscape)"
       return
     fi
-    optipng -strip all -nc "$buildDir/$pngFile"
+    if checkCommand optipng; then
+      #Use -nc to avoid indexing, keeping GRUB support
+      optipng -strip all -nc "$buildDir/$pngFile"
+    else
+      output "warning" "Optipng not available, icons won't be compressed"
+    fi
   }
   assetSize="${1/px}"
   if [[ "$3" == "default" ]] && [[ "$2" == "select" ]]; then
