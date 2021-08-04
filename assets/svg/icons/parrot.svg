@@ -5,6 +5,7 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="32"
@@ -13,7 +14,7 @@
    viewBox="0 0 8.4666667 8.4666671"
    id="svg371"
    sodipodi:docname="parrot.svg"
-   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
   <metadata
      id="metadata375">
     <rdf:RDF>
@@ -22,7 +23,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -38,14 +39,14 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1836"
+     inkscape:window-width="1920"
      inkscape:window-height="1016"
      id="namedview373"
      showgrid="false"
-     inkscape:zoom="4"
-     inkscape:cx="107.16678"
-     inkscape:cy="265.86868"
-     inkscape:window-x="2004"
+     inkscape:zoom="16"
+     inkscape:cx="12.723119"
+     inkscape:cy="14.362962"
+     inkscape:window-x="1920"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg371"
@@ -56,6 +57,18 @@
   </sodipodi:namedview>
   <defs
      id="defs37">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient889">
+      <stop
+         style="stop-color:#000000;stop-opacity:0.49921775"
+         offset="0"
+         id="stop885" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop887" />
+    </linearGradient>
     <style
        id="current-color-scheme"
        type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
@@ -95,20 +108,36 @@
     <style
        type="text/css"
        id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient889"
+       id="linearGradient893"
+       x1="17.279049"
+       y1="16.628941"
+       x2="28.038439"
+       y2="27.38833"
+       gradientUnits="userSpaceOnUse" />
   </defs>
   <g
-     id="parrot"
-     inkscape:label="#parrot"
-     transform="matrix(1.6000001,0,0,1.6000001,-124.53715,-118.38135)">
+     id="g903">
     <circle
-       style="fill:#55ddff;stroke-width:0.264583"
-       cx="80.481544"
-       cy="76.634171"
-       r="2.6458333"
+       style="fill:#55ddff;stroke-width:0.423333"
+       cx="4.2333293"
+       cy="4.2333307"
+       r="4.2333336"
        id="circle4" />
-    <path
-       style="fill:#000000;stroke-width:0.264583"
-       d="m 79.6878,74.517505 -0.79375,0.529167 0.529166,0.79375 v -0.529167 h 0.529167 l 0.529167,1.322917 h 0.529166 v 2.38125 l 0.529167,-1.852083 0.264583,1.124479 v -1.653646 l 0.661459,0.661458 -0.396875,-0.661458 -1.058334,-1.5875 H 80.48155 Z"
-       id="path10-1" />
+    <g
+       id="g897">
+      <path
+         style="fill:#000000;stroke-width:0.390941"
+         d="M 3.0026504,1.2695574 2.1166667,1.6931553 2.2652033,2.8187777 2.7859853,2.2780251 3.183879,2.4278723 3.9657676,3.9044855 4.6974306,4.278258 4.747655,7.1437502 5.2701338,5.6011349 5.6518647,6.3572771 5.9204874,4.9941839 6.9310252,5.2556067 C 6.2308239,4.1300428 5.7006247,3.5329852 4.9654289,2.4302048 L 3.7487721,1.7539429 Z"
+         id="path10-1"
+         sodipodi:nodetypes="ccccccccccccccc" />
+      <path
+         style="fill:url(#linearGradient893);stroke-width:1.6;fill-opacity:1"
+         d="m 18.767578,9.1855469 c 2.778693,4.1679891 4.781304,6.4236351 7.427734,10.6777341 L 22.376953,18.875 21.361328,24.027344 19.917969,21.169922 17.943359,27 20.544922,31.341797 A 16.000001,16.000001 0 0 0 31.990234,16.535156 l -5.986328,-3.328125 z"
+         transform="scale(0.26458334)"
+         id="path883" />
+    </g>
   </g>
 </svg>
