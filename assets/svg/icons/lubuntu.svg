@@ -7,10 +7,10 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="31.999729"
-   height="31.999729"
+   width="32"
+   height="32"
    version="1.1"
-   viewBox="0 0 8.466595 8.4665955"
+   viewBox="0 0 8.4666667 8.4666672"
    id="svg371"
    sodipodi:docname="lubuntu.svg"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -38,15 +38,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1836"
+     inkscape:window-width="1920"
      inkscape:window-height="1016"
      id="namedview373"
      showgrid="false"
-     inkscape:zoom="5.6568542"
-     inkscape:cx="50.617272"
-     inkscape:cy="33.668637"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:zoom="11.313708"
+     inkscape:cx="19.622908"
+     inkscape:cy="18.120777"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg371"
      inkscape:document-rotation="0">
@@ -109,14 +109,15 @@
      transform="matrix(0.0144051,-0.0250026,-0.02500241,-0.01440521,5.9599396,16.386349)"
      id="g902" />
   <g
-     id="g1001">
+     id="g42317">
     <path
        d="m 4.1822579,3.0769604e-4 a 4.2332976,4.2332976 0 1 1 0,8.46597980396 4.2332976,4.2332976 0 0 1 0,-8.46597980396 z"
        id="path144"
        inkscape:connector-curvature="0"
        style="fill:#1d89db;stroke-width:0.962969" />
     <g
-       id="g990">
+       id="g990"
+       transform="matrix(1.1,0,0,1.1000001,-0.42333329,-0.42333345)">
       <path
          id="path904"
          d="M 6.879167,4.2334173 C 6.879167,2.7722225 5.694561,1.5875 4.233283,1.5875 2.772063,1.5875 1.5875,2.7722225 1.5875,4.2334173 c 0,1.4612129 1.184563,2.645749 2.645783,2.645749 1.461278,0 2.645884,-1.1845361 2.645884,-2.645749 z"

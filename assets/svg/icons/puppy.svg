@@ -7,10 +7,10 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="31.999746"
-   height="31.999746"
+   width="32"
+   height="32"
    version="1.1"
-   viewBox="0 0 8.4665995 8.4666"
+   viewBox="0 0 8.4666666 8.4666671"
    id="svg371"
    sodipodi:docname="puppy.svg"
    inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -102,7 +102,7 @@
        d="m 4.2333335,0 c 2.3381185,0 4.2333334,1.895215 4.2333334,4.2333335 0,2.3381185 -1.8952149,4.2333334 -4.2333334,4.2333334 C 1.895215,8.4666669 0,6.571452 0,4.2333335 0,1.895215 1.895215,0 4.2333335,0 Z"
        id="path296"
        inkscape:connector-curvature="0"
-       style="fill:#3cc078;stroke-width:0.287613;fill-opacity:1" />
+       style="fill:#3cc078;fill-opacity:1;stroke-width:0.287613" />
     <g
        id="g854">
       <path
