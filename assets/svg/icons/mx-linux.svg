@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -42,9 +42,9 @@
      inkscape:window-height="1016"
      id="namedview373"
      showgrid="false"
-     inkscape:zoom="16"
-     inkscape:cx="13.78388"
-     inkscape:cy="11.037482"
+     inkscape:zoom="11.313709"
+     inkscape:cx="19.852167"
+     inkscape:cy="16.977048"
      inkscape:window-x="1920"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -97,21 +97,27 @@
        id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
   </defs>
   <g
-     id="mx-linux"
-     transform="translate(-35.020752,-89.540749)">
-    <rect
-       id="rect1311"
-       style="fill:#000000;fill-opacity:1;stroke-width:0.52917;paint-order:stroke fill markers"
-       ry="4.2333498"
-       height="8.4666996"
-       width="8.4666996"
-       y="89.540749"
-       x="35.020752"
-       rx="4.2333498" />
-    <path
-       inkscape:connector-curvature="0"
-       id="path3417-0"
-       d="m 40.977788,91.092117 -1.58117,1.843495 -1.576032,-1.836311 -0.646588,0.555039 1.661215,1.93566 -0.242624,0.282856 -0.411761,-0.486685 -1.124449,1.328894 -1.124652,1.328686 h 2.249101 1.424137 0.824964 0.580488 1.405657 l -0.702833,-0.84426 -0.702824,-0.84426 -0.194583,0.233799 -1.080113,-1.258486 1.632688,-1.903433 z m -1.803472,2.892814 1.088523,1.268546 -0.248784,0.298868 -0.70879,-0.83728 -0.376039,-0.444402 z"
-       style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+     id="g860">
+    <circle
+       style="fill:#4d4d4d;stroke:none;stroke-width:0.179377;stroke-linecap:round;paint-order:stroke markers fill"
+       id="path854"
+       cx="4.2333336"
+       cy="4.2333336"
+       r="4.2333336" />
+    <g
+       id="g852"
+       transform="matrix(0.74999998,0,0,0.74999998,1.0583334,1.0583334)">
+      <circle
+         style="fill:#000000;stroke:none;stroke-width:0.101486;stroke-linecap:round;paint-order:stroke markers fill"
+         id="path848"
+         cx="4.2333336"
+         cy="4.2333336"
+         r="4.2333336" />
+      <path
+         inkscape:connector-curvature="0"
+         id="path3417-0"
+         d="M 5.957036,1.551368 4.375866,3.394863 2.799834,1.558552 2.153246,2.113591 3.814461,4.049251 3.571837,4.332107 3.160076,3.845422 2.035627,5.174316 0.910975,6.503002 H 3.160076 4.584213 5.409177 5.989665 7.395322 L 6.692489,5.658742 5.989665,4.814482 5.795082,5.048281 4.714969,3.789795 6.347657,1.886362 Z M 4.153564,4.444182 5.242087,5.712728 4.993303,6.011596 4.284513,5.174316 3.908474,4.729914 Z"
+         style="fill:#ffffff;fill-rule:evenodd;stroke:#000000;stroke-width:0;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+    </g>
   </g>
 </svg>
