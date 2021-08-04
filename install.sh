@@ -358,20 +358,20 @@ installCore() {
   fi
 }
 
-installTheme() {
-  updateGrub() {
-    output "success" "Updating grub..."
-    if checkCommand update-grub; then
-      update-grub
-    elif checkCommand grub-mkconfig; then
-      grub-mkconfig -o /boot/grub/grub.cfg
-    elif checkCommand zypper; then
-      grub2-mkconfig -o /boot/grub2/grub.cfg
-    elif checkCommand dnf; then
-      grub2-mkconfig -o /boot/grub2/grub.cfg || grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
-    fi
-  }
+updateGrub() {
+  output "success" "Updating grub..."
+  if checkCommand update-grub; then
+    update-grub
+  elif checkCommand grub-mkconfig; then
+    grub-mkconfig -o /boot/grub/grub.cfg
+  elif checkCommand zypper; then
+    grub2-mkconfig -o /boot/grub2/grub.cfg
+  elif checkCommand dnf; then
+    grub2-mkconfig -o /boot/grub2/grub.cfg || grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+  fi
+}
 
+installTheme() {
   #Check user is root
   if ! checkRoot; then
     output "error" "This script should be run as root"
