@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -43,8 +43,8 @@
      id="namedview373"
      showgrid="false"
      inkscape:zoom="16"
-     inkscape:cx="16.238693"
-     inkscape:cy="16.207238"
+     inkscape:cx="14.244347"
+     inkscape:cy="15.190938"
      inkscape:window-x="1920"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -97,7 +97,7 @@
        id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
   </defs>
   <g
-     id="g858">
+     id="g862">
     <circle
        id="circle1162"
        paint-order="stroke markers fill"
@@ -107,16 +107,16 @@
        cx="4.2333336"
        style="fill:#55d4ff;fill-opacity:1;stroke-width:1.00008" />
     <g
-       id="g852">
+       id="g856">
       <circle
-         style="opacity:1;fill:#00cbcb;stroke:none;stroke-width:1.7415;stroke-linecap:round;paint-order:stroke markers fill;fill-opacity:1"
+         style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.7415;stroke-linecap:round;paint-order:stroke markers fill"
          id="path846"
          cx="4.2333336"
          cy="4.2333336"
          r="3.1750002" />
       <path
          id="path1164-3"
-         style="line-height:1.25;-inkscape-font-specification:Ubuntu;stroke-width:0.759987;fill:#ffffff"
+         style="line-height:1.25;-inkscape-font-specification:Ubuntu;fill:#55d4ff;stroke-width:0.13229167;fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:none;stroke:#55d4ff;stroke-opacity:1"
          word-spacing="0"
          letter-spacing="0"
          font-weight="400"
