@@ -38,15 +38,15 @@
      guidetolerance="10"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:window-width="1836"
+     inkscape:window-width="1920"
      inkscape:window-height="1016"
      id="namedview373"
      showgrid="false"
-     inkscape:zoom="22.627417"
-     inkscape:cx="19.624581"
-     inkscape:cy="13.168191"
-     inkscape:window-x="0"
-     inkscape:window-y="0"
+     inkscape:zoom="11.313709"
+     inkscape:cx="22.052318"
+     inkscape:cy="16.884584"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
      inkscape:window-maximized="1"
      inkscape:current-layer="svg371"
      inkscape:document-rotation="0">
@@ -97,7 +97,7 @@
        id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
   </defs>
   <g
-     id="g977">
+     id="g958">
     <g
        id="layer3"
        inkscape:label="Back"
@@ -111,7 +111,7 @@
          r="16" />
     </g>
     <g
-       id="g965">
+       id="g942">
       <path
          id="rect8719-3-2-7-4-3"
          style="fill:#ffffff;stroke:none;stroke-width:0.0291042;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
@@ -136,11 +136,37 @@
            style="fill:#ffffff;stroke:none;stroke-width:0.0291042;stroke-miterlimit:4;stroke-dasharray:none;image-rendering:auto"
            d="m 42.756564,60.203353 c -0.228732,0 -0.412874,0.184144 -0.412874,0.412883 v 1.771166 c 0,0.228735 0.184142,0.41288 0.412874,0.41288 0.228733,0 0.412875,-0.184145 0.412875,-0.41288 v -1.771166 c 0,-0.228739 -0.184142,-0.412883 -0.412875,-0.412883 z" />
       </g>
-      <path
-         id="path923"
-         style="opacity:1;fill:#ffffff;stroke-width:2.65874;stroke-linecap:round;stroke-linejoin:round;paint-order:markers fill stroke"
-         d="M 9.5253906 3.4746094 C 9.4858852 3.4640239 9.4426791 3.4700275 9.4042969 3.4921875 C 9.3275324 3.5365075 9.3013831 3.634173 9.3457031 3.7109375 L 10.654297 5.9765625 A 7.0918894 7.0918894 0 0 0 8.9394531 9.9667969 L 23.060547 9.9667969 A 7.0918894 7.0918894 0 0 0 21.345703 5.9765625 L 22.654297 3.7109375 C 22.698617 3.634173 22.672468 3.5365075 22.595703 3.4921875 C 22.518939 3.4478675 22.421273 3.4740168 22.376953 3.5507812 L 21.119141 5.7285156 A 7.0918894 7.0918894 0 0 0 16 3.5449219 A 7.0918894 7.0918894 0 0 0 10.880859 5.7285156 L 9.6230469 3.5507812 C 9.6008869 3.512399 9.5648961 3.4851948 9.5253906 3.4746094 z M 13.140625 6.4394531 A 0.81499999 0.81499999 0 0 1 13.955078 7.2558594 A 0.81499999 0.81499999 0 0 1 13.140625 8.0703125 A 0.81499999 0.81499999 0 0 1 12.324219 7.2558594 A 0.81499999 0.81499999 0 0 1 13.140625 6.4394531 z M 18.859375 6.4394531 A 0.81499999 0.81499999 0 0 1 19.675781 7.2558594 A 0.81499999 0.81499999 0 0 1 18.859375 8.0703125 A 0.81499999 0.81499999 0 0 1 18.044922 7.2558594 A 0.81499999 0.81499999 0 0 1 18.859375 6.4394531 z "
-         transform="scale(0.26458334)" />
+      <g
+         id="g929">
+        <path
+           id="path903"
+           style="fill:#ffffff;stroke:none;stroke-width:5.2619;stroke-linecap:round;paint-order:stroke markers fill"
+           d="M 16 3.5449219 A 7.0919998 7.0919998 0 0 0 8.9414062 9.9667969 L 23.060547 9.9667969 A 7.0919998 7.0919998 0 0 0 16 3.5449219 z M 13.134766 6.4394531 A 0.81499999 0.81499999 0 0 1 13.951172 7.2558594 A 0.81499999 0.81499999 0 0 1 13.134766 8.0703125 A 0.81499999 0.81499999 0 0 1 12.320312 7.2558594 A 0.81499999 0.81499999 0 0 1 13.134766 6.4394531 z M 18.865234 6.4394531 A -0.81499999 0.81499999 0 0 1 19.679688 7.2558594 A -0.81499999 0.81499999 0 0 1 18.865234 8.0703125 A -0.81499999 0.81499999 0 0 1 18.048828 7.2558594 A -0.81499999 0.81499999 0 0 1 18.865234 6.4394531 z "
+           transform="scale(0.26458334)" />
+        <g
+           id="g923">
+          <rect
+             style="fill:#ffffff;stroke:none;stroke-width:0.138076;stroke-linecap:round;paint-order:stroke markers fill"
+             id="rect915"
+             width="1.0583334"
+             height="0.13229167"
+             x="2.0001957"
+             y="-1.7635897"
+             ry="0.066145837"
+             rx="0"
+             transform="rotate(60)" />
+          <rect
+             style="fill:#ffffff;stroke:none;stroke-width:0.138076;stroke-linecap:round;paint-order:stroke markers fill"
+             id="rect917"
+             width="1.0583334"
+             height="0.13229167"
+             x="-2.2331376"
+             y="5.568759"
+             ry="0.066145837"
+             rx="0"
+             transform="matrix(-0.5,0.8660254,0.8660254,0.5,0,0)" />
+        </g>
+      </g>
     </g>
   </g>
 </svg>
