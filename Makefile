@@ -4,7 +4,8 @@ BACKGROUNDS1080p=$(wildcard ./backgrounds/1080p/*.png)
 BACKGROUNDS2k=$(wildcard ./backgrounds/2k/*.png)
 BACKGROUNDS4k=$(wildcard ./backgrounds/4k/*.png)
 
-ICONSVGS=$(wildcard ./assets/svg/icons/*.svg)
+COLOURLESSICONSVGS=$(wildcard ./assets/svg/icons-colourless/*.svg)
+ICONSVGS=$(COLOURLESSICONSVGS) $(wildcard ./assets/svg/icons/*.svg)
 SELECTSVGS=$(wildcard ./assets/svg/select/*.svg)
 
 .PHONY: clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS1080p) $(BACKGROUNDS2k) $(BACKGROUNDS4k)
@@ -19,7 +20,7 @@ compress-backgrounds:
 	read -ra backgrounds <<< "$$(echo ./backgrounds/*/*.png)"; \
 	make "$${backgrounds[@]}" "-j$$(nproc)"
 generate-icons:
-	read -ra icons <<< "$$(echo ./assets/svg/icons/*.svg)"; \
+	read -ra icons <<< "$$(echo ./assets/svg/icons*/*.svg)"; \
 	make "$${icons[@]}" "-j$$(nproc)"
 generate-select:
 	read -ra select <<< "$$(echo ./assets/svg/select/*.svg)"; \
@@ -31,11 +32,15 @@ generate-gif:
 generate-all:
 	make generate-icons generate-select compress-backgrounds generate-gif
 
-$(ICONSVGS): ./assets/svg/icons/%.svg: ./Makefile
+$(ICONSVGS): %.svg: ./Makefile
 	resolutions=("32" "48" "64"); \
 	for resolution in "$${resolutions[@]}"; do \
 	  icon="$@"; \
-	  ./install.sh "--generate" "$$resolution" "icons" "default" "$$icon"; \
+	  type="coloured"; \
+	  if [[ "$$icon" == *"/icons-colourless"* ]]; then \
+	    type="colourless"; \
+	  fi; \
+	  ./install.sh "--generate" "$$resolution" "icons" "default" "$$icon" "$$type"; \
 	done
 $(SELECTSVGS): ./assets/svg/select/%.svg: ./Makefile
 	resolutions=("37" "56" "74"); \

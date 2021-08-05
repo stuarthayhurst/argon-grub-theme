@@ -176,6 +176,21 @@ getFontFile() {
   fontfile="$fontfile"
 }
 
+#Processes the icon type argument (validating)
+getIconType() {
+  iconType="${1}"
+  if checkArg "$iconType"; then
+    if [[ "$iconType" != "coloured" ]] && [[ "$iconType" != "colourless" ]]; then
+     output "warning" "Icon type must be either coloured or colourless, ignoring"
+     fontsize=""
+    fi
+  else
+    #Reset fontsize
+    output "warning" "Incorrect usage of --icons, ignoring"
+    return 1
+  fi
+}
+
 #Generates assets for the theme is a custom resolution is required
 generateIcons() {
   #Version comparison function
@@ -190,7 +205,7 @@ generateIcons() {
     fi
   }
 
-  #generateIcons "resolution" "icons/select" "default/install" "svgFile"
+  #generateIcons "resolution" "icons/select" "default/install" "svgFile" "coloured / colourless"
   generateIcon() {
     pngFile="${svgFile##*/}"
     pngFile="${pngFile/.svg/.png}"
@@ -230,17 +245,23 @@ generateIcons() {
   else
     assetSizeDir="$assetSize"
   fi
-  if [[ "$3" == "default" ]]; then
-    buildDir="./assets/$2/${assetSizeDir}px"
-  elif [[ "$3" == "install" ]]; then
-    buildDir="./build/$2/${assetSizeDir}px"
+  if [[ "$5" == "colourless" ]] && [[ "$2" == "icons" ]]; then
+    assetType="icons-colourless"
+  else
+    assetType="$2"
   fi
+  if [[ "$3" == "default" ]]; then
+    outputArea="assets"
+  elif [[ "$3" == "install" ]]; then
+    outputArea="build"
+  fi
+  buildDir="./$outputArea/$assetType/${assetSizeDir}px"
   mkdir -p "$buildDir"
   if [[ "$3" == "default" ]]; then
     svgFile="./$4"
     generateIcon
   else
-    for svgFile in "./assets/svg/$2/"*; do
+    for svgFile in "./assets/svg/$assetType/"*; do
       generateIcon
     done
   fi
@@ -275,16 +296,22 @@ installCore() {
   #Generate theme size values
   generateThemeSizes "$fontsize"
 
+  if [[ "$iconType" == "colourless" ]]; then
+    iconColourDir="icons-colourless"
+  else
+    iconColourDir="icons"
+  fi
+
   #Generate assets and set path
-  if [[ -d "./assets/icons/${icon_size}px" ]]; then #Decide whether assets need to be generated
-    iconDir="./assets/icons/${icon_size}px"
+  if [[ -d "./assets/$iconColourDir/${icon_size}px" ]]; then #Decide whether assets need to be generated
+    iconDir="./assets/$iconColourDir/${icon_size}px"
     selectDir="./assets/select/${icon_size}px"
   else
     checkIconCached() { #$1: asset name, $2: resolution, $3: pretty name
       #Decide if the assets have been cached
       output "success" "Generating $3..." "noNewline"
       if [[ ! -d "./build/$1/${2}px" ]]; then
-        generateIcons "$2" "$1" "install"
+        generateIcons "$2" "$1" "install" "" "$iconType" 2>/dev/null
         output "success" " done"
       else
         output "success" " found cached $3"
@@ -292,10 +319,10 @@ installCore() {
     }
 
     #Check if icons are cached and regenerate if not
-    checkIconCached "icons" "$icon_size" "icons"
+    checkIconCached "$iconColourDir" "$icon_size" "icons"
     checkIconCached "select" "$item_height" "assets"
 
-    iconDir="./build/icons/${icon_size}px"
+    iconDir="./build/$iconColourDir/${icon_size}px"
     selectDir="./build/select/${item_height}px"
   fi
 
@@ -524,8 +551,9 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -f|--font) getFontFile "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -l|--bold) forceBoldFont="true";;
+    --icons) getIconType "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -hl|--helplabel|--help-label) helpLabel="true";;
-    -g|--generate) generateIcons "${args["$((i + 1))"]}" "${args["$((i + 2))"]}" "${args["$((i + 3))"]}" "${args["$((i + 4))"]}"; exit;;
+    -g|--generate) generateIcons "${args["$((i + 1))"]}" "${args["$((i + 2))"]}" "${args["$((i + 3))"]}" "${args["$((i + 4))"]}" "${args["$((i + 5))"]}"; exit;;
     --auto) auto="true";;
     *) output "error" "Unknown parameter passed: $arg"; exit 1;;
   esac
@@ -533,6 +561,9 @@ while [[ $i -le "$(($# - 1))" ]]; do
 done
 
 warnArgs() {
+  if [[ "$iconType" == "" ]]; then
+    iconType="coloured"
+  fi
   if [[ "$resolution" == "" ]]; then
     argWarnings+="$(output "warning" "No resolution specified, using default of 1080p\n")"
     resolution="1080p"
@@ -596,11 +627,12 @@ if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview"
   else
     output "list" "Background: ${backgroundColour}"
   fi
+  output "list" "Icon type: ${iconType^}"
   output "list" "Font colour: ${font_colour^}"
   output "list" "Selected font colour: ${selected_font_colour^}"
   output "list" "Font size: $fontsize"
   output "list" "Font file: $fontfile"
-  forceBoldFont="${forceBoldFont:-false}"; output "list" "Force bold: ${forceBoldFont^}"
+  forceBoldFont="${forceBoldFont:-"false"}"; output "list" "Force bold: ${forceBoldFont^}"
 
   if [[ "$auto" != "true" ]]; then
     echo ""; output "normal" "Press enter to continue..."; read -r
