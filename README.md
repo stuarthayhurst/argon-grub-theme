@@ -108,6 +108,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
 ![Green](docs/Green.png)
 
 ## Makefile options:
+ - Makefile respects core count specified by `-j[Core count]`
  - `make clean` - Remove assets generated at build time
  - `make full-clean` - Remove all generated assets
  - `make generate-all` - Generate all assets
