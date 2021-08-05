@@ -1,14 +1,10 @@
 SHELL=bash
 
-BACKGROUNDS1080p=$(wildcard ./backgrounds/1080p/*.png)
-BACKGROUNDS2k=$(wildcard ./backgrounds/2k/*.png)
-BACKGROUNDS4k=$(wildcard ./backgrounds/4k/*.png)
-
-COLOURLESSICONSVGS=$(wildcard ./assets/svg/icons-colourless/*.svg)
-ICONSVGS=$(COLOURLESSICONSVGS) $(wildcard ./assets/svg/icons/*.svg)
+BACKGROUNDS=$(wildcard ./backgrounds/*/*.png)
+ICONSVGS=$(wildcard ./assets/svg/icons*/*.svg)
 SELECTSVGS=$(wildcard ./assets/svg/select/*.svg)
 
-.PHONY: clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS1080p) $(BACKGROUNDS2k) $(BACKGROUNDS4k)
+.PHONY: clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS)
 
 clean:
 	rm -rvf "./build"
@@ -49,12 +45,6 @@ $(SELECTSVGS): ./assets/svg/select/%.svg: ./Makefile
 	  ./install.sh "--generate" "$$resolution" "select" "default" "$$select"; \
 	done
 
-$(BACKGROUNDS1080p): ./backgrounds/1080p/%.png: ./Makefile
-	echo "Compressing $@..."; \
-	  optipng --quiet "$@"
-$(BACKGROUNDS2k): ./backgrounds/2k/%.png: ./Makefile
-	echo "Compressing $@..."; \
-	  optipng --quiet "$@"
-$(BACKGROUNDS4k): ./backgrounds/4k/%.png: ./Makefile
+$(BACKGROUNDS): %.png: %.png
 	echo "Compressing $@..."; \
 	  optipng --quiet "$@"
