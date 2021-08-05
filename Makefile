@@ -13,22 +13,19 @@ full-clean:
 	rm -rvf "./assets/select/"*
 	rm -rvf "./build"
 compress-backgrounds:
-	read -ra backgrounds <<< "$$(echo ./backgrounds/*/*.png)"; \
-	make "$${backgrounds[@]}" "-j$$(nproc)"
+	$(MAKE) $(BACKGROUNDS)
 generate-icons:
-	read -ra icons <<< "$$(echo ./assets/svg/icons*/*.svg)"; \
-	make "$${icons[@]}" "-j$$(nproc)"
+	$(MAKE) $(ICONSVGS)
 generate-select:
-	read -ra select <<< "$$(echo ./assets/svg/select/*.svg)"; \
-	make "$${select[@]}" "-j$$(nproc)"
+	$(MAKE) $(SELECTSVGS)
 generate-gif:
 	cd docs/; \
 	optipng *.png; \
 	convert -delay 150 *.png +dither -alpha off -loop 0 Gallery.gif
 generate-all:
-	make generate-icons generate-select compress-backgrounds generate-gif
+	$(MAKE) generate-icons generate-select compress-backgrounds generate-gif
 
-$(ICONSVGS): %.svg: ./Makefile
+$(ICONSVGS): %.svg: %.svg
 	resolutions=("32" "48" "64"); \
 	for resolution in "$${resolutions[@]}"; do \
 	  icon="$@"; \
@@ -38,7 +35,7 @@ $(ICONSVGS): %.svg: ./Makefile
 	  fi; \
 	  ./install.sh "--generate" "$$resolution" "icons" "default" "$$icon" "$$type"; \
 	done
-$(SELECTSVGS): ./assets/svg/select/%.svg: ./Makefile
+$(SELECTSVGS): %.svg: %.svg
 	resolutions=("37" "56" "74"); \
 	for resolution in "$${resolutions[@]}"; do \
 	  select="$@"; \
