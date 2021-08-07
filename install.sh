@@ -301,6 +301,17 @@ installCore() {
     $mkfontCommand "$1" -o "$2" -s "$3" -n "$4" "$forceBoldFont"
   }
 
+  checkIconCached() { #$1: asset name, $2: resolution, $3: pretty name
+    #Decide if the assets have been cached
+    output "success" "Generating $3..." "noNewline"
+    if [[ ! -d "./build/$1/${2}px" ]]; then
+      generateIcons "$2" "$1" "install" "" "$iconType" >/dev/null 2>&1
+      output "success" " done"
+    else
+      output "success" " found cached $3"
+    fi
+  }
+
   generateThemeSizes() {
     icon_size="$(($1 * 2))"
     item_icon_space="$((icon_size / 2 + 2))"
@@ -323,16 +334,6 @@ installCore() {
     iconDir="./assets/$iconColourDir/${icon_size}px"
     selectDir="./assets/select/${icon_size}px"
   else
-    checkIconCached() { #$1: asset name, $2: resolution, $3: pretty name
-      #Decide if the assets have been cached
-      output "success" "Generating $3..." "noNewline"
-      if [[ ! -d "./build/$1/${2}px" ]]; then
-        generateIcons "$2" "$1" "install" "" "$iconType" 2>/dev/null
-        output "success" " done"
-      else
-        output "success" " found cached $3"
-      fi
-    }
 
     #Check if icons are cached and regenerate if not
     checkIconCached "$iconColourDir" "$icon_size" "icons"
