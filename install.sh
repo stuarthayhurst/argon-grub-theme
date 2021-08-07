@@ -179,10 +179,13 @@ getFontFile() {
 #Processes the icon type argument (validating)
 getIconType() {
   iconType="${1}"
+  if [[ "$iconType" == "colorless" ]]; then
+    iconType="colourless"
+  fi
   if checkArg "$iconType"; then
     if [[ "$iconType" != "coloured" ]] && [[ "$iconType" != "colourless" ]]; then
      output "warning" "Icon type must be either coloured or colourless, ignoring"
-     fontsize=""
+     iconType=""
     fi
   else
     #Reset fontsize
