@@ -515,7 +515,7 @@ if [[ "$#" ==  "0" ]]; then
   exit 1
 fi
 
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "--custom-background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold" "-hl" "--helplabel" "--help-label" "-g" "--generate" "--auto")
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "--custom-background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold" "--icons" "-hl" "--helplabel" "--help-label" "-g" "--generate" "--auto")
 read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
@@ -533,6 +533,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal" "                   - HTML colour value, must be quoted (\"#FFFFFF\")"
       output "normal" "-r | --resolution : Use a specific resolution (Default: 1080p)"
       output "normal" "                  - Leave blank to view available resolutions"
+      output "normal" "--icons           : Choose whether to use 'coloured or 'colourless' icons"
       output "normal" "-f | --font       : Specify which font to use (file)"
       output "normal" "                   - Leave blank to view available fonts"
       output "normal" "-fc| --fontcolour : Use a specific font colour"
