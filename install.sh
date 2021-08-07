@@ -564,9 +564,6 @@ while [[ $i -le "$(($# - 1))" ]]; do
 done
 
 warnArgs() {
-  if [[ "$iconType" == "" ]]; then
-    iconType="coloured"
-  fi
   if [[ "$resolution" == "" ]]; then
     argWarnings+="$(output "warning" "No resolution specified, using default of 1080p\n")"
     resolution="1080p"
@@ -630,7 +627,7 @@ if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview"
   else
     output "list" "Background: ${backgroundColour}"
   fi
-  output "list" "Icon type: ${iconType^}"
+  iconType="${iconType:-"coloured"}"; output "list" "Icon type: ${iconType^}"
   output "list" "Font colour: ${font_colour^}"
   output "list" "Selected font colour: ${selected_font_colour^}"
   output "list" "Font size: $fontsize"
