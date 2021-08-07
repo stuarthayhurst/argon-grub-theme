@@ -24,13 +24,31 @@ generate-gif:
 	convert -delay 150 *.png +dither -alpha off -loop 0 Gallery.gif
 generate-all:
 	$(MAKE) generate-icons generate-select compress-backgrounds generate-gif
-
+check:
+	read -ra icons <<< "$(ICONSVGS)"; \
+	for icon in "$${icons[@]}"; do \
+	  #Validate all symlinks \
+	  if [[ -L "$$icon" ]]; then \
+	    if [[ ! -e "$$icon" ]]; then \
+	      echo "$$icon is a broken symlink, exiting"; \
+	      exit 1; \
+	    fi; \
+	  fi \
+	  #Check all icons have colourless counterparts \
+	  if [[ "$$icon" == *"/icons/"* ]]; then \
+	    if [[ ! -f "$${icon/'/icons/'/'/icons-colourless/'}" ]]; then \
+	      echo "$$icon is missing a colourless conterpart, exiting"; \
+	      exit 1; \
+	    fi; \
+	  fi; \
+	done
+	
 $(ICONSVGS): %.svg: %.svg
 	resolutions=("32" "48" "64"); \
 	for resolution in "$${resolutions[@]}"; do \
 	  icon="$@"; \
 	  type="coloured"; \
-	  if [[ "$$icon" == *"/icons-colourless"* ]]; then \
+	  if [[ "$$icon" == *"/icons-colourless/"* ]]; then \
 	    type="colourless"; \
 	  fi; \
 	  ./install.sh "--generate" "$$resolution" "icons" "default" "$$icon" "$$type"; \
