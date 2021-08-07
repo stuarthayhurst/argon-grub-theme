@@ -207,16 +207,12 @@ updateGrub() {
   fi
 }
 
-#Generates assets for the theme is a custom resolution is required
+#Generates assets for the theme if a custom resolution is required
 generateIcons() {
-  #Version comparison function
-  compareVersions() {
-    if [[ "$1" != "$(echo -e "$1\n$2" | sort -V | head -n 1)" ]]; then
+  compareVersions() { #Version comparison function, return 1 if $1 is smaller than $2
+    if [[ "$1" != "$(echo -e "$1\n$2" | sort -V | head -n 1)" ]] || [[ "$1" == "$2" ]]; then
       return
     else
-      if [[ "$1" == "$2" ]]; then
-        return
-      fi
       return 1
     fi
   }
