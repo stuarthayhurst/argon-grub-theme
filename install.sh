@@ -1,8 +1,5 @@
 #!/bin/bash
-
-#Path variables
 installDir="/usr/share/grub/themes/argon"
-
 #Set bootPath for future reference, and to set splashScreenPath
 if [[ -d "/boot/grub" ]]; then
   bootPath="/boot/grub"
@@ -10,14 +7,6 @@ elif [[ -d "/boot/grub2" ]]; then
   bootPath="/boot/grub2"
 fi
 splashScreenPath="$bootPath/splash0.png"
-
-#Output colours
-successCol="\033[1;32m"
-listCol="\033[1;36m"
-warningCol="\033[1;33m"
-errorCol="\033[1;31m"
-boldCol="\033[1;37m"
-resetCol="\033[0m"
 
 #Checks whether argument is a program argument or data
 checkArg() {
@@ -28,31 +17,29 @@ checkArg() {
   done
 }
 
-#Check whether a command exists, silently
 checkCommand() {
   command -v "$1" > /dev/null
 }
 
-#Checks whether the current user is root or not
 checkRoot() {
   if [[ "$UID" != "0" ]]; then
     return 1
   fi
 }
 
-#Output messages with colours based off of categories
-#$3 - whether or not to output a newline, $2 - actual message
+#Output messages with colours based off of categories - $1: Mode, $2: Message content, $3: Newline toggle
 output() {
   extraContent="\n"
   if [[ "$3" == "noNewline" ]]; then
     extraContent=""
   fi
+  resetCol="\033[0m"
   case $1 in
-    "success") echo -en "${successCol}${2}${resetCol}${extraContent}";;
-    "list"|"minor") echo -en "${listCol}${2}${resetCol}${extraContent}";;
-    "warning") echo -en "${warningCol}${2}${resetCol}${extraContent}";;
-    "error") echo -en "${errorCol}${2}${resetCol}${extraContent}";;
-    "normal"|*) echo -en "${boldCol}${2}${resetCol}${extraContent}";;
+    "success") echo -en "\033[1;32m${2}${resetCol}${extraContent}";;
+    "list"|"minor") echo -en "\033[1;36m${2}${resetCol}${extraContent}";;
+    "warning") echo -en "\033[1;33m${2}${resetCol}${extraContent}";;
+    "error") echo -en "\033[1;31m${2}${resetCol}${extraContent}";;
+    "normal"|*) echo -en "\033[1;37m${2}${resetCol}${extraContent}";;
   esac
 }
 
@@ -188,7 +175,6 @@ getIconType() {
      iconType=""
     fi
   else
-    #Reset fontsize
     output "warning" "Incorrect usage of --icons, ignoring"
     return 1
   fi
