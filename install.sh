@@ -194,6 +194,19 @@ getIconType() {
   fi
 }
 
+updateGrub() {
+  output "success" "Updating grub..."
+  if checkCommand update-grub; then
+    update-grub
+  elif checkCommand grub-mkconfig; then
+    grub-mkconfig -o /boot/grub/grub.cfg
+  elif checkCommand zypper; then
+    grub2-mkconfig -o /boot/grub2/grub.cfg
+  elif checkCommand dnf; then
+    grub2-mkconfig -o /boot/grub2/grub.cfg || grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
+  fi
+}
+
 #Generates assets for the theme is a custom resolution is required
 generateIcons() {
   #Version comparison function
@@ -385,19 +398,6 @@ installCore() {
     fi
     output "success" "Generating custom background..."
     convert -size "$customBackgroundRes" -depth 24 "xc:$backgroundColour" "PNG8:$installDir/background.png"
-  fi
-}
-
-updateGrub() {
-  output "success" "Updating grub..."
-  if checkCommand update-grub; then
-    update-grub
-  elif checkCommand grub-mkconfig; then
-    grub-mkconfig -o /boot/grub/grub.cfg
-  elif checkCommand zypper; then
-    grub2-mkconfig -o /boot/grub2/grub.cfg
-  elif checkCommand dnf; then
-    grub2-mkconfig -o /boot/grub2/grub.cfg || grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
   fi
 }
 
