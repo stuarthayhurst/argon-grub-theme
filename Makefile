@@ -42,8 +42,8 @@ check:
 	    fi; \
 	  fi; \
 	done
-	
-$(ICONSVGS): %.svg: %.svg
+
+$(ICONSVGS):
 	resolutions=("32" "48" "64"); \
 	for resolution in "$${resolutions[@]}"; do \
 	  icon="$@"; \
@@ -53,13 +53,13 @@ $(ICONSVGS): %.svg: %.svg
 	  fi; \
 	  ./install.sh "--generate" "$$resolution" "icons" "default" "$$icon" "$$type"; \
 	done
-$(SELECTSVGS): %.svg: %.svg
+$(SELECTSVGS):
 	resolutions=("37" "56" "74"); \
 	for resolution in "$${resolutions[@]}"; do \
 	  select="$@"; \
 	  ./install.sh "--generate" "$$resolution" "select" "default" "$$select"; \
 	done
 
-$(BACKGROUNDS): %.png: %.png
+$(BACKGROUNDS):
 	echo "Compressing $@..."; \
 	  optipng --quiet "$@"
