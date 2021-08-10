@@ -22,7 +22,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -97,22 +97,16 @@
        id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
   </defs>
   <g
-     id="windows"
-     transform="matrix(0.61539,0,0,0.61539,-0.97667316,4.2296985)">
-    <g
-       transform="matrix(1.04,0,0,1.04,-0.339,-300.07)"
-       style="stroke-width:1.5633;paint-order:markers stroke fill"
-       id="g232">
-      <path
-         d="m 8.4665,281.92 c 3.6644,0 6.6145,2.9501 6.6145,6.6145 0,3.6644 -2.9501,6.6145 -6.6145,6.6145 -3.6644,0 -6.6145,-2.9501 -6.6145,-6.6145 0,-3.6644 2.9501,-6.6145 6.6145,-6.6145 z"
-         id="path230"
-         inkscape:connector-curvature="0"
-         style="fill:#2196f3;stroke-width:1.5633" />
-    </g>
+     id="g853">
     <path
-       d="m 4.852,-0.2645 -0.003,-2.58 2.894,-0.431 v 3.011 z m 3.374,-3.088 3.857,-0.616 v 3.704 H 8.226 Z m 3.858,3.617 -10e-4,3.704 -3.857,-0.595 v -3.109 z m -4.34,3.042 -2.892,-0.435 v -2.608 h 2.891 v 3.042 z"
+       d="m 4.233317,-1.248e-6 c 2.3452365,0 4.2333171,1.888080548 4.2333171,4.233317048 0,2.3452365 -1.8880806,4.233317 -4.2333171,4.233317 C 1.8880805,8.4666328 -2.88e-8,6.5785523 -2.88e-8,4.2333158 -2.88e-8,1.8880793 1.8880805,-1.248e-6 4.233317,-1.248e-6 Z"
+       id="path230"
+       inkscape:connector-curvature="0"
+       style="fill:#2196f3;stroke-width:1.00052;paint-order:markers stroke fill" />
+    <path
+       d="M 2.0091991,4.0669278 2.007353,2.4792216 3.7882916,2.2139886 V 4.0669278 Z M 4.085525,2.1666035 6.4590842,1.7875233 V 4.0669278 H 4.085525 Z M 6.4596996,4.3924692 6.4590842,6.6718737 4.085525,6.3057167 V 4.3924692 Z M 3.788907,6.2644855 2.0091991,5.9967909 V 4.3918538 h 1.7790925 v 1.8720163 z"
        id="path234"
        inkscape:connector-curvature="0"
-       style="fill:#ffffff;stroke-width:1.6251" />
+       style="fill:#ffffff;stroke-width:1.00007" />
   </g>
 </svg>

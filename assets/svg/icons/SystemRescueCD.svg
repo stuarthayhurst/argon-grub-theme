@@ -42,9 +42,9 @@
      inkscape:window-height="1016"
      id="namedview373"
      showgrid="false"
-     inkscape:zoom="11.313709"
-     inkscape:cx="17.663412"
-     inkscape:cy="19.180264"
+     inkscape:zoom="8.0000004"
+     inkscape:cx="27.994594"
+     inkscape:cy="3.5653416"
      inkscape:window-x="1920"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
@@ -96,12 +96,8 @@
        type="text/css"
        id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
   </defs>
-  <path
-     style="fill:#ffffff;stroke-width:1.00694"
-     d="m 5.144526,2.0786105 a 2.3461598,2.3562626 0 0 1 0.0078,0.00364 c 8.979e-4,-0.00117 0.0017,-0.00248 0.0026,-0.00364 z"
-     id="path943" />
   <g
-     id="g1058">
+     id="g893">
     <circle
        id="circle1196"
        paint-order="stroke markers fill"
@@ -109,7 +105,7 @@
        r="4.2333331"
        cy="5.986834"
        cx="1.6858739e-06"
-       style="stroke-width:1.00091878;stroke-miterlimit:4;stroke-dasharray:none;fill:#b81515;fill-opacity:1"
+       style="fill:#b81515;fill-opacity:1;stroke-width:1.00092;stroke-miterlimit:4;stroke-dasharray:none"
        transform="rotate(-45)" />
     <g
        id="g1006">
