@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   version="1.1"
+   viewBox="0 0 8.4666667 8.4666671"
+   id="svg371"
+   sodipodi:docname="4MLinux.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <metadata
+     id="metadata375">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox="true"
+     pagecolor="#808080"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview373"
+     showgrid="false"
+     inkscape:zoom="8"
+     inkscape:cx="23.137101"
+     inkscape:cy="21.352198"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg371"
+     inkscape:document-rotation="0"
+     inkscape:pagecheckerboard="false">
+    <inkscape:grid
+       id="grid1162"
+       type="xygrid" />
+  </sodipodi:namedview>
+  <defs
+     id="defs37">
+    <style
+       id="current-color-scheme"
+       type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style29" />
+    <style
+       type="text/css"
+       id="style31" />
+    <style
+       type="text/css"
+       id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+  </defs>
+  <path
+     id="path846"
+     style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.322;stroke-linecap:round;paint-order:stroke markers fill"
+     d="M 4.2333334,0 A 4.2333334,4.2333334 0 0 0 0,4.2333334 4.2333334,4.2333334 0 0 0 4.2333334,8.4666669 4.2333334,4.2333334 0 0 0 8.4666669,4.2333334 4.2333334,4.2333334 0 0 0 4.2333334,0 Z M 2.411567,2.3984755 H 2.9875868 V 4.6178062 H 3.3989314 V 5.1772895 H 2.9875868 V 6.0681914 H 2.3571345 V 5.1772895 H 0.794439 v -0.405832 -0.018604 l 0.00551,-0.017914 C 0.8658844,4.5829457 0.9560567,4.410588 1.0679796,4.2140407 1.1799639,4.0132883 1.3038683,3.8064465 1.442806,3.5966796 1.58518,3.3861824 1.7368348,3.1801788 1.8961806,2.9772515 2.059394,2.7730651 2.2227329,2.5886851 2.3860732,2.4246583 Z m 1.630219,0 h 0.5574164 l 0.026183,0.04203 c 0.092664,0.1510079 0.1894156,0.3284484 0.2942111,0.5312336 0.10457,0.2023505 0.2097486,0.4148769 0.314882,0.6380318 0.1044438,0.2190608 0.2048221,0.4383362 0.3024791,0.6614583 L 5.7243706,4.6880859 5.9090279,4.2712295 C 6.007333,4.0481776 6.1091623,3.828765 6.2135743,3.6097712 6.3180603,3.3865531 6.4245396,3.174159 6.5291449,2.9717394 6.6345849,2.7683443 6.731408,2.5907792 6.8233563,2.4405058 l 0.026183,-0.04203 h 0.5567273 l 0.00827,0.078548 c 0.1150148,1.127826 0.2008756,2.2955705 0.2576933,3.5002171 l 0.00551,0.090951 H 7.0211048 l -0.00276,-0.083372 C 7.0014781,5.5150852 6.9799621,5.0491278 6.956337,4.5888671 6.9381929,4.2332046 6.9121568,3.9157152 6.8860569,3.5994358 6.8350481,3.7019922 6.7809616,3.8166475 6.7213813,3.9453235 6.6581914,4.0797647 6.5898657,4.2250103 6.5160537,4.3780273 l -0.00276,0.00276 C 6.4437798,4.5305603 6.3763036,4.677311 6.312793,4.8203775 6.2494377,4.9646054 6.1903738,5.099829 6.1329592,5.224143 v 0.00276 c -0.0534,0.1228335 -0.099025,0.2246956 -0.1322916,0.3045426 l -0.02136,0.055122 H 5.5286893 5.4694336 L 5.4453181,5.5314456 C 5.4122081,5.4519845 5.3673902,5.3505496 5.3102702,5.2268989 v -0.00276 L 5.1331923,4.8203775 C 5.0702292,4.6770351 5.003725,4.5310518 4.9299316,4.3807836 h -0.00276 v -0.00276 C 4.8571229,4.2237752 4.7905706,4.0791783 4.7266713,3.9453235 4.6682619,3.8185599 4.6127339,3.7070352 4.5599284,3.6070149 4.5345552,3.920592 4.5103726,4.2366908 4.4924046,4.5888671 4.468784,5.0491285 4.4465858,5.5150855 4.429704,5.9848201 l -0.00207,0.083371 H 3.7710015 l 0.00551,-0.090951 c 0.013527,-0.3022771 0.027194,-0.6080038 0.044099,-0.9143279 0.016237,-0.3098486 0.034133,-0.612437 0.054433,-0.9088159 0.023654,-0.2994011 0.04938,-0.5904445 0.073036,-0.8722984 0.027082,-0.283016 0.055633,-0.5513293 0.086127,-0.8047743 z M 2.3571345,3.2817979 C 2.3070633,3.3409816 2.2573044,3.3928894 2.2062391,3.4588761 2.1061533,3.5883212 2.00828,3.724425 1.912028,3.8674644 1.8158971,4.010327 1.7246114,4.1554432 1.6384874,4.3049914 h 0.00276 C 1.581724,4.4116488 1.5326494,4.5147873 1.4820801,4.6178062 h 0.8750544 z" />
+</svg>

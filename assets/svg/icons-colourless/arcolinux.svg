@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="32"
+   height="32"
+   version="1.1"
+   viewBox="0 0 8.4666667 8.4666671"
+   id="svg371"
+   sodipodi:docname="arcolinux.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <metadata
+     id="metadata375">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox="true"
+     pagecolor="#808080"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview373"
+     showgrid="false"
+     inkscape:zoom="15.999999"
+     inkscape:cx="14.713444"
+     inkscape:cy="13.837273"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg371"
+     inkscape:document-rotation="0">
+    <inkscape:grid
+       id="grid1162"
+       type="xygrid" />
+  </sodipodi:namedview>
+  <defs
+     id="defs37">
+    <style
+       id="current-color-scheme"
+       type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style29" />
+    <style
+       type="text/css"
+       id="style31" />
+    <style
+       type="text/css"
+       id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+  </defs>
+  <path
+     id="path10"
+     style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.0730927"
+     d="M 16 0 C 7.163819 -2.3684758e-15 0 7.1630884 0 16 C 0 24.836181 7.1630884 32 16 32 C 24.836181 32 32 24.836912 32 16 C 32 7.163819 24.836912 0 16 0 z M 16.525391 5.1992188 L 16.777344 5.6425781 C 16.91592 5.8857151 17.930538 7.8180139 19.033203 9.9375 C 20.135799 12.056986 22.359779 16.319433 23.974609 19.408203 C 26.240635 23.742526 26.879054 25.042409 26.773438 25.109375 C 26.698142 25.157088 25.791582 25.198357 24.757812 25.199219 L 22.876953 25.199219 L 22.324219 24.638672 C 20.933573 23.228597 18.50148 21.949278 15.785156 21.199219 L 14.568359 20.863281 L 16.089844 20.787109 C 17.518864 20.715438 19.132298 20.763358 20.013672 20.904297 C 20.30826 20.951409 20.400391 20.932498 20.400391 20.824219 C 20.400391 20.556734 16.671724 13.740234 16.525391 13.740234 C 16.41874 13.740234 15.666391 15.052538 12.744141 20.332031 C 11.308644 22.925584 10.124949 25.056647 10.115234 25.068359 C 10.071974 25.120853 6 25.225226 6 25.173828 C 6 25.105165 15.96147 6.1588027 16.294922 5.5917969 L 16.525391 5.1992188 z "
+     transform="scale(0.26458334)" />
+</svg>

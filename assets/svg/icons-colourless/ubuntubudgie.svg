@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="32"
+   width="32"
+   version="1.1"
+   viewBox="0 0 32 32"
+   id="svg13"
+   sodipodi:docname="ubuntubudgie.svg"
+   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
+  <defs
+     id="defs17" />
+  <sodipodi:namedview
+     pagecolor="#808080"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview15"
+     showgrid="false"
+     inkscape:zoom="8.8388348"
+     inkscape:cx="14.463686"
+     inkscape:cy="13.095067"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg13"
+     inkscape:document-rotation="0" />
+  <title
+     id="title2">budgie-remix Logo</title>
+  <metadata
+     id="metadata4">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title>budgie-remix Logo</dc:title>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>HEXcube and Joshua &quot;Foggalong&quot; Fogg</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <cc:license
+           rdf:resource="http://creativecommons.org/licenses/by-sa/4.0/" />
+        <dc:source>Budgie Logo by Yuri Henrique</dc:source>
+        <dc:description>Official logo for budgie-remix</dc:description>
+      </cc:Work>
+      <cc:License
+         rdf:about="http://creativecommons.org/licenses/by-sa/4.0/">
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Reproduction" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#Distribution" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Notice" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#Attribution" />
+        <cc:permits
+           rdf:resource="http://creativecommons.org/ns#DerivativeWorks" />
+        <cc:requires
+           rdf:resource="http://creativecommons.org/ns#ShareAlike" />
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+  <path
+     id="circle6"
+     style="stroke-width:0.125;fill:#ffffff"
+     d="M 16 0 A 16 16 0 0 0 0 16 A 16 16 0 0 0 16 32 A 16 16 0 0 0 32 16 A 16 16 0 0 0 16 0 z M 19.605469 5.8144531 C 19.851654 5.8310129 20.087274 5.8686388 20.351562 5.9121094 C 21.796827 6.1498319 23.264063 7.2081158 24.154297 8.75 C 25.355187 10.830014 25.085305 13.334972 23.714844 14.738281 C 23.026369 15.443262 22.822885 15.481706 22.373047 15.785156 C 22.679635 15.301795 22.773941 15.115092 22.773438 14.714844 C 22.773063 14.463751 22.693797 14.260088 22.648438 14.144531 C 22.474165 13.700589 22.164266 13.514921 21.802734 13.300781 C 21.358358 13.037569 20.844358 12.954398 20.521484 12.955078 C 20.271083 12.955608 20.142118 12.957756 19.8125 13.041016 C 18.250976 13.435388 16.545593 12.82186 15.722656 11.396484 L 15.724609 11.396484 C 14.740844 9.6925434 15.358956 7.4923715 17.109375 6.4824219 C 17.624937 6.1849575 18.229761 5.9000825 18.792969 5.8359375 C 19.102478 5.8006895 19.359284 5.7978931 19.605469 5.8144531 z M 10.322266 9.8359375 C 10.569548 9.8503945 10.813213 9.8885688 11.050781 9.9492188 C 12.00555 10.192962 12.141192 10.350047 12.628906 10.587891 C 12.057012 10.564066 11.848324 10.576783 11.501953 10.777344 C 11.284687 10.903217 11.145749 11.074805 11.068359 11.171875 C 10.771041 11.544773 10.764466 11.904055 10.759766 12.324219 C 10.754011 12.840666 10.941489 13.326193 11.103516 13.605469 C 11.229174 13.822059 11.294338 13.933906 11.53125 14.177734 C 12.653107 15.332401 12.974044 17.113969 12.152344 18.539062 L 12.152344 18.541016 C 11.168139 20.243769 8.9544123 20.807498 7.2050781 19.796875 C 6.6896841 19.499119 6.1398919 19.11974 5.8027344 18.664062 C 5.432172 18.163225 5.274935 17.776622 5.0859375 17.275391 C 4.5691723 15.904895 4.7523745 14.104386 5.6425781 12.5625 C 6.693357 10.742488 8.5912927 9.7347165 10.322266 9.8359375 z M 20.125 18.0625 C 22.092531 18.0625 23.688063 19.697874 23.6875 21.71875 C 23.687332 22.313969 23.632301 22.980176 23.40625 23.5 C 23.157795 24.071332 22.90208 24.39821 22.5625 24.8125 C 21.634 25.945273 19.983532 26.6875 18.203125 26.6875 C 15.801344 26.6875 13.764448 25.201 13.234375 23.3125 C 12.96808 22.363777 13.03788 22.166293 13 21.625 C 13.265311 22.132187 13.379687 22.308125 13.726562 22.507812 C 13.944202 22.633038 14.162399 22.667057 14.285156 22.685547 C 14.756756 22.756592 15.071285 22.581025 15.4375 22.375 C 15.887631 22.121763 16.214153 21.717457 16.375 21.4375 C 16.499743 21.220384 16.56355 21.108337 16.65625 20.78125 C 17.09547 19.231752 18.479125 18.0625 20.125 18.0625 z " />
+</svg>
