@@ -91,7 +91,7 @@ getResolution() {
       4k|4K|3480x2160|2160p) resolution="4k"; gfxmode="GRUB_GFXMODE=3840x2160,auto";;
       2k|2K|2560x1440|1440p) resolution="2k"; gfxmode="GRUB_GFXMODE=2560x1440,auto";;
       1920x1080|1080p) resolution="1080p"; gfxmode="GRUB_GFXMODE=1920x1080,auto";;
-      *x*) resolution="$resolution"; gfxmode="GRUB_GFXMODE=$resolution,auto"; echo "Custom resolution found, using \"$resolution\"";;
+      *x*) gfxmode="GRUB_GFXMODE=$resolution,auto"; echo "Custom resolution found, using \"$resolution\"";;
       "custom") resolution="custom"; gfxmode="GRUB_GFXMODE=auto";;
       ""|"list") output "normal" "Valid resolutions: '1080p', '2k', '4k', 'custom' or '[WIDTH]x[HEIGHT]'"; exit 0;;
       *) output "error" "Invalid resolution, using default"; resolution="1080p";;
