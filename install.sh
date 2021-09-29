@@ -54,15 +54,13 @@ getBackground() {
       availableBackground="${availableBackground^}"
       output "success" "  ${availableBackground/.png}"
     done
-    output "normal" "Or specify a file (e.g. './install.sh -i -b background.png')"
-    exit 0
+    output "normal" "Or specify a file (e.g. './install.sh -i -b background.png')"; exit
   fi
 
   background="${background/.png}"
   if [[ ! -f "$background.png" ]]; then
     if [[ ! -f "backgrounds/4k/${background,,}.png" ]]; then
-      output "error" "Invalid background, use './install.sh -b' to view available backgrounds"
-      exit 1
+      output "error" "Invalid background, use './install.sh -b' to view available backgrounds"; exit 1
     else
       background="${background,,}"
     fi
@@ -93,7 +91,7 @@ getResolution() {
       1920x1080|1080p) resolution="1080p"; gfxmode="GRUB_GFXMODE=1920x1080,auto";;
       *x*) gfxmode="GRUB_GFXMODE=$resolution,auto"; echo "Custom resolution found, using \"$resolution\"";;
       "custom") resolution="custom"; gfxmode="GRUB_GFXMODE=auto";;
-      ""|"list") output "normal" "Valid resolutions: '1080p', '2k', '4k', 'custom' or '[WIDTH]x[HEIGHT]'"; exit 0;;
+      ""|"list") output "normal" "Valid resolutions: '1080p', '2k', '4k', 'custom' or '[WIDTH]x[HEIGHT]'"; exit;;
       *) output "error" "Invalid resolution, using default"; resolution="1080p";;
     esac
   else
@@ -144,8 +142,7 @@ getFontFile() {
       availableFont="${availableFont##*/}"
       output "success" "  $availableFont"
     done
-    output "normal" "Or specify a file (e.g. './install.sh -i -f Font.ttf')"
-    exit 0
+    output "normal" "Or specify a file (e.g. './install.sh -i -f Font.ttf')"; exit
   fi
 
   if [[ ! -f "$fontfile" ]]; then
@@ -154,8 +151,7 @@ getFontFile() {
     elif [[ -f "fonts/${fontfile}.otf" ]]; then
       fontfile="$fontfile".otf
     elif [[ ! -f "fonts/${fontfile}" ]]; then
-      output "error" "Invalid fontfile, use './install.sh -f' to view available fonts"
-      exit 1
+      output "error" "Invalid fontfile, use './install.sh -f' to view available fonts"; exit 1
     fi
   fi
 }
@@ -270,8 +266,7 @@ installCore() {
     elif checkCommand grub2-mkfont; then
       mkfontCommand="grub2-mkfont"
     else
-      output "error" "Neither grub-mkfont nor grub2-mkfont could be found, exiting"
-      exit 1
+      output "error" "Neither grub-mkfont nor grub2-mkfont could be found, exiting"; exit 1
     fi
 
     if [[ "$forceBoldFont" == "true" ]] || [[ "$5" == "-b" ]]; then
@@ -360,8 +355,7 @@ installCore() {
       if [[ -d "backgrounds/$resolution" ]]; then
         background="backgrounds/$resolution/$background"
       else
-        output "error" "Couldn't find \"backgrounds/$resolution/$background\", please report this issue, including a full log of the program's output"
-        exit 1
+        output "error" "Couldn't find \"backgrounds/$resolution/$background\", please report this issue, including a full log of the program's output"; exit 1
       fi
     fi
     cp "$background" "$installDir/background.png"
@@ -384,8 +378,7 @@ installCore() {
 installTheme() {
   #Check user is root
   if ! checkRoot; then
-    output "error" "This script should be run as root"
-    exit 1
+    output "error" "This script should be run as root"; exit 1
   fi
 
   #Remove theme if installed, and recreate directory
@@ -429,16 +422,14 @@ installTheme() {
 uninstallTheme() {
   #Check user is root
   if ! checkRoot; then
-    output "error" "This script should be run as root"
-    exit 1
+    output "error" "This script should be run as root"; exit 1
   fi
 
   #Delete assets
   if [[ -d "$installDir" ]]; then
     rm -rf "$installDir"
   else
-    output "warning" "Theme wasn't installed, exiting"
-    exit 1
+    output "warning" "Theme wasn't installed, exiting"; exit 1
   fi
 
   #Delete splash screen
@@ -461,8 +452,7 @@ uninstallTheme() {
       mv /etc/default/grub.bak /etc/default/grub
     else
       output "error" "No '/etc/default/grub' backup found, exiting"
-      output "warning" "You must manually remove the theme from '/etc/default/grub', then update grub"
-      exit 1
+      output "warning" "You must manually remove the theme from '/etc/default/grub', then update grub"; exit 1
     fi
   fi
 
@@ -491,8 +481,7 @@ previewTheme() {
 }
 
 if [[ "$#" ==  "0" ]]; then
-  output "error" "At least one argument is required, use './install.sh --help' to view options"
-  exit 1
+  output "error" "At least one argument is required, use './install.sh --help' to view options"; exit 1
 fi
 
 validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "--custom-background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold" "--icons" "-hl" "--helplabel" "--help-label" "-g" "--generate" "--auto")
@@ -523,7 +512,7 @@ while [[ $i -le "$(($# - 1))" ]]; do
       output "normal" "-l | --bold       : Force font to be bold"
       output "normal" "-hl| --help-label : Add a help label to the bottom of the theme"
       output "normal" "\nRequired arguments: [--install + --background / --uninstall / --preview]"
-      output "success" "Program written by: Stuart Hayhurst"; exit 0;;
+      output "success" "Program written by: Stuart Hayhurst"; exit;;
     -i|--install) programOperation="install";;
     -u|--uninstall) programOperation="uninstall";;
     -e|--boot) installDir="$bootPath/themes/argon";;
@@ -590,10 +579,8 @@ warnArgs() {
   fi
 
   if [[ "$argWarnings" != "" ]]; then
-    echo "\n$argWarnings"
-    if [[ "$argsFailed" == "true" ]]; then
-      exit 1
-    fi
+    echo -e "\n$argWarnings"
+    if [[ "$argsFailed" == "true" ]]; then exit 1; fi
   fi
 }
 
