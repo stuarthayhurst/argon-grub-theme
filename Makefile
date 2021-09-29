@@ -4,7 +4,7 @@ BACKGROUNDS=$(wildcard ./backgrounds/*/*.png)
 ICONSVGS=$(wildcard ./assets/svg/icons*/*.svg)
 SELECTSVGS=$(wildcard ./assets/svg/select/*.svg)
 
-.PHONY: clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS)
+.PHONY: prune clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS)
 
 clean:
 	rm -rvf "./build"
@@ -14,7 +14,7 @@ full-clean:
 	rm -rvf "./build"
 compress-backgrounds:
 	$(MAKE) $(BACKGROUNDS)
-generate-icons:
+generate-icons: prune
 	$(MAKE) $(ICONSVGS)
 generate-select:
 	$(MAKE) $(SELECTSVGS)
@@ -42,6 +42,8 @@ check:
 	    fi; \
 	  fi; \
 	done
+prune:
+	./clean-svgs.py
 
 $(ICONSVGS):
 	resolutions=("32" "48" "64"); \
