@@ -590,7 +590,7 @@ warnArgs() {
   fi
 
   if [[ "$argWarnings" != "" ]]; then
-    echo ""; echo "$argWarnings"
+    echo "\n$argWarnings"
     if [[ "$argsFailed" == "true" ]]; then
       exit 1
     fi
@@ -616,7 +616,7 @@ if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview"
   forceBoldFont="${forceBoldFont:-"false"}"; output "list" "Force bold: ${forceBoldFont^}"
 
   if [[ "$auto" != "true" ]]; then
-    echo ""; output "normal" "Press enter to continue..."; read -r
+    output "normal" "\nPress enter to continue..."; read -r
   fi
 fi
 
