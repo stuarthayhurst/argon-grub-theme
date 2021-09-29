@@ -11,9 +11,7 @@ splashScreenPath="$bootPath/splash0.png"
 #Checks whether argument is a program argument or data
 checkArg() {
   for validArg in "${validArgList[@]}"; do
-    if [[ "$1" == "$validArg" ]]; then
-      return 1
-    fi
+    if [[ "$1" == "$validArg" ]]; then return 1; fi
   done
 }
 
@@ -22,17 +20,13 @@ checkCommand() {
 }
 
 checkRoot() {
-  if [[ "$UID" != "0" ]]; then
-    return 1
-  fi
+  if [[ "$UID" != "0" ]]; then return 1; fi
 }
 
 #Output messages with colours based off of categories - $1: Mode, $2: Message content, $3: Newline toggle
 output() {
   extraContent="\n"
-  if [[ "$3" == "noNewline" ]]; then
-    extraContent=""
-  fi
+  if [[ "$3" == "noNewline" ]]; then extraContent=""; fi
   resetCol="\033[0m"
   case $1 in
     "success") echo -en "\033[1;32m${2}${resetCol}${extraContent}";;
@@ -377,15 +371,11 @@ installCore() {
 
 installTheme() {
   #Check user is root
-  if ! checkRoot; then
-    output "error" "This script should be run as root"; exit 1
-  fi
+  if ! checkRoot; then output "error" "This script should be run as root"; exit 1; fi
 
   #Remove theme if installed, and recreate directory
   output "success" "Preparing theme directory ($installDir/)..."
-  if [[ -d "$installDir" ]]; then
-    rm -rf "$installDir"
-  fi
+  if [[ -d "$installDir" ]]; then rm -rf "$installDir"; fi
   mkdir -p "$installDir"
 
   #Install files to $installDir
