@@ -1,104 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="32"
-   height="32"
-   version="1.1"
-   viewBox="0 0 8.4666667 8.4666672"
-   id="svg371"
-   sodipodi:docname="kali.svg"
-   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
-  <metadata
-     id="metadata375">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <sodipodi:namedview
-     inkscape:snap-bbox-edge-midpoints="true"
-     inkscape:bbox-nodes="true"
-     inkscape:snap-bbox="true"
-     pagecolor="#808080"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1016"
-     id="namedview373"
-     showgrid="false"
-     inkscape:zoom="16"
-     inkscape:cx="15.600299"
-     inkscape:cy="18.564433"
-     inkscape:window-x="1920"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg371"
-     inkscape:document-rotation="0">
-    <inkscape:grid
-       id="grid1162"
-       type="xygrid" />
-  </sodipodi:namedview>
-  <defs
-     id="defs37">
-    <style
-       id="current-color-scheme"
-       type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style29" />
-    <style
-       type="text/css"
-       id="style31" />
-    <style
-       type="text/css"
-       id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-  </defs>
-  <path
-     id="path116"
-     style="fill:#ffffff;stroke-width:3.7796"
-     d="M 15.851562 0 A 15.999864 15.999864 0 0 0 16 32 A 15.999864 15.999864 0 0 0 16 0 A 15.999864 15.999864 0 0 0 15.851562 0 z M 14.546875 5.4589844 C 15.787653 7.0536313 16.926024 8.9414946 18.679688 9.9941406 C 17.622562 9.006445 16.742985 7.2275052 16.339844 5.7851562 C 19.569451 10.992395 20.428362 9.0433972 23.644531 14.642578 C 23.489994 14.642578 23.338079 14.629268 23.199219 14.6875 C 23.084996 15.901402 24.524128 16.767874 25.480469 17.177734 C 25.173633 18.402835 24.242106 19.27629 23.021484 19.589844 C 24.425759 17.527105 20.861889 15.792972 19.865234 15.044922 C 19.338911 14.650739 18.776995 13.735775 18.382812 13.236328 A 6.1075867 6.1075867 0 0 0 11.630859 11.117188 C 8.790955 12.030974 8.2456472 15.64419 12.279297 18.318359 C 12.498785 18.461698 17.192407 20.635042 18.222656 21.548828 C 19.463435 22.648507 20.532689 24.247697 20.353516 26.509766 C 19.77792 20.704535 13.217086 21.389557 9.2304688 17.474609 A 1.1153568 1.1153568 0 0 0 8.6523438 18.123047 C 8.5224425 17.596724 8.486394 16.62143 8.1347656 16.023438 C 7.7674594 16.1511 7.4112621 16.272074 7.0820312 16.511719 C 7.3776659 15.768147 7.4763745 14.942661 7.6152344 14.154297 C 7.2165728 14.154297 6.8848839 14.231011 6.5175781 14.318359 A 21.151466 21.151466 0 0 0 7.7792969 12.347656 A 1.428911 1.428911 0 0 0 6.7421875 12.068359 C 7.3267421 11.710012 8.0427396 11.281449 8.609375 10.806641 C 8.432441 10.517723 8.2036059 10.216102 7.8945312 10.007812 C 8.6246645 9.9383826 9.3686695 9.8051073 10.089844 9.6796875 C 9.964422 9.3079018 9.8188403 8.9381641 9.5097656 8.6582031 C 10.183907 8.7791442 10.974945 9.0085949 11.705078 8.9414062 C 11.749873 8.6278521 11.720188 8.2695446 11.541016 7.9335938 A 11.908338 11.908338 0 0 0 13.673828 8.7773438 C 13.682786 8.5511368 13.720498 8.2629028 13.615234 7.9941406 C 14.46631 8.6839596 15.554466 9.0064651 16.533203 9.4902344 C 15.644053 8.3278445 15.048562 6.800548 14.546875 5.4589844 z M 21.154297 12.523438 C 20.148684 12.774281 21.840087 13.889291 22.265625 14.037109 C 21.826649 13.600373 21.519364 13.031843 21.154297 12.523438 z "
-     transform="scale(0.26458334)" />
-</svg>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns2="http://www.inkscape.org/namespaces/inkscape" width="32" height="32" version="1.1" viewBox="0 0 8.4666667 8.4666672" id="svg371" ns1:docname="kali.svg">
+  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#808080" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="16" ns2:cx="15.600299" ns2:cy="18.564433" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="svg371" ns2:document-rotation="0">
+    <ns2:grid id="grid1162" type="xygrid" />
+  </ns1:namedview>
+  <ns0:defs id="defs37">
+    <ns0:style id="current-color-scheme" type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style29" />
+    <ns0:style type="text/css" id="style31" />
+    <ns0:style type="text/css" id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+  </ns0:defs>
+  <ns0:path id="path116" style="fill:#ffffff;stroke-width:3.7796" d="M 15.851562 0 A 15.999864 15.999864 0 0 0 16 32 A 15.999864 15.999864 0 0 0 16 0 A 15.999864 15.999864 0 0 0 15.851562 0 z M 14.546875 5.4589844 C 15.787653 7.0536313 16.926024 8.9414946 18.679688 9.9941406 C 17.622562 9.006445 16.742985 7.2275052 16.339844 5.7851562 C 19.569451 10.992395 20.428362 9.0433972 23.644531 14.642578 C 23.489994 14.642578 23.338079 14.629268 23.199219 14.6875 C 23.084996 15.901402 24.524128 16.767874 25.480469 17.177734 C 25.173633 18.402835 24.242106 19.27629 23.021484 19.589844 C 24.425759 17.527105 20.861889 15.792972 19.865234 15.044922 C 19.338911 14.650739 18.776995 13.735775 18.382812 13.236328 A 6.1075867 6.1075867 0 0 0 11.630859 11.117188 C 8.790955 12.030974 8.2456472 15.64419 12.279297 18.318359 C 12.498785 18.461698 17.192407 20.635042 18.222656 21.548828 C 19.463435 22.648507 20.532689 24.247697 20.353516 26.509766 C 19.77792 20.704535 13.217086 21.389557 9.2304688 17.474609 A 1.1153568 1.1153568 0 0 0 8.6523438 18.123047 C 8.5224425 17.596724 8.486394 16.62143 8.1347656 16.023438 C 7.7674594 16.1511 7.4112621 16.272074 7.0820312 16.511719 C 7.3776659 15.768147 7.4763745 14.942661 7.6152344 14.154297 C 7.2165728 14.154297 6.8848839 14.231011 6.5175781 14.318359 A 21.151466 21.151466 0 0 0 7.7792969 12.347656 A 1.428911 1.428911 0 0 0 6.7421875 12.068359 C 7.3267421 11.710012 8.0427396 11.281449 8.609375 10.806641 C 8.432441 10.517723 8.2036059 10.216102 7.8945312 10.007812 C 8.6246645 9.9383826 9.3686695 9.8051073 10.089844 9.6796875 C 9.964422 9.3079018 9.8188403 8.9381641 9.5097656 8.6582031 C 10.183907 8.7791442 10.974945 9.0085949 11.705078 8.9414062 C 11.749873 8.6278521 11.720188 8.2695446 11.541016 7.9335938 A 11.908338 11.908338 0 0 0 13.673828 8.7773438 C 13.682786 8.5511368 13.720498 8.2629028 13.615234 7.9941406 C 14.46631 8.6839596 15.554466 9.0064651 16.533203 9.4902344 C 15.644053 8.3278445 15.048562 6.800548 14.546875 5.4589844 z M 21.154297 12.523438 C 20.148684 12.774281 21.840087 13.889291 22.265625 14.037109 C 21.826649 13.600373 21.519364 13.031843 21.154297 12.523438 z " transform="scale(0.26458334)" />
+</ns0:svg>

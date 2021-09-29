@@ -1,104 +1,21 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg
-   xmlns:dc="http://purl.org/dc/elements/1.1/"
-   xmlns:cc="http://creativecommons.org/ns#"
-   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-   xmlns:svg="http://www.w3.org/2000/svg"
-   xmlns="http://www.w3.org/2000/svg"
-   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="32"
-   height="32"
-   version="1.1"
-   viewBox="0 0 8.4666666 8.4666671"
-   id="svg371"
-   sodipodi:docname="archlinux.svg"
-   inkscape:version="1.0.2 (e86c870879, 2021-01-15)">
-  <metadata
-     id="metadata375">
-    <rdf:RDF>
-      <cc:Work
-         rdf:about="">
-        <dc:format>image/svg+xml</dc:format>
-        <dc:type
-           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
-      </cc:Work>
-    </rdf:RDF>
-  </metadata>
-  <sodipodi:namedview
-     inkscape:snap-bbox-edge-midpoints="true"
-     inkscape:bbox-nodes="true"
-     inkscape:snap-bbox="true"
-     pagecolor="#808080"
-     bordercolor="#666666"
-     borderopacity="1"
-     objecttolerance="10"
-     gridtolerance="10"
-     guidetolerance="10"
-     inkscape:pageopacity="0"
-     inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1016"
-     id="namedview373"
-     showgrid="false"
-     inkscape:zoom="11.313709"
-     inkscape:cx="5.9895402"
-     inkscape:cy="7.463705"
-     inkscape:window-x="1920"
-     inkscape:window-y="27"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="svg371"
-     inkscape:document-rotation="0">
-    <inkscape:grid
-       id="grid1162"
-       type="xygrid" />
-  </sodipodi:namedview>
-  <defs
-     id="defs37">
-    <style
-       id="current-color-scheme"
-       type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style29" />
-    <style
-       type="text/css"
-       id="style31" />
-    <style
-       type="text/css"
-       id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-    <style
-       type="text/css"
-       id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
-  </defs>
-  <path
-     id="circle44"
-     style="fill:#ffffff;stroke-width:3.63965;paint-order:stroke markers fill"
-     d="M 16 0 A 16.000134 16.000134 0 0 0 0 16 A 16.000134 16.000134 0 0 0 16 32 A 16.000134 16.000134 0 0 0 32 16 A 16.000134 16.000134 0 0 0 16 0 z M 15.998047 5.1992188 C 17.831046 9.5001162 18.264325 10.823444 23.607422 20.771484 C 22.93422 20.365249 22.06487 20.001623 20.855469 19.6875 C 22.615242 20.592082 23.479901 21.425941 24.306641 22.068359 C 24.833391 23.043796 25.383489 24.065539 26 25.199219 C 22.872564 23.394779 20.441046 22.27215 18.175781 21.828125 A 5.7328451 5.7321682 0 0 0 18.304688 20.736328 C 18.354292 18.707514 17.382779 16.973468 16.130859 16.867188 C 14.87894 16.760905 13.823448 18.322337 13.771484 20.353516 L 13.769531 20.455078 A 5.8037086 5.8030234 0 0 0 13.917969 21.8125 C 11.629083 22.242354 9.1699536 23.37116 6 25.199219 C 10.034487 17.953116 12.020608 14.184724 13.289062 11.537109 C 13.952816 12.096863 14.843008 12.635738 16.144531 13.171875 C 14.932768 12.321615 14.187141 11.572515 13.580078 10.927734 C 14.572165 8.811532 15.107531 7.3815527 15.998047 5.1992188 z "
-     transform="scale(0.26458334)" />
-</svg>
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns2="http://www.inkscape.org/namespaces/inkscape" width="32" height="32" version="1.1" viewBox="0 0 8.4666666 8.4666671" id="svg371" ns1:docname="archlinux.svg">
+  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#808080" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="11.313709" ns2:cx="5.9895402" ns2:cy="7.463705" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="svg371" ns2:document-rotation="0">
+    <ns2:grid id="grid1162" type="xygrid" />
+  </ns1:namedview>
+  <ns0:defs id="defs37">
+    <ns0:style id="current-color-scheme" type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style29" />
+    <ns0:style type="text/css" id="style31" />
+    <ns0:style type="text/css" id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+  </ns0:defs>
+  <ns0:path id="circle44" style="fill:#ffffff;stroke-width:3.63965;paint-order:stroke markers fill" d="M 16 0 A 16.000134 16.000134 0 0 0 0 16 A 16.000134 16.000134 0 0 0 16 32 A 16.000134 16.000134 0 0 0 32 16 A 16.000134 16.000134 0 0 0 16 0 z M 15.998047 5.1992188 C 17.831046 9.5001162 18.264325 10.823444 23.607422 20.771484 C 22.93422 20.365249 22.06487 20.001623 20.855469 19.6875 C 22.615242 20.592082 23.479901 21.425941 24.306641 22.068359 C 24.833391 23.043796 25.383489 24.065539 26 25.199219 C 22.872564 23.394779 20.441046 22.27215 18.175781 21.828125 A 5.7328451 5.7321682 0 0 0 18.304688 20.736328 C 18.354292 18.707514 17.382779 16.973468 16.130859 16.867188 C 14.87894 16.760905 13.823448 18.322337 13.771484 20.353516 L 13.769531 20.455078 A 5.8037086 5.8030234 0 0 0 13.917969 21.8125 C 11.629083 22.242354 9.1699536 23.37116 6 25.199219 C 10.034487 17.953116 12.020608 14.184724 13.289062 11.537109 C 13.952816 12.096863 14.843008 12.635738 16.144531 13.171875 C 14.932768 12.321615 14.187141 11.572515 13.580078 10.927734 C 14.572165 8.811532 15.107531 7.3815527 15.998047 5.1992188 z " transform="scale(0.26458334)" />
+</ns0:svg>
