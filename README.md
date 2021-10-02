@@ -102,6 +102,8 @@ Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Gallery:
 ![Crystals](docs/1-Crystals.png)
+![Dawn](docs/1-Dawn.png)
+![Dusk](docs/1-Dusk.png)
 ![Night](docs/1-Night.png)
 ![Grey](docs/1-Grey.png)
 ![Multi-distro Crystals](docs/2-Crystals.png)
