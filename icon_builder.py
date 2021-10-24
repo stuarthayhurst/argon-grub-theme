@@ -29,7 +29,10 @@ def getAssetResolutionDir(resolution):
   return convertDict[str(resolution)]
 
 #Generates the given icon for all required resolutions
-def generateIcon(inputFile, iconType, iconResolutions):
+def generateIcon(buildDir, inputFile, iconType, iconResolutions):
+  #Construct input file path
+  inputFile = f"{buildDir}/{inputFile}"
+
   #Generate output file path by swapping to a png
   outputFile = inputFile.replace(".svg", ".png")
   outputFile = outputFile.replace("svg/", "")
@@ -85,8 +88,9 @@ def checkFiles(buildDir):
 
 if __name__ == "__main__":
   if sys.argv[1] == "--generate":
-    #Pass generateIcon() the icon to build and resolutions to build for
-    generateIcon(str(sys.argv[4]), str(sys.argv[2]), sys.argv[3].split())
+    #Pass generateIcon() the build dir, icon to build, icon type and resolutions to build for
+    iconPath = str(sys.argv[4]).split("/", 1)[1]
+    generateIcon(str(sys.argv[5]), iconPath, str(sys.argv[2]), sys.argv[3].split())
   elif sys.argv[1] == "--check-files":
     #Pass checkFiles() the build directory
     checkFiles(str(sys.argv[2]))
