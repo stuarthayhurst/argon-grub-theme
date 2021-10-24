@@ -4,6 +4,8 @@ BACKGROUNDS=$(wildcard ./backgrounds/*/*.png)
 ICONSVGS=$(wildcard ./assets/svg/icons*/*.svg)
 SELECTSVGS=$(wildcard ./assets/svg/select/*.svg)
 
+ICON_RESOLUTIONS=32 48 64
+
 .PHONY: prune clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS)
 
 clean:
@@ -46,21 +48,9 @@ prune:
 	./clean-svgs.py
 
 $(ICONSVGS):
-	resolutions=("32" "48" "64"); \
-	for resolution in "$${resolutions[@]}"; do \
-	  icon="$@"; \
-	  type="coloured"; \
-	  if [[ "$$icon" == *"/icons-colourless/"* ]]; then \
-	    type="colourless"; \
-	  fi; \
-	  ./install.sh "--generate" "$$resolution" "icons" "default" "$$icon" "$$type"; \
-	done
+	./icon_builder.py "--generate" "icon" "$(ICON_RESOLUTIONS)" "$@"
 $(SELECTSVGS):
-	resolutions=("37" "56" "74"); \
-	for resolution in "$${resolutions[@]}"; do \
-	  select="$@"; \
-	  ./install.sh "--generate" "$$resolution" "select" "default" "$$select"; \
-	done
+	./icon_builder.py "--generate" "select" "$(ICON_RESOLUTIONS)" "$@"
 
 $(BACKGROUNDS):
 	echo "Compressing $@..."; \
