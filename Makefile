@@ -26,6 +26,7 @@ generate-gif:
 	convert -delay 150 *.png +dither -alpha off -loop 0 Gallery.gif
 generate-all:
 	$(MAKE) generate-icons generate-select compress-backgrounds generate-gif
+	$(MAKE) check
 check:
 	./icon_builder.py "--check-files" "assets"
 prune:
