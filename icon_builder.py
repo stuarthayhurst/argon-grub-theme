@@ -14,6 +14,12 @@ def isSymlinkBroken(path):
 def getCommandExitCode(command):
   return subprocess.run(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode
 
+def getCommandOutput(command):
+  output = subprocess.run(command, capture_output=True).stdout.decode("utf-8").split("\n")
+  if "" in output:
+    output.remove("")
+  return output
+
 def getAssetResolutionDir(resolution):
   convertDict = {
     "32": "37",
@@ -28,6 +34,16 @@ def generateIcon(inputFile, iconType, iconResolutions):
   outputFile = inputFile.replace(".svg", ".png")
   outputFile = outputFile.replace("svg/", "")
   outputFile = outputFile.rsplit("/", 1)[0] + "/resolution/" + outputFile.rsplit("/", 1)[1]
+
+  #Figure out inkscape generation option
+  inkscapeVersion = getCommandOutput(["inkscape", "--version"])[0].split(" ")[1]
+  inkscapeVersion = inkscapeVersion.split(".")
+  inkscapeVersion = float(f"{inkscapeVersion[0]}.{inkscapeVersion[1]}")
+
+  if inkscapeVersion >= 1.0:
+    inkscapeExport="--export-filename"
+  else:
+    inkscapeExport="--export-png"
 
   #Generate output file for each resolution allowed
   outputFileOrig = outputFile
@@ -50,7 +66,7 @@ def generateIcon(inputFile, iconType, iconResolutions):
 
     #Generate the icon
     print(f"Processing {inputFile} -> {outputFile} ({tempFile})")
-    getCommandExitCode(["inkscape", f"--export-filename={tempFile}", "-h", resolution, inputFile])
+    getCommandExitCode(["inkscape", f"{inkscapeExport}={tempFile}", "-h", resolution, inputFile])
 
     #Compress the icon and move to final destination
     print(f"Compressing {outputFile}...")
