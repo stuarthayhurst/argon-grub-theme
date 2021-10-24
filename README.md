@@ -65,7 +65,6 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - `imagemagick / convert` - Used to generate backgrounds with custom colours
  - `inkscape` - Used to generate pngs from svgs (Used by `make generate-all`)
    - `inkscape` is needed if the fontsize used isn't 16, 24 or 32
-   - `imagemagick / convert` can be used as an alternative
   #### Optional:
  - `python3` - Used when generating icons, or when using a custom fontsize
  - `optipng` - Used to losslessly compress pngs (Used by `make compress-backgrounds`, `make generate-gif` and `make generate-icons`)

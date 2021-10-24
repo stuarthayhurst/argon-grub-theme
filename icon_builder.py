@@ -48,7 +48,7 @@ def generateIcon(inputFile, iconType, iconResolutions):
     #Get process ID for use as a temporary file, if required
     tempFile = outputDir + "/" + str(os.getpid()) + ".png"
 
-    #Generate the icongit status
+    #Generate the icon
     print(f"Processing {inputFile} -> {outputFile} ({tempFile})")
     getCommandExitCode(["inkscape", f"--export-filename={tempFile}", "-h", resolution, inputFile])
 
