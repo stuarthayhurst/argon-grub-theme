@@ -27,23 +27,7 @@ generate-gif:
 generate-all:
 	$(MAKE) generate-icons generate-select compress-backgrounds generate-gif
 check:
-	read -ra icons <<< "$(ICONSVGS)"; \
-	for icon in "$${icons[@]}"; do \
-	  #Validate all symlinks \
-	  if [[ -L "$$icon" ]]; then \
-	    if [[ ! -e "$$icon" ]]; then \
-	      echo "$$icon is a broken symlink, exiting"; \
-	      exit 1; \
-	    fi; \
-	  fi \
-	  #Check all icons have colourless counterparts \
-	  if [[ "$$icon" == *"/icons/"* ]]; then \
-	    if [[ ! -f "$${icon/'/icons/'/'/icons-colourless/'}" ]]; then \
-	      echo "$$icon is missing a colourless conterpart, exiting"; \
-	      exit 1; \
-	    fi; \
-	  fi; \
-	done
+	./icon_builder.py "--check-files" "assets"
 prune:
 	./clean-svgs.py
 
