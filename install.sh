@@ -474,7 +474,7 @@ if [[ "$#" ==  "0" ]]; then
   output "error" "At least one argument is required, use './install.sh --help' to view options"; exit 1
 fi
 
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "--custom-background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold" "--icons" "-hl" "--helplabel" "--help-label" "-g" "--generate" "--auto")
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "--custom-background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold" "--icons" "-hl" "--helplabel" "--help-label" "--auto")
 read -ra args <<< "${@}"; i=0
 while [[ $i -le "$(($# - 1))" ]]; do
   arg="${args[$i]}"
@@ -516,7 +516,6 @@ while [[ $i -le "$(($# - 1))" ]]; do
     -l|--bold) forceBoldFont="true";;
     --icons) getIconType "${args["$((i + 1))"]}" && i="$((i + 1))";;
     -hl|--helplabel|--help-label) helpLabel="true";;
-    -g|--generate) generateIcons "${args["$((i + 1))"]}" "${args["$((i + 2))"]}" "${args["$((i + 3))"]}" "${args["$((i + 4))"]}" "${args["$((i + 5))"]}"; exit;;
     --auto) auto="true";;
     *) output "error" "Unknown parameter passed: $arg"; exit 1;;
   esac
