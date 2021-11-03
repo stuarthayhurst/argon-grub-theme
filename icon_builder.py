@@ -5,7 +5,7 @@ def isSymlinkBroken(path):
   if os.path.islink(path):
     #Generate path to symlink target
     linkPath = str(os.path.dirname(path)) + "/" + str(os.readlink(path))
-    if os.path.isfile(linkPath) == False:
+    if not os.path.isfile(linkPath):
       #Symlink is broken
       return True
   #Either not a symlink, or not broken
@@ -69,7 +69,7 @@ def generateIcon(inputFile, outputFile, iconType, iconResolutions):
 
     #Create the directories for the output file if missing
     outputDir = os.path.dirname(outputFile)
-    if os.path.exists(outputDir) == False:
+    if not os.path.exists(outputDir):
       os.makedirs(outputDir, exist_ok=True)
 
     if iconType == "select":
@@ -90,7 +90,7 @@ def generateIcon(inputFile, outputFile, iconType, iconResolutions):
     os.rename(tempFile, outputFile)
 
 def checkFiles(buildDir):
-  if os.path.exists(buildDir) == False:
+  if not os.path.exists(buildDir):
     print(f"Build directory '{buildDir}' doesn't exist, exiting")
     exit(1)
 
@@ -99,7 +99,7 @@ def checkFiles(buildDir):
       print(f"{file} is a broken symlink, exiting")
       exit(1)
     if "/icons/" in file:
-      if os.path.exists(file.replace("/icons/", "/icons-colourless/")) == False:
+      if not os.path.exists(file.replace("/icons/", "/icons-colourless/")):
         print(f"{file} is missing a colourless counterpart, exiting")
         exit(1)
 
