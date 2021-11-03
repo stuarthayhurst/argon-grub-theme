@@ -50,7 +50,6 @@ def generateIconSet(buildDir, iconType, iconColour, iconResolution):
     iconColour = "icons-colourless"
 
   iconDir = f"assets/svg/{iconType}"
-  iconDir = iconDir.replace("icons", iconColour)
 
   for icon in glob.glob(f"{iconDir}/*.svg"):
     #Work out output file and generate icon
