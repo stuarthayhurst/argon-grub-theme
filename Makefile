@@ -33,9 +33,9 @@ prune:
 	./clean-svgs.py
 
 $(ICONSVGS):
-	./icon_builder.py "--generate" "icon" "$(ICON_RESOLUTIONS)" "$@" "assets"
+	./icon_builder.py "--generate" "icon" "$(ICON_RESOLUTIONS)" "$@"
 $(SELECTSVGS):
-	./icon_builder.py "--generate" "select" "$(ICON_RESOLUTIONS)" "$@" "assets"
+	./icon_builder.py "--generate" "select" "$(ICON_RESOLUTIONS)" "$@"
 
 $(BACKGROUNDS):
 	echo "Compressing $@..."; \

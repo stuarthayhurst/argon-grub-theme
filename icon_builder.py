@@ -26,28 +26,41 @@ def getAssetResolutionDir(resolution):
     "48": "56",
     "64": "74"
   }
-  return convertDict[str(resolution)]
+
+  if resolution in convertDict:
+    return convertDict[str(resolution)]
+  else:
+    return str(resolution)
 
 #Generates the given icon for all required resolutions
-def generateIcon(buildDir, inputFile, iconType, iconResolutions):
-  #Construct input file path
-  inputFile = f"{buildDir}/{inputFile}"
-
+def generateIconResolutions(inputFile, iconType, iconResolutions):
   #Generate output file path by swapping to a png
   outputFile = inputFile.replace(".svg", ".png")
   outputFile = outputFile.replace("svg/", "")
   outputFile = outputFile.rsplit("/", 1)[0] + "/resolution/" + outputFile.rsplit("/", 1)[1]
 
-  #Figure out inkscape generation option
-  inkscapeVersion = getCommandOutput(["inkscape", "--version"])[0].split(" ")[1]
-  inkscapeVersion = inkscapeVersion.split(".")
-  inkscapeVersion = float(f"{inkscapeVersion[0]}.{inkscapeVersion[1]}")
+  #for iconResolution in iconResolutions:
+  generateIcon(inputFile, outputFile, iconType, iconResolutions)
 
-  if inkscapeVersion >= 1.0:
-    inkscapeExport="--export-filename"
+#Generates all icons for a specific resolution
+def generateIconSet(buildDir, iconType, iconColour, iconResolution):
+  if iconColour == "coloured":
+    iconColour = "icons"
   else:
-    inkscapeExport="--export-png"
+    iconColour = "icons-colourless"
 
+  iconDir = f"assets/svg/{iconType}"
+  iconDir = iconDir.replace("icons", iconColour)
+
+  for icon in glob.glob(f"{iconDir}/*.svg"):
+    #Work out output file and generate icon
+    outputFile = f"{buildDir}/" + icon.split("/", 2)[2]
+    outputFile = outputFile.rsplit("/", 1)[0] + f"/{iconResolution}px/" + outputFile.rsplit("/", 1)[1]
+    outputFile = outputFile.replace(".svg", ".png")
+    generateIcon(icon, outputFile, iconType, [iconResolution])
+
+#Generates the given icon for all required resolutions
+def generateIcon(inputFile, outputFile, iconType, iconResolutions):
   #Generate output file for each resolution allowed
   outputFileOrig = outputFile
   for resolution in iconResolutions:
@@ -81,16 +94,30 @@ def checkFiles(buildDir):
     if isSymlinkBroken(file):
       print(f"{file} is a broken symlink, exiting")
       exit(1)
-    if '/icons/' in file:
+    if "/icons/" in file:
       if os.path.exists(file.replace("/icons/", "/icons-colourless/")) == False:
         print(f"{file} is missing a colourless counterpart, exiting")
         exit(1)
 
+#Figure out inkscape generation option
+inkscapeVersion = getCommandOutput(["inkscape", "--version"])[0].split(" ")[1]
+inkscapeVersion = inkscapeVersion.split(".")
+inkscapeVersion = float(f"{inkscapeVersion[0]}.{inkscapeVersion[1]}")
+
+if inkscapeVersion >= 1.0:
+  inkscapeExport = "--export-filename"
+else:
+  inkscapeExport = "--export-png"
+
 if __name__ == "__main__":
   if sys.argv[1] == "--generate":
-    #Pass generateIcon() the build dir, icon to build, icon type and resolutions to build for
-    iconPath = str(sys.argv[4]).split("/", 1)[1]
-    generateIcon(str(sys.argv[5]), iconPath, str(sys.argv[2]), sys.argv[3].split())
+    #Pass generateIcon() icon to build, icon type and resolutions to build for
+    #Generates all resolutions for that specific icon
+    generateIconResolutions(str(sys.argv[4]), str(sys.argv[2]), sys.argv[3].split())
+  elif sys.argv[1] == "--custom":
+    #Pass generateIconSet() the build dir, icon type and resolution to build for
+    #Generates all icons for that specific resolution
+    generateIconSet(str(sys.argv[4]), str(sys.argv[2]), str(sys.argv[5]), str(sys.argv[3]))
   elif sys.argv[1] == "--check-files":
     #Pass checkFiles() the build directory
     checkFiles(str(sys.argv[2]))

@@ -180,78 +180,6 @@ updateGrub() {
   fi
 }
 
-#Generates assets for the theme if a custom resolution is required
-generateIcons() {
-  compareVersions() { #Version comparison function, return 1 if $1 is smaller than $2
-    if [[ "$1" != "$(echo -e "$1\n$2" | sort -V | head -n 1)" ]] || [[ "$1" == "$2" ]]; then
-      return
-    else
-      return 1
-    fi
-  }
-
-  #generateIcons "resolution" "icons/select" "default/install" "svgFile" "coloured / colourless"
-  generateIcon() {
-    pngFile="${svgFile##*/}"
-    pngFile="${pngFile/.svg/.png}"
-    if checkCommand inkscape; then
-      #Get inkscape version
-      inkscapeVersion="$(inkscape --version 2>/dev/null | head -n 1)"
-      inkscapeVersion="${inkscapeVersion%%(*}"
-      inkscapeVersion="${inkscapeVersion//Inkscape }"
-      #Use correct command for version
-      if compareVersions "$inkscapeVersion" "1.0"; then
-        inkscape "-h" "$assetSize" "--export-filename=$buildDir/$pngFile" "$svgFile" >/dev/null 2>&1
-      else
-        inkscape "-h" "$assetSize" "--export-png=$buildDir/$pngFile" "$svgFile" >/dev/null 2>&1
-      fi
-    elif checkCommand convert; then
-      output "warning" "Low quality: Inkscape not found, using imagemagick..."
-      convert -scale "x$assetSize" -extent "x$assetSize" -background none "$svgFile" "$buildDir/$pngFile"
-    else
-      output "error" "Neither inkscape nor convert are available"
-      output "warning" "Please install inkscape or imagemagick (preferably inkscape)"
-      return
-    fi
-    if checkCommand optipng; then
-      #Use -nc to avoid indexing, keeping GRUB support
-      optipng -strip all -nc "$buildDir/$pngFile"
-    else
-      output "warning" "Optipng not available, icons won't be compressed"
-    fi
-  }
-  assetSize="${1/px}"
-  if [[ "$3" == "default" ]] && [[ "$2" == "select" ]]; then
-    case $assetSize in
-      "37") assetSizeDir="32";;
-      "56") assetSizeDir="48";;
-      "74") assetSizeDir="64";;
-    esac
-  else
-    assetSizeDir="$assetSize"
-  fi
-  if [[ "$5" == "colourless" ]] && [[ "$2" == "icons" ]]; then
-    assetType="icons-colourless"
-  else
-    assetType="$2"
-  fi
-  if [[ "$3" == "default" ]]; then
-    outputArea="assets"
-  elif [[ "$3" == "install" ]]; then
-    outputArea="build"
-  fi
-  buildDir="./$outputArea/$assetType/${assetSizeDir}px"
-  mkdir -p "$buildDir"
-  if [[ "$3" == "default" ]]; then
-    svgFile="./$4"
-    generateIcon
-  else
-    for svgFile in "./assets/svg/$assetType/"*; do
-      generateIcon
-    done
-  fi
-}
-
 installCore() {
   generateFont() {
     #"input" "output" "size" "font family"
@@ -273,7 +201,7 @@ installCore() {
     #Decide if the assets have been cached
     output "success" "Generating $3..." "noNewline"
     if [[ ! -d "./build/$1/${2}px" ]]; then
-      generateIcons "$2" "$1" "install" "" "$iconType" >/dev/null 2>&1
+      ./icon_builder.py "--custom" "$1" "$2" "build" "$iconType" >/dev/null 2>&1
       output "success" " done"
     else
       output "success" " found cached $3"
