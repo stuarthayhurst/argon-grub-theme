@@ -201,7 +201,7 @@ installCore() {
     #Decide if the assets have been cached
     output "success" "Generating $3..." "noNewline"
     if [[ ! -d "./build/$1/${2}px" ]]; then
-      ./icon_builder.py "--custom" "$1" "$2" "build" "$iconType" >/dev/null 2>&1
+      ./icon_builder.py "--custom" "$1" "$2" "build" "$iconType" >/dev/null
       output "success" " done"
     else
       output "success" " found cached $3"
