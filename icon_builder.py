@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import sys, subprocess, os, glob
+import multiprocessing as mp
 
 def isSymlinkBroken(path):
   if os.path.islink(path):
@@ -42,6 +43,14 @@ def generateIconResolutions(inputFile, iconType, iconResolutions):
   #for iconResolution in iconResolutions:
   generateIcon(inputFile, outputFile, iconType, iconResolutions)
 
+def prepareIcon(icon, buildDir, iconType, iconResolution):
+  #Work out output file and generate icon
+  outputFile = f"{buildDir}/" + icon.split("/", 2)[2]
+  outputFile = outputFile.rsplit("/", 1)[0] + f"/{iconResolution}px/" + outputFile.rsplit("/", 1)[1]
+  outputFile = outputFile.replace(".svg", ".png")
+
+  generateIcon(icon, outputFile, iconType, [iconResolution])
+
 #Generates all icons for a specific resolution
 def generateIconSet(buildDir, iconType, iconColour, iconResolution):
   if iconColour == "coloured":
@@ -49,14 +58,15 @@ def generateIconSet(buildDir, iconType, iconColour, iconResolution):
   else:
     iconColour = "icons-colourless"
 
-  iconDir = f"assets/svg/{iconType}"
+  #Create a list of all svg input files
+  iconData = glob.glob(f"assets/svg/{iconType}/*.svg")
 
-  for icon in glob.glob(f"{iconDir}/*.svg"):
-    #Work out output file and generate icon
-    outputFile = f"{buildDir}/" + icon.split("/", 2)[2]
-    outputFile = outputFile.rsplit("/", 1)[0] + f"/{iconResolution}px/" + outputFile.rsplit("/", 1)[1]
-    outputFile = outputFile.replace(".svg", ".png")
-    generateIcon(icon, outputFile, iconType, [iconResolution])
+  for i in range(0, len(iconData)):
+    iconData[i] = [iconData[i], buildDir, iconType, iconResolution]
+
+  with mp.Pool(mp.cpu_count() * 2) as pool:
+    task = pool.starmap_async(prepareIcon, iconData)
+    task.wait()
 
 #Generates the given icon for all required resolutions
 def generateIcon(inputFile, outputFile, iconType, iconResolutions):
