@@ -90,6 +90,10 @@ def generateIcon(inputFile, outputFile, iconType, iconResolutions):
     os.rename(tempFile, outputFile)
 
 def checkFiles(buildDir):
+  if os.path.exists(buildDir) == False:
+    print(f"Build directory '{buildDir}' doesn't exist, exiting")
+    exit(1)
+
   for file in glob.glob(f"{buildDir}/svg/*/*.svg"):
     if isSymlinkBroken(file):
       print(f"{file} is a broken symlink, exiting")
