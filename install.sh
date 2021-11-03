@@ -230,7 +230,6 @@ installCore() {
     iconDir="./assets/$iconColourDir/${icon_size}px"
     selectDir="./assets/select/${icon_size}px"
   else
-
     #Check if icons are cached and regenerate if not
     checkIconCached "$iconColourDir" "$icon_size" "icons"
     checkIconCached "select" "$item_height" "assets"
