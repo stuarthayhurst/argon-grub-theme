@@ -28,7 +28,7 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -hl, --help-label | Add a help label to the bottom of the theme |
 
 Required arguments: [--install + --background / --uninstall / --preview]
- - If the repository is updated, `make clean` should be run, to erase cached assets
+ - **If the repository is updated, `make clean` should be run, to erase cached assets**
 
 ## Examples:
  - Install the theme for a 4k display, using the `Night` wallpaper:
@@ -72,7 +72,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Updating:
  - Update the repository: `git clone https://github.com/stuarthayhurst/argon-grub-theme.git`
- - Clear the asset cache: `make clean`
+ - **Clear the asset cache: `make clean`**
  - Install like normal
 
 ## Preview the theme:
