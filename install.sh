@@ -1,13 +1,4 @@
 #!/bin/bash
-installDir="/usr/share/grub/themes/argon"
-#Set bootPath for future reference, and to set splashScreenPath
-if [[ -d "/boot/grub" ]]; then
-  bootPath="/boot/grub"
-elif [[ -d "/boot/grub2" ]]; then
-  bootPath="/boot/grub2"
-fi
-splashScreenPath="$bootPath/splash0.png"
-
 #Checks whether argument is a program argument or data
 checkArg() {
   for validArg in "${validArgList[@]}"; do
@@ -397,58 +388,6 @@ previewTheme() {
   rm -rf "$installDir"
 }
 
-if [[ "$#" ==  "0" ]]; then
-  output "error" "At least one argument is required, use './install.sh --help' to view options"; exit 1
-fi
-
-validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "--custom-background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold" "--icons" "-hl" "--helplabel" "--help-label" "--auto")
-read -ra args <<< "${@}"; i=0
-while [[ $i -le "$(($# - 1))" ]]; do
-  arg="${args[$i]}"
-  case $arg in
-    -h|--help) output "normal" "Usage: ./install.sh [-OPTION]";
-      output "normal" "Help:"
-      output "normal" "-h | --help       : Display this page"
-      output "normal" "-i | --install    : Install the theme (root)"
-      output "normal" "-u | --uninstall  : Uninstall the theme (root)"
-      output "normal" "-e | --boot       : Install the theme into '/boot/grub/themes'"
-      output "normal" "-p | --preview    : Preview the theme (Works with other options, non-root)"
-      output "normal" "-b | --background : Specify which background to use (file)"
-      output "normal" "                   - Leave blank to view available backgrounds"
-      output "normal" "-c | --custom     : Use a solid colour as a background"
-      output "normal" "                   - HTML colour value, must be quoted (\"#FFFFFF\")"
-      output "normal" "-r | --resolution : Use a specific resolution (Default: 1080p)"
-      output "normal" "                  - Leave blank to view available resolutions"
-      output "normal" "--icons           : Choose whether to use 'coloured or 'colourless' icons"
-      output "normal" "-f | --font       : Specify which font to use (file)"
-      output "normal" "                   - Leave blank to view available fonts"
-      output "normal" "-fc| --fontcolour : Use a specific font colour"
-      output "normal" "                   - HTML (must be quoted) and SVG 1.0 colours supported"
-      output "normal" "                   - Use the format: -fc \"textcolour,selectedcolour\""
-      output "normal" "-fs| --fontsize   : Use a specific font size"
-      output "normal" "-l | --bold       : Force font to be bold"
-      output "normal" "-hl| --help-label : Add a help label to the bottom of the theme"
-      output "normal" "\nRequired arguments: [--install + --background / --uninstall / --preview]"
-      output "success" "Program written by: Stuart Hayhurst"; exit;;
-    -i|--install) programOperation="install";;
-    -u|--uninstall) programOperation="uninstall";;
-    -e|--boot) installDir="$bootPath/themes/argon";;
-    -p|--preview) programOperation="preview";;
-    -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
-    -c|--custom|--custom-background) getCustomBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
-    -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
-    -fc|--fontcolour|--font-colour) getFontColour "${args["$((i + 1))"]}" && i="$((i + 1))";;
-    -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
-    -f|--font) getFontFile "${args["$((i + 1))"]}" && i="$((i + 1))";;
-    -l|--bold) forceBoldFont="true";;
-    --icons) getIconType "${args["$((i + 1))"]}" && i="$((i + 1))";;
-    -hl|--helplabel|--help-label) helpLabel="true";;
-    --auto) auto="true";;
-    *) output "error" "Unknown parameter passed: $arg"; exit 1;;
-  esac
-  i=$((i + 1))
-done
-
 warnArgs() {
   if [[ "$resolution" == "" ]]; then
     argWarnings+="$(output "warning" "No resolution specified, using default of 1080p\n")"
@@ -500,6 +439,17 @@ warnArgs() {
   fi
 }
 
+installDir="/usr/share/grub/themes/argon"
+#Set bootPath for future reference, and to set splashScreenPath
+if [[ -d "/boot/grub" ]]; then
+  bootPath="/boot/grub"
+elif [[ -d "/boot/grub2" ]]; then
+  bootPath="/boot/grub2"
+else
+  output "warning" "GRUB couldn't be found in /boot, this may cause issues"
+fi
+splashScreenPath="$bootPath/splash0.png"
+
 if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview" ]]; then
   #Check all required arguments are present and set default values
   warnArgs
@@ -522,6 +472,58 @@ if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview"
     output "normal" "\nPress enter to continue..."; read -r
   fi
 fi
+
+if [[ "$#" ==  "0" ]]; then
+  output "error" "At least one argument is required, use './install.sh --help' to view options"; exit 1
+fi
+
+validArgList=("-h" "--help" "-i" "--install" "-u" "--uninstall" "-e" "--boot" "-p" "--preview" "-b" "--background" "-c" "--custom" "--custom-background" "-r" "--resolution" "-fc" "--fontcolour" "--font-colour" "-fs" "--fontsize" "--font-size" "-f" "--font" "-l" "--bold" "--icons" "-hl" "--helplabel" "--help-label" "--auto")
+read -ra args <<< "${@}"; i=0
+while [[ $i -le "$(($# - 1))" ]]; do
+  arg="${args[$i]}"
+  case $arg in
+    -h|--help) output "normal" "Usage: ./install.sh [-OPTION]";
+      output "normal" "Help:"
+      output "normal" "-h | --help       : Display this page"
+      output "normal" "-i | --install    : Install the theme (root)"
+      output "normal" "-u | --uninstall  : Uninstall the theme (root)"
+      output "normal" "-e | --boot       : Install the theme into '/boot/grub/themes'"
+      output "normal" "-p | --preview    : Preview the theme (Works with other options, non-root)"
+      output "normal" "-b | --background : Specify which background to use (file)"
+      output "normal" "                   - Leave blank to view available backgrounds"
+      output "normal" "-c | --custom     : Use a solid colour as a background"
+      output "normal" "                   - HTML colour value, must be quoted (\"#FFFFFF\")"
+      output "normal" "-r | --resolution : Use a specific resolution (Default: 1080p)"
+      output "normal" "                  - Leave blank to view available resolutions"
+      output "normal" "--icons           : Choose whether to use 'coloured or 'colourless' icons"
+      output "normal" "-f | --font       : Specify which font to use (file)"
+      output "normal" "                   - Leave blank to view available fonts"
+      output "normal" "-fc| --fontcolour : Use a specific font colour"
+      output "normal" "                   - HTML (must be quoted) and SVG 1.0 colours supported"
+      output "normal" "                   - Use the format: -fc \"textcolour,selectedcolour\""
+      output "normal" "-fs| --fontsize   : Use a specific font size"
+      output "normal" "-l | --bold       : Force font to be bold"
+      output "normal" "-hl| --help-label : Add a help label to the bottom of the theme"
+      output "normal" "\nRequired arguments: [--install + --background / --uninstall / --preview]"
+      output "success" "Program written by: Stuart Hayhurst"; exit;;
+    -i|--install) programOperation="install";;
+    -u|--uninstall) programOperation="uninstall";;
+    -e|--boot) installDir="$bootPath/themes/argon";;
+    -p|--preview) programOperation="preview";;
+    -b|--background) getBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -c|--custom|--custom-background) getCustomBackground "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -r|--resolution) getResolution "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -fc|--fontcolour|--font-colour) getFontColour "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -fs|--fontsize|--font-size) getFontSize "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -f|--font) getFontFile "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -l|--bold) forceBoldFont="true";;
+    --icons) getIconType "${args["$((i + 1))"]}" && i="$((i + 1))";;
+    -hl|--helplabel|--help-label) helpLabel="true";;
+    --auto) auto="true";;
+    *) output "error" "Unknown parameter passed: $arg"; exit 1;;
+  esac
+  i=$((i + 1))
+done
 
 if [[ "$programOperation" == "install" ]]; then
   installTheme
