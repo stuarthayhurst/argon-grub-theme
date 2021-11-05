@@ -128,7 +128,7 @@ if __name__ == "__main__":
     #Generates all resolutions for that specific icon
     generateIconResolutions(str(sys.argv[4]), str(sys.argv[2]), sys.argv[3].split())
   elif sys.argv[1] == "--custom":
-    #Pass generateIconSet() the build dir, icon type and resolution to build for
+    #Pass generateIconSet() the build dir, icon type, icon colour and resolution to build for
     #Generates all icons for that specific resolution
     generateIconSet(str(sys.argv[4]), str(sys.argv[2]), str(sys.argv[5]), str(sys.argv[3]))
   elif sys.argv[1] == "--check-files":
