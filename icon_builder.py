@@ -43,6 +43,7 @@ def generateIconResolutions(inputFile, iconType, iconResolutions):
   #for iconResolution in iconResolutions:
   generateIcon(inputFile, outputFile, iconType, iconResolutions)
 
+#Wrapper to prepare and generate and icon for the set
 def prepareIcon(icon, buildDir, iconType, iconResolution):
   #Work out output file and generate icon
   outputFile = f"{buildDir}/" + icon.split("/", 2)[2]
@@ -61,9 +62,11 @@ def generateIconSet(buildDir, iconType, iconColour, iconResolution):
   #Create a list of all svg input files
   iconData = glob.glob(f"assets/svg/{iconType}/*.svg")
 
+  #Pack icon paths and shared icon data together for multiprocessing
   for i in range(0, len(iconData)):
     iconData[i] = [iconData[i], buildDir, iconType, iconResolution]
 
+  #Map icons to available cores, using the wrapper
   with mp.Pool(mp.cpu_count() * 2) as pool:
     task = pool.starmap_async(prepareIcon, iconData)
     task.wait()
