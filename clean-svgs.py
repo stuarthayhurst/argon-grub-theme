@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 #Remove rubbish from svg files
-
 import glob
 import xml.etree.ElementTree as et
 
