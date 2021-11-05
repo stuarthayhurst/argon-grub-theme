@@ -17,8 +17,6 @@ def getCommandExitCode(command):
 
 def getCommandOutput(command):
   output = subprocess.run(command, capture_output=True).stdout.decode("utf-8").split("\n")
-  if "" in output:
-    output.remove("")
   return output
 
 def getAssetResolutionDir(resolution):
@@ -40,7 +38,6 @@ def generateIconResolutions(inputFile, iconType, iconResolutions):
   outputFile = outputFile.replace("svg/", "")
   outputFile = outputFile.rsplit("/", 1)[0] + "/resolution/" + outputFile.rsplit("/", 1)[1]
 
-  #for iconResolution in iconResolutions:
   generateIcon(inputFile, outputFile, iconType, iconResolutions)
 
 #Wrapper to prepare and generate and icon for the set
