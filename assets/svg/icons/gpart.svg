@@ -1,0 +1,35 @@
+<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns2="http://www.inkscape.org/namespaces/inkscape" width="32" height="32" version="1.1" viewBox="0 0 8.4666667 8.4666672" id="svg371" ns1:docname="gpart.svg">
+  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="11.313708" ns2:cx="7.2920391" ns2:cy="12.506952" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="g1174" ns2:document-rotation="0" ns2:pagecheckerboard="0">
+    <ns2:grid id="grid1162" type="xygrid" />
+  </ns1:namedview>
+  <ns0:defs id="defs37">
+    <ns0:style id="current-color-scheme" type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style29" />
+    <ns0:style type="text/css" id="style31" />
+    <ns0:style type="text/css" id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+    <ns0:style type="text/css" id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
+  </ns0:defs>
+  <ns0:g id="g1174">
+    <ns0:circle cx="4.2332978" cy="4.2333055" r="4.2332978" style="fill:#333333;fill-opacity:1;stroke-width:0.962969;paint-order:stroke markers fill" id="circle84" />
+    <ns0:g id="g1162">
+      <ns0:g id="g1077" transform="matrix(0.27499998,0,0,0.27500002,-8.8635408,-9.2273444)" style="display:inline">
+        <ns0:path transform="scale(0.26458333)" d="m 140,185 a 39.999999,39.999999 0 0 0 11.71484,28.28516 39.999999,39.999999 0 0 0 0.0547,0.0527 A 39.999999,39.999999 0 0 0 180,225 v -15 a 25.000001,25.000001 0 0 1 -17.55859,-7.20312 25.000001,25.000001 0 0 1 -0.11914,-0.11915 A 25.000001,25.000001 0 0 1 155,185 Z" style="fill:#00ffff;stroke-width:0.135646" id="path31-3" />
+        <ns0:path d="m 55.108549,56.431463 a 10.583333,10.583333 0 0 0 0,-14.967093 10.583333,10.583333 0 0 0 -14.967093,-1e-6 l 2.80633,2.80633 a 6.6145835,6.6145835 0 0 1 9.354433,10e-7 6.6145835,6.6145835 0 0 1 0,9.354433 z" style="display:inline;fill:#00ff00;stroke-width:0.0358897" id="path31-3-5" />
+        <ns0:path d="m 47.625006,59.53085 a 10.583333,10.583333 0 0 0 7.483544,-3.099388 l -2.80633,-2.80633 a 6.6145835,6.6145835 0 0 1 -4.677216,1.937391 z" style="display:inline;fill:#d40000;stroke-width:0.0358897" id="path31-3-56" />
+        <ns0:path id="path31-3-56-2" style="display:inline;fill:#ff7500;fill-opacity:1;stroke-width:0.0358897" d="m 37.042071,48.947916 a 10.583333,10.583333 0 0 1 3.099386,-7.483546 l 2.80633,2.80633 a 6.6145836,6.6145836 0 0 0 -1.93739,4.677217 z" />
+      </ns0:g>
+      <ns0:g id="g1152" transform="matrix(1.3230929,0,0,1.3230929,0.21348877,-0.11589784)">
+        <ns0:path id="path1106" style="display:inline;fill:#f9f9f9;fill-opacity:1;stroke-width:0.00306691" ns2:transform-center-x="0.25164361" d="m 3.12534,2.9959736 c -0.267931,0.08069 -1.501539,1.010235 -2.18659105,1.666846 -0.632067,0.583348 0.14301405,1.220624 0.75672105,0.509808 0.637249,-0.738084 1.57145,-2.0931 1.470156,-2.181138 -0.0088,-0.0025 -0.02242,-9.01e-4 -0.04029,0.0045 z" ns2:transform-center-y="0.0056644664" />
+        <ns0:circle cy="5.1024632" cx="1.094553" id="circle861" style="display:inline;fill:#b8b8b8;fill-opacity:1;stroke-width:0.00217022" r="0.16330223" />
+      </ns0:g>
+    </ns0:g>
+  </ns0:g>
+</ns0:svg>
