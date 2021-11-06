@@ -18,7 +18,7 @@ compress-backgrounds:
 	$(MAKE) $(BACKGROUNDS)
 generate-icons: prune
 	$(MAKE) $(ICONSVGS)
-generate-select:
+generate-select: prune
 	$(MAKE) $(SELECTSVGS)
 generate-gif:
 	cd docs/; \
