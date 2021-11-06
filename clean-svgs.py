@@ -2,6 +2,7 @@
 #Remove rubbish from svg files
 import glob
 import xml.etree.ElementTree as et
+import multiprocessing as mp
 
 buildDir = "assets/svg"
 et = et.ElementTree()
@@ -40,9 +41,8 @@ if svgFiles == []:
   print("No svg files found to clean")
   exit(1)
 
-#Loop through all svgs and optimise
-changedFiles = 0
-for file in svgFiles:
-  changedFiles += cleanFile(file)
+#Spread files between available cores
+with mp.Pool(mp.cpu_count()) as pool:
+  result = pool.map(cleanFile, svgFiles)
 
-print(f"Cleaned {changedFiles} file(s)")
+print(f"Cleaned {result.count(1)} file(s)")
