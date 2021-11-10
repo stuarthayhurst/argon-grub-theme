@@ -200,11 +200,11 @@ installCore() {
   }
 
   generateThemeSizes() {
-    icon_size="$(($1 * 2))"
-    item_icon_space="$((icon_size / 2 + 2))"
-    item_height="$((icon_size / 6 + icon_size))"
-    item_padding="$((icon_size / 4))"
-    item_spacing="$((icon_size / 3))"
+    let "icon_size = $1 * 2"
+    let "item_icon_space = icon_size / 2 + 2"
+    let "item_height = icon_size / 6 + icon_size"
+    let "item_padding = icon_size / 4"
+    let "item_spacing = icon_size / 3"
   }
 
   #Generate theme size values
