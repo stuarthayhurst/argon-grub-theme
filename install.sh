@@ -450,29 +450,6 @@ else
 fi
 splashScreenPath="$bootPath/splash0.png"
 
-if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview" ]]; then
-  #Check all required arguments are present and set default values
-  warnArgs
-
-  output "success" "Using the following settings:"
-  output "list" "Resolution: ${resolution^}"
-  if [[ "$background" != "" ]]; then
-    output "list" "Background: ${background^}"
-  else
-    output "list" "Background: ${backgroundColour}"
-  fi
-  iconType="${iconType:-"coloured"}"; output "list" "Icon type: ${iconType^}"
-  output "list" "Font colour: ${font_colour^}"
-  output "list" "Selected font colour: ${selected_font_colour^}"
-  output "list" "Font size: $fontsize"
-  output "list" "Font file: $fontfile"
-  forceBoldFont="${forceBoldFont:-"false"}"; output "list" "Force bold: ${forceBoldFont^}"
-
-  if [[ "$auto" != "true" ]]; then
-    output "normal" "\nPress enter to continue..."; read -r
-  fi
-fi
-
 if [[ "$#" ==  "0" ]]; then
   output "error" "At least one argument is required, use './install.sh --help' to view options"; exit 1
 fi
@@ -524,6 +501,29 @@ while [[ $i -le "$(($# - 1))" ]]; do
   esac
   i=$((i + 1))
 done
+
+if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview" ]]; then
+  #Check all required arguments are present and set default values
+  warnArgs
+
+  output "success" "Using the following settings:"
+  output "list" "Resolution: ${resolution^}"
+  if [[ "$background" != "" ]]; then
+    output "list" "Background: ${background^}"
+  else
+    output "list" "Background: ${backgroundColour}"
+  fi
+  iconType="${iconType:-"coloured"}"; output "list" "Icon type: ${iconType^}"
+  output "list" "Font colour: ${font_colour^}"
+  output "list" "Selected font colour: ${selected_font_colour^}"
+  output "list" "Font size: $fontsize"
+  output "list" "Font file: $fontfile"
+  forceBoldFont="${forceBoldFont:-"false"}"; output "list" "Force bold: ${forceBoldFont^}"
+
+  if [[ "$auto" != "true" ]]; then
+    output "normal" "\nPress enter to continue..."; read -r
+  fi
+fi
 
 if [[ "$programOperation" == "install" ]]; then
   installTheme
