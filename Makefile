@@ -38,4 +38,4 @@ $(SELECTSVGS):
 	./icon_builder.py "--generate" "select" "$(ICON_RESOLUTIONS)" "$@"
 $(BACKGROUNDS) $(PREVIEWS):
 	echo "Compressing $@..."; \
-	  optipng --quiet "$@"
+	  optipng -strip all --quiet "$@"
