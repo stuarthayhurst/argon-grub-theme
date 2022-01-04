@@ -67,7 +67,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
    - `inkscape` is needed if the fontsize used isn't 16, 24 or 32
   #### Optional:
  - `python3` - Used when generating icons, or when using a custom fontsize
- - `optipng` - Used to losslessly compress pngs (Used by `make compress-backgrounds`, `make generate-gif` and `make generate-icons`)
+ - `optipng` - Used to losslessly compress pngs (Used by `make compress-backgrounds`, `make generate-gif`, `make generate-icons` and `make generate-select`)
  - `grub2-theme-preview` - Used to preview themes (Used by --preview)
 
 ## Updating:
