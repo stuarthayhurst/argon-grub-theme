@@ -101,13 +101,13 @@ Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Gallery:
 ![Crystals](docs/1-Crystals.png)
-![Dawn](docs/1-Dawn.png)
-![Dusk](docs/1-Dusk.png)
-![Night](docs/1-Night.png)
-![Grey](docs/1-Grey.png)
-![Multi-distro Crystals](docs/2-Crystals.png)
-![Magenta](docs/Magenta.png)
-![Green](docs/Green.png)
+![Dawn](docs/2-Dawn.png)
+![Dusk](docs/3-Dusk.png)
+![Waves](docs/4-Waves.png)
+![Grey](docs/5-Grey.png)
+![Night](docs/6-Night.png)
+![Multi-distro Crystals](docs/7-Crystals.png)
+![Magenta](docs/8-Magenta.png)
 
 ## Makefile options:
  - Makefile respects core count specified by `-j[Core count]`
