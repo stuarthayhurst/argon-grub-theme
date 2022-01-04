@@ -99,6 +99,15 @@ Required arguments: [--install + --background / --uninstall / --preview]
    - To: `menuentry 'Linux Mint 18.3 Cinnamon 64-bit' --class linuxmint --class ubuntu --class gnu-linux --class gnu`
  - Save the file and exit
 
+## Adding your own icon:
+ - Add a `32x32` `.svg` of the icon into `assets/svg/icons/`
+   - If using colourless icons or planning to push the changes upstream, put a colourless copy in `assets/svg/icons-colourless`
+ - Make sure `inkscape`, `python3` and `optipng` are installed
+ - Run `make generate-icons -j$(nproc)`
+ - Install as normal
+ - If those dependencies can't be installed, or you can't use a `.svg`, place `32x32`, `48x48` and `64x64` versions of the icon in the corresponding directories in `assets/icons/`
+ - Install as normal, but if `--fontsize` is used, the custom icon won't be used
+
 ## Gallery:
 ![Crystals](docs/1-Crystals.png)
 ![Dawn](docs/2-Dawn.png)
