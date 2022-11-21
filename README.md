@@ -1,10 +1,10 @@
 ## argon-grub-theme
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/stuartahayhurst)
- - Configurable, modern theme for the grub bootloader, containing backgrounds, icons, fonts and styling
- - Backgrounds, fonts and fontsize can all be customised
- - Wallpaper source files can be found [here](https://github.com/stuarthayhurst/argon-wallpapers)
- - Some of the icons used are from [here](https://github.com/vinceliuice/grub2-themes)
-  - Any donations are greatly appreciated :)
+ - Configurable, modern theme for the GRUB, containing backgrounds, icons, fonts and styling
+   - Backgrounds, fonts and fontsize can all be customised
+   - Wallpaper source files can be found [here](https://github.com/stuarthayhurst/argon-wallpapers)
+   - Some of the icons used are from [here](https://github.com/vinceliuice/grub2-themes)
+ - Any donations are greatly appreciated :)
 
 ## Installation:
 
