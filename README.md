@@ -88,7 +88,9 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - Find the resolution of your display, and make sure your background matches the resolution
  - Place your custom background inside the root of the project
  - Run the installer like normal, but with `--background [filename.png]` and `--resolution [YOUR_RESOLUTION]`
-   - Resolutions: (`1920x1080` -> 1080p, `2560x1440` -> 2k, `3840x2160` -> 4k)
+   - Resolutions:
+     - 16:9: (`1920x1080` -> 1080p, `2560x1440` -> 2k, `3840x2160` -> 4k)
+     - 16:10: (`1920x1200`, `2240x1400`, `3840x2400`)
    - Make sure to replace `[YOUR_RESOLUTION]` with your resolution and `[THEME]` with the theme
 
 ## Forcing an icon:
