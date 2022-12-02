@@ -22,9 +22,10 @@ generate-icons: prune
 generate-select: prune
 	@$(MAKE) $(SELECTSVGS)
 generate-gif:
-	@echo "Generating gif..."
+	@echo "Compressing previews..."
 	@$(MAKE) $(PREVIEWS)
 	@cd docs/; \
+	@echo "Generating gif..."
 	convert -delay 150 *.png +dither -alpha off -loop 0 Gallery.gif
 generate-all:
 	@$(MAKE) generate-icons generate-select compress-backgrounds
@@ -38,6 +39,9 @@ $(ICONSVGS):
 	@./icon_builder.py "--generate" "icon" "$(ICON_RESOLUTIONS)" "$@"
 $(SELECTSVGS):
 	@./icon_builder.py "--generate" "select" "$(ICON_RESOLUTIONS)" "$@"
-$(BACKGROUNDS) $(PREVIEWS):
+$(BACKGROUNDS):
 	@echo "Compressing $@..."
 	@optipng -nc -strip all --quiet "$@"
+$(PREVIEWS):
+	@echo "Compressing $@..."
+	@optipng -o7 -strip all --quiet "$@"
