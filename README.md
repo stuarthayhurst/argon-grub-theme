@@ -116,7 +116,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
 ![Dusk](docs/3-Dusk.png)
 ![Waves](docs/4-Waves.png)
 ![Grey](docs/5-Grey.png)
-![Night](docs/6-Night.png)
+![Night](docs/6-Colours.png)
 ![Multi-distro Crystals](docs/7-Crystals.png)
 ![Magenta](docs/8-Magenta.png)
 
