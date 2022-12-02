@@ -25,7 +25,7 @@ generate-gif:
 	@echo "Compressing previews..."
 	@$(MAKE) $(PREVIEWS)
 	@cd docs/; \
-	@echo "Generating gif..."
+	echo "Generating gif..."; \
 	convert -delay 150 *.png +dither -alpha off -loop 0 Gallery.gif
 generate-all:
 	@$(MAKE) generate-icons generate-select compress-backgrounds
