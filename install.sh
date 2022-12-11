@@ -531,6 +531,7 @@ if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview"
   output "list" "Font size: $fontsize"
   output "list" "Font file: $fontfile"
   forceBoldFont="${forceBoldFont:-"false"}"; output "list" "Force bold: ${forceBoldFont^}"
+  output "list" "Install path: ${installDir}/"
 
   if [[ "$auto" != "true" ]]; then
     output "normal" "\nPress enter to continue..."; read -r
