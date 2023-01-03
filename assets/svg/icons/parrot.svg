@@ -1,5 +1,5 @@
 <ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns2="http://www.inkscape.org/namespaces/inkscape" xmlns:ns3="http://www.w3.org/1999/xlink" width="32" height="32" version="1.1" viewBox="0 0 8.4666667 8.4666671" id="svg371" ns1:docname="parrot.svg">
-  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="16" ns2:cx="12.723119" ns2:cy="14.362962" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="svg371" ns2:document-rotation="0">
+  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="22.627417" ns2:cx="17.67767" ns2:cy="20.130446" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="svg371" ns2:document-rotation="0" ns2:showpageshadow="2" ns2:pagecheckerboard="0" ns2:deskcolor="#d1d1d1">
     <ns2:grid id="grid1162" type="xygrid" />
   </ns1:namedview>
   <ns0:defs id="defs37">
@@ -20,13 +20,16 @@
     <ns0:style type="text/css" id="style31" />
     <ns0:style type="text/css" id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
     <ns0:style type="text/css" id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:linearGradient ns2:collect="always" ns3:href="#linearGradient889" id="linearGradient893" x1="17.279049" y1="16.628941" x2="28.038439" y2="27.38833" gradientUnits="userSpaceOnUse" />
+    <ns0:linearGradient ns2:collect="always" ns3:href="#linearGradient889" id="linearGradient893" x1="17.279049" y1="16.628941" x2="28.038439" y2="27.38833" gradientUnits="userSpaceOnUse" gradientTransform="matrix(0.24804687,0,0,0.24804687,0.31750011,0.37030251)" />
   </ns0:defs>
-  <ns0:g id="g903">
+  <ns0:g id="g1456">
     <ns0:circle style="fill:#55ddff;stroke-width:0.423333" cx="4.2333293" cy="4.2333307" r="4.2333336" id="circle4" />
-    <ns0:g id="g897">
-      <ns0:path style="fill:#000000;stroke-width:0.390941" d="M 3.0026504,1.2695574 2.1166667,1.6931553 2.2652033,2.8187777 2.7859853,2.2780251 3.183879,2.4278723 3.9657676,3.9044855 4.6974306,4.278258 4.747655,7.1437502 5.2701338,5.6011349 5.6518647,6.3572771 5.9204874,4.9941839 6.9310252,5.2556067 C 6.2308239,4.1300428 5.7006247,3.5329852 4.9654289,2.4302048 L 3.7487721,1.7539429 Z" id="path10-1" ns1:nodetypes="ccccccccccccccc" />
-      <ns0:path style="fill:url(#linearGradient893);stroke-width:1.6;fill-opacity:1" d="m 18.767578,9.1855469 c 2.778693,4.1679891 4.781304,6.4236351 7.427734,10.6777341 L 22.376953,18.875 21.361328,24.027344 19.917969,21.169922 17.943359,27 20.544922,31.341797 A 16.000001,16.000001 0 0 0 31.990234,16.535156 l -5.986328,-3.328125 z" transform="scale(0.26458334)" id="path883" />
+    <ns0:g id="g1448">
+      <ns0:circle style="fill:#18c6ff;fill-opacity:1;stroke-width:0.3175" cx="4.2333336" cy="4.2333336" r="3.1750002" id="circle1345" />
+      <ns0:g id="g1442">
+        <ns0:path style="fill:#000000;stroke-width:0.366507" d="M 3.1324848,1.5605126 2.3018751,1.9576356 2.4411282,3.0129065 2.9293613,2.505951 3.3023866,2.6464327 4.0354071,4.0307576 4.7213412,4.3811693 4.7684265,7.0675681 5.2582504,5.6213663 5.6161231,6.3302496 5.8679569,5.0523498 6.815336,5.2974337 C 6.1588973,4.2422175 5.6618356,3.6824761 4.9725896,2.6486195 L 3.8319739,2.014624 Z" id="path10-1" ns1:nodetypes="ccccccccccccccc" />
+        <ns0:path id="path883" style="fill:url(#linearGradient893);fill-opacity:1;stroke-width:0.396875" d="M 4.9728232 2.648934 C 5.6620685 3.6827896 6.1586501 4.2421363 6.8150881 5.2973512 L 5.867859 5.0524049 L 5.6161948 6.3303631 L 5.2580771 5.6213625 L 4.7681845 7.0677858 L 4.9263144 7.3313357 A 3.1750002 3.1750002 0 0 0 7.4083335 4.2333334 A 3.1750002 3.1750002 0 0 0 7.3995485 3.9976889 L 6.7675458 3.6462892 L 4.9728232 2.648934 z " />
+      </ns0:g>
     </ns0:g>
   </ns0:g>
 </ns0:svg>
