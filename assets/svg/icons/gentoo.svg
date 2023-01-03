@@ -1,5 +1,5 @@
 <ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns2="http://www.inkscape.org/namespaces/inkscape" width="32" height="32" version="1.1" viewBox="0 0 8.4666667 8.4666672" id="svg371" ns1:docname="gentoo.svg">
-  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="15.999999" ns2:cx="23.230642" ns2:cy="18.610742" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="svg371" ns2:document-rotation="0">
+  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="22.627416" ns2:cx="16.197166" ns2:cy="13.236156" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="svg371" ns2:document-rotation="0" ns2:showpageshadow="2" ns2:pagecheckerboard="0" ns2:deskcolor="#d1d1d1">
     <ns2:grid id="grid1162" type="xygrid" />
   </ns1:namedview>
   <ns0:defs id="defs37">
@@ -17,8 +17,11 @@
     <ns0:style type="text/css" id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
     <ns0:style type="text/css" id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
   </ns0:defs>
-  <ns0:g id="g853">
-    <ns0:circle cx="4.2332978" cy="4.2333055" r="4.2332978" style="fill:#b410bb;stroke-width:0.962969;paint-order:stroke markers fill;fill-opacity:1" id="circle84" />
-    <ns0:path d="M 3.8348099,1.7214611 C 2.6985746,1.7752106 1.8092111,2.8058223 1.8548354,3.365815 1.8985849,3.9114329 3.2804421,4.3901767 3.2641923,4.4064265 2.9816959,4.6451735 2.7954483,4.8064215 2.5592013,5.0220437 1.9917087,5.540787 1.5998388,5.925157 1.7985862,6.4651501 2.0279583,7.0876421 2.5298268,7.0620174 3.1185691,6.9463939 4.6385495,6.6463978 7.1391424,4.7239225 7.012269,4.0151817 6.9091454,3.4408141 5.5110384,2.3064537 4.6847989,1.9002088 4.4210106,1.7700907 4.1286634,1.7086118 3.8348099,1.7214611 Z m 0.2349969,0.9843624 c 0.1418733,-0.013125 0.3074961,0.0225 0.4918688,0.1124986 0.4031198,0.1943725 0.8206144,0.6793556 0,0.9737268 C 4.1503157,3.9042527 3.6229376,3.6320616 3.6448124,3.2539415 3.664187,2.9051959 3.8323099,2.7283232 4.0698068,2.7058235 Z" id="path88" ns2:connector-curvature="0" style="fill:#ffffff;fill-rule:evenodd;stroke-width:1.05468" ns1:nodetypes="cccccccccccccc" />
+  <ns0:g id="g2004">
+    <ns0:circle cx="4.2332978" cy="4.2333055" r="4.2332978" style="fill:#ca2bd0;fill-opacity:1;stroke-width:0.962969;paint-order:stroke markers fill" id="circle84" />
+    <ns0:g id="g1998">
+      <ns0:circle cx="4.2333336" cy="4.2333336" r="3.1750002" style="fill:#b410bb;fill-opacity:1;stroke-width:0.722233;paint-order:stroke markers fill" id="circle1224" />
+      <ns0:path d="M 3.990474,1.8503694 C 2.9962597,1.8974006 2.2180601,2.7991934 2.2579817,3.2891912 2.2962628,3.7666109 3.5053981,4.1855152 3.4911794,4.1997339 3.2439929,4.4086393 3.0810249,4.5497325 2.874307,4.7384035 2.3777468,5.1923076 2.0348578,5.5286342 2.2087633,6.0011321 2.4094655,6.5458173 2.8486041,6.5233954 3.363758,6.422224 4.693752,6.1597253 6.8817892,4.4775452 6.7707739,3.8573918 6.6805401,3.354816 5.4571862,2.3622423 4.7342206,2.006775 4.5034038,1.8929207 4.2475979,1.8391262 3.990474,1.8503694 Z m 0.2056239,0.8613244 c 0.1241402,-0.011485 0.2690614,0.019688 0.4303889,0.098437 0.3527328,0.1700773 0.7180436,0.5944411 0,0.8520181 C 4.2665438,3.7603281 3.8050841,3.5221589 3.8242247,3.191301 3.8411776,2.8861461 3.9882864,2.7313812 4.1960979,2.7116938 Z" id="path88" ns2:connector-curvature="0" style="fill:#ffffff;fill-rule:evenodd;stroke-width:0.922853" ns1:nodetypes="cccccccccccccc" />
+    </ns0:g>
   </ns0:g>
 </ns0:svg>
