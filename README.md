@@ -139,7 +139,6 @@ Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Copyright and credits:
  - Terminus font: Copyright (c) 2019 Dimitar Toshkov Zhekov, `fonts/Terminus-License.txt`
- - DejaVu fonts: See `fonts/DejaVu-License.txt`
  - Unifont: The GNU Project - `fonts/Unifont-License.txt`
  - Theme originally based off of [grub2-themes](https://github.com/vinceliuice/grub2-themes)
    - Code is upstreamed where possible
