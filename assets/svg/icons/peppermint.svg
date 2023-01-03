@@ -1,5 +1,5 @@
 <ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns2="http://www.inkscape.org/namespaces/inkscape" width="32" height="32" version="1.1" viewBox="0 0 8.4666667 8.4666672" id="svg371" ns1:docname="peppermint.svg">
-  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="11.313709" ns2:cx="13.832776" ns2:cy="21.787726" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="g892" ns2:document-rotation="0" showguides="false" ns2:showpageshadow="2" ns2:pagecheckerboard="0" ns2:deskcolor="#d1d1d1">
+  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="11.313709" ns2:cx="17.987028" ns2:cy="20.727067" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="svg371" ns2:document-rotation="0" showguides="false" ns2:showpageshadow="2" ns2:pagecheckerboard="0" ns2:deskcolor="#d1d1d1">
     <ns2:grid id="grid1162" type="xygrid" />
   </ns1:namedview>
   <ns0:defs id="defs37">
@@ -18,7 +18,7 @@
     <ns0:style type="text/css" id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
   </ns0:defs>
   <ns0:g id="g892">
-    <ns0:circle style="fill:#333333;stroke:none;stroke-width:1.12023;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers fill stroke" id="path1189" cx="4.2333336" cy="4.2333336" r="4.2333336" />
+    <ns0:circle style="fill:#ff2626;stroke:none;stroke-width:1.12023;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:markers fill stroke;fill-opacity:1" id="path1189" cx="4.2333336" cy="4.2333336" r="4.2333336" />
     <ns0:g id="g1267">
       <ns0:g id="g1251">
         <ns0:g id="g1237">
