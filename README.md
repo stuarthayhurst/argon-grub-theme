@@ -7,7 +7,6 @@
  - Any donations are greatly appreciated :)
 
 ## Installation:
-
 Usage:  `sudo ./install.sh [OPTIONS]`
 
 |  Options:         | Description: |
@@ -29,6 +28,11 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 
 Required arguments: [--install + --background / --uninstall / --preview]
  - **If the repository is updated, `make clean` should be run, to erase cached assets**
+
+## Fixing common problems:
+ - Secure Boot can cause some assets (primarily fonts) to fail to load, as they're not signed
+ - The simplest fix to to diable Secure Boot in BIOS
+ - Alternatively, the files can be signed and enrolled after installation, but this method varies by distro
 
 ## Examples:
  - Install the theme for a 4k display, using the `Night` wallpaper:
