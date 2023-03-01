@@ -1,1 +1,5 @@
 build/
+
+env/
+venv/
+.venv/
