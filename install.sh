@@ -69,7 +69,9 @@ getCustomBackground() {
 printResolutions() {
   output "normal" "Supported resolutions: ('custom' will allow GRUB to guess settings)"
   for listResolution in "backgrounds/"*; do
-    output "normal" " - ${listResolution//backgrounds\/}"
+    if [[ "$listResolution" != "backgrounds/import.py" ]]; then
+      output "normal" " - ${listResolution//backgrounds\/}"
+    fi
   done
   output "normal" " - [WIDTH]x[HEIGHT]"
 }
