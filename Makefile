@@ -10,12 +10,12 @@ ICON_RESOLUTIONS=32 48 64
 .PHONY: prune clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS) $(PREVIEWS)
 
 clean:
-	rm -rvf "./build"
-	rm -rvf "./backgrounds/upstream"
+	@rm -rvf "./build"
+	@rm -rvf "./backgrounds/upstream"
 full-clean:
-	rm -rvf "./assets/icons"*"/"*
-	rm -rvf "./assets/select/"*
-	rm -rvf "./build"
+	@rm -rvf "./assets/icons"*"/"*
+	@rm -rvf "./assets/select/"*
+	@rm -rvf "./build"
 compress-backgrounds:
 	@$(MAKE) $(BACKGROUNDS)
 generate-icons: prune
