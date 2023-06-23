@@ -37,7 +37,7 @@ for directory in os.scandir():
   #Decide output mode
   backgroundFormat = "regular"
   if "x" in directory.name:
-    backgroundFormat = "wide"
+    backgroundFormat = "tall"
 
   #Extract width and height
   width, height = 0, 0
@@ -72,8 +72,8 @@ input(f"\nGoing to import {len(outputEntries)} resolutions using {threads} threa
 #Export wallpapers with each set of settings
 for outputEntry in outputEntries:
   target = "wallpapers"
-  if outputEntry["format"] == "wide":
-    target = "wide"
+  if outputEntry["format"] == "tall":
+    target = "tall"
 
   #Set width and height for the output
   freshEnv["EXPORT_WIDTH"] = str(outputEntry['width'])
@@ -86,10 +86,10 @@ for outputEntry in outputEntries:
     print(f"Failed to generate {outputEntry['width']}x{outputEntry['height']} backgrounds")
     exit(1)
 
-  #Widescreen wallpapers are generated to a different path
+  #Tall wallpapers are generated to a different path
   extraPath = ""
-  if outputEntry["format"] == "wide":
-    extraPath = "wide/"
+  if outputEntry["format"] == "tall":
+    extraPath = "tall/"
 
   #Move and rename generated wallpapers
   pngFiles = glob.glob(f"./{extraPath}*.png")
