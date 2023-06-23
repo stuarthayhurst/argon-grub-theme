@@ -67,7 +67,7 @@ os.chdir("./upstream")
 freshEnv = os.environ.copy()
 
 threads = multiprocessing.cpu_count()
-input(f"\nGoing to import {len(outputEntries)} resolutions using {threads} threads, continue?")
+input(f"\nReady to import {len(outputEntries)} resolutions using {threads} threads, continue?")
 
 #Export wallpapers with each set of settings
 for outputEntry in outputEntries:
