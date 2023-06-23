@@ -11,6 +11,7 @@ ICON_RESOLUTIONS=32 48 64
 
 clean:
 	rm -rvf "./build"
+	rm -rvf "./backgrounds/upstream"
 full-clean:
 	rm -rvf "./assets/icons"*"/"*
 	rm -rvf "./assets/select/"*

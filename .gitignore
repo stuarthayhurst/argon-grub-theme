@@ -1,5 +1,7 @@
 build/
 
+backgrounds/upstream/
+
 env/
 venv/
 .venv/
