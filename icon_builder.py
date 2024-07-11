@@ -112,6 +112,9 @@ def checkFiles(buildDir):
         print(f"{file} is missing a colourless counterpart, exiting")
         exit(1)
 
+#Prevent Inkscape crashing when multiple cores are used
+os.environ["SELF_CALL"] = "1"
+
 #Figure out inkscape generation option
 inkscapeVersion = getCommandOutput(["inkscape", "--version"])[0].split(" ")[1]
 inkscapeVersion = inkscapeVersion.split(".")
