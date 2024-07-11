@@ -26,7 +26,7 @@ def getCommandOutput(command):
   if "" in errorOutput:
     errorOutput.remove("")
   if len(errorOutput) != 0:
-    print("\nError: " + "\n".join(errorOutput) + "\n")
+    print("\nERROR: " + "\n".join(errorOutput) + "\n")
 
   output = rawOutput.stdout.decode("utf-8").split("\n")
   if "" in output:
@@ -114,16 +114,16 @@ def generateIcon(inputFile, outputFile, iconType, iconResolutions):
 
 def checkFiles(buildDir):
   if not os.path.exists(buildDir):
-    print(f"Build directory '{buildDir}' doesn't exist, exiting")
+    print(f"ERROR: Build directory '{buildDir}' doesn't exist, exiting")
     exit(1)
 
   for file in glob.glob(f"{buildDir}/svg/*/*.svg"):
     if isSymlinkBroken(file):
-      print(f"{file} is a broken symlink, exiting")
+      print(f"ERROR: {file} is a broken symlink, exiting")
       exit(1)
     if "/icons/" in file:
       if not os.path.exists(file.replace("/icons/", "/icons-colourless/")):
-        print(f"{file} is missing a colourless counterpart, exiting")
+        print(f"ERROR: {file} is missing a colourless counterpart, exiting")
         exit(1)
 
 #Prevent Inkscape crashing when multiple cores are used
@@ -131,12 +131,12 @@ os.environ["SELF_CALL"] = "1"
 
 #Check Inkscape and optipng are present
 if getCommandExitCode(["inkscape", "--version"]):
-  print("Inkscape required to build icons")
+  print("ERROR: Inkscape required to build icons")
   print("If you're installing without making any changes, use './install.sh'")
   exit(1)
 
 if getCommandExitCode(["optipng", "--version"]):
-  print("Optipng required to build icons")
+  print("ERROR: Optipng required to build icons")
   print("If you're installing without making any changes, use './install.sh'")
   exit(1)
 
