@@ -13,7 +13,10 @@ def isSymlinkBroken(path):
   return False
 
 def getCommandExitCode(command):
-  return subprocess.run(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode
+  try:
+    return subprocess.run(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode
+  except FileNotFoundError:
+    return 1
 
 def getCommandOutput(command):
   output = subprocess.run(command, capture_output=True).stdout.decode("utf-8").split("\n")
@@ -114,6 +117,17 @@ def checkFiles(buildDir):
 
 #Prevent Inkscape crashing when multiple cores are used
 os.environ["SELF_CALL"] = "1"
+
+#Check Inkscape and optipng are present
+if getCommandExitCode(["inkscape", "--version"]):
+  print("Inkscape required to build icons")
+  print("If you're installing without making any changes, use './install.sh'")
+  exit(1)
+
+if getCommandExitCode(["optipng", "--version"]):
+  print("Optipng required to build icons")
+  print("If you're installing without making any changes, use 'make install'")
+  exit(1)
 
 #Figure out inkscape generation option
 inkscapeVersion = getCommandOutput(["inkscape", "--version"])[0].split(" ")[1]
