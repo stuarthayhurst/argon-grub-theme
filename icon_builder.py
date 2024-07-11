@@ -137,7 +137,7 @@ if getCommandExitCode(["inkscape", "--version"]):
 
 if getCommandExitCode(["optipng", "--version"]):
   print("Optipng required to build icons")
-  print("If you're installing without making any changes, use 'make install'")
+  print("If you're installing without making any changes, use './install.sh'")
   exit(1)
 
 #Figure out inkscape generation option
