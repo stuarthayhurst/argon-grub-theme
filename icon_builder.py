@@ -19,7 +19,18 @@ def getCommandExitCode(command):
     return 1
 
 def getCommandOutput(command):
-  output = subprocess.run(command, capture_output=True).stdout.decode("utf-8").split("\n")
+  rawOutput = subprocess.run(command, capture_output=True)
+
+  #Check for errors and print
+  errorOutput = rawOutput.stderr.decode("utf-8").split("\n")
+  if "" in errorOutput:
+    errorOutput.remove("")
+  if len(errorOutput) != 0:
+    print("\nError: " + "\n".join(errorOutput) + "\n")
+
+  output = rawOutput.stdout.decode("utf-8").split("\n")
+  if "" in output:
+    output.remove("")
   return output
 
 def getAssetResolutionDir(resolution):
