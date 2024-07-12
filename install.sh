@@ -317,26 +317,20 @@ installTheme() {
   #Install splash screen
   cp "$installDir/background.png" "$splashScreenPath"
 
-  #Modify grub config
-  output "success" "Modifiying grub config..."
-  cp -n "/etc/default/grub" "/etc/default/grub.bak"
+  #Create GRUB config directory, if it's missing
+  mkdir -p "/etc/default/grub.d/"
 
-  updateConfigVal() { #$1: search string, $2: replace string, $3: boolean to append replace string
-    #Replace $1 with $2
-    if grep "$1" /etc/default/grub >/dev/null 2>&1; then
-      sed -i "s|.*$1.*|$2|" /etc/default/grub
-    else
-      #Append $2 if $3 is true and $1 is missing
-      if [[ "$3" == "true" ]]; then
-        echo "$2" >> /etc/default/grub
-      fi
-    fi
-  }
+  #Handle existing GRUB theme config
+  if [[ -f "/etc/default/grub.d/argon.cfg" ]]; then
+    output "success" "Replacing GRUB theme config..."
+    rm "/etc/default/grub.d/argon.cfg"
+  else
+    output "success" "Installing GRUB theme config..."
+  fi
 
-  updateConfigVal "GRUB_THEME=" "GRUB_THEME=\"$installDir/theme.txt\"" "true"
-  updateConfigVal "GRUB_GFXMODE=" "$gfxmode" "true"
-  updateConfigVal "GRUB_TERMINAL=console" "#GRUB_TERMINAL=console"
-  updateConfigVal "GRUB_TERMINAL_OUTPUT=console" "#GRUB_TERMINAL_OUTPUT=console"
+  #Add relevant config to file
+  echo "GRUB_THEME=\"$installDir/theme.txt\"" > "/etc/default/grub.d/argon.cfg"
+  echo "$gfxmode" >> "/etc/default/grub.d/argon.cfg"
 
   #Update grub config
   updateGrub
@@ -360,23 +354,12 @@ uninstallTheme() {
     rm -rf "$splashScreenPath"
   fi
 
-  #Backup existing grub config
-  output "success" "Modifiying grub config..."
-  cp -n "/etc/default/grub" "/etc/default/grub.bak"
-
-  #Remove GRUB_THEME from config
-  if grep "GRUB_THEME=" /etc/default/grub >/dev/null 2>&1; then
-    #Remove GRUB_THEME
-    sudo sed -i '/GRUB_THEME=/d' /etc/default/grub
+  #Remove GRUB theme config
+  if [[ -f "/etc/default/grub.d/argon.cfg" ]]; then
+    output "success" "Removing GRUB theme config..."
+    rm "/etc/default/grub.d/argon.cfg"
   else
-    output "warning" "  GRUB_THEME not found, restoring original backup..."
-    #Restore grub config backup
-    if [[ -f /etc/default/grub.bak ]]; then
-      mv /etc/default/grub.bak /etc/default/grub
-    else
-      output "error" "No '/etc/default/grub' backup found, exiting"
-      output "warning" "You must manually remove the theme from '/etc/default/grub', then update grub"; exit 1
-    fi
+    output "warning" "GRUB theme config not found, '/etc/default/grub' may need configuring"
   fi
 
   #Update grub config
