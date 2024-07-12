@@ -196,10 +196,11 @@ installCore() {
       output "error" "Neither grub-mkfont nor grub2-mkfont could be found, exiting"; exit 1
     fi
 
+    extraFlag=""
     if [[ "$forceBoldFont" == "true" ]] || [[ "$5" == "-b" ]]; then
-      forceBoldFont="-b"
+      extraFlag="-b"
     fi
-    $mkfontCommand "$1" -o "$2" -s "$3" -n "$4" "$forceBoldFont"
+    $mkfontCommand "$1" -o "$2" -s "$3" -n "$4" "$extraFlag"
   }
 
   checkIconCached() { #$1: asset name, $2: resolution, $3: pretty name
