@@ -31,7 +31,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Fixing common problems:
  - Secure Boot can cause some assets (primarily fonts) to fail to load, as they're not signed
- - The simplest fix to to diable Secure Boot in BIOS
+ - The simplest fix to to disable Secure Boot in BIOS
  - Alternatively, the files can be signed and enrolled after installation, but this method varies by distro
 
 ## Examples:
