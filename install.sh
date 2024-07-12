@@ -403,25 +403,27 @@ previewTheme() {
 }
 
 warnArgs() {
-  if [[ "$resolution" == "" ]]; then
-    argWarnings+="$(output "warning" "No resolution specified, using default of 1080p\n")"
-    resolution="1080p"
-    gfxmode="GRUB_GFXMODE=1920x1080,auto"
-  fi
   if [[ "$font_colour" == "" ]]; then
     argWarnings+="$(output "minor" "No font colour specified, use -fc [VALUE] to set a font colour\n")"
     font_colour="#cccccc"
     selected_font_colour="#ffffff"
   fi
-  if [[ "$fontsize" == "" ]]; then
-    argWarnings+="$(output "warning" "No font size specified, use -fs [VALUE] to set a font size\n")"
-    argWarnings+="$(output "warning" "  - Default of 24 will be used\n")"
-    fontsize="24"
+  if [[ "$resolution" == "" ]]; then
+    argWarnings+="$(output "warning" "No resolution specified, use -r [RESOLUTION] to set a resolution\n")"
+    argWarnings+="$(output "warning" "  - Defaulting to 1080p\n")"
+    resolution="1080p"
+    gfxmode="GRUB_GFXMODE=1920x1080,auto"
   fi
   if [[ "$fontfile" == "" ]]; then
-    argWarnings+="$(output "warning" "No font specified, use -f [FONTFILE] to set a font, using Terminus Bold\n")"
+    argWarnings+="$(output "warning" "No font specified, use -f [FONTFILE] to set a font\n")"
+    argWarnings+="$(output "warning" "  - Defaulting to Terminus Bold\n")"
     forceBoldFont="true"
     fontfile="Terminus.ttf"
+  fi
+  if [[ "$fontsize" == "" ]]; then
+    argWarnings+="$(output "warning" "No font size specified, use -fs [VALUE] to set a font size\n")"
+    argWarnings+="$(output "warning" "  - Defaulting to size 24\n")"
+    fontsize="24"
   fi
   if [[ "$background" == "" ]] && [[ "$backgroundColour" == "" ]]; then
     argWarnings+="$(output "error" "No background or colour specified, use -b to list available backgrounds\n")"
