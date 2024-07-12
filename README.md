@@ -81,6 +81,10 @@ Required arguments: [--install + --background / --uninstall / --preview]
 
 ## Preview the theme:
  - Follow the instructions at [grub2-theme-preview](https://github.com/hartwork/grub2-theme-preview) to install the program
+   - Your distro might require using a virtual environment, this can be done with the following:
+     - `python3 -m venv .venv`
+     - `source .venv/bin/activate`
+     - `pip3 install grub2-theme-preview`
  - Run the install script with your desired options, but replace --install / -i with --preview / -p
  - For example: `./install.sh --preview --background Crystals.png --resolution 4k`
 
