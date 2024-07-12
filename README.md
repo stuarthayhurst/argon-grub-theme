@@ -75,7 +75,8 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - `grub2-theme-preview` - Used to preview themes (Used by --preview)
 
 ## Updating:
- - Update the repository: `git clone https://github.com/stuarthayhurst/argon-grub-theme.git`
+ - Clone the repository: `git clone https://github.com/stuarthayhurst/argon-grub-theme.git`
+   - If it's already cloned, just run `git pull`
  - **Clear the asset cache: `make clean`**
  - Install like normal
 
