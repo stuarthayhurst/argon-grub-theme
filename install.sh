@@ -383,6 +383,9 @@ previewTheme() {
 
   output "success" "Installed to $installDir"
   grub2-theme-preview "$installDir"
+  if [[ "$?" != "0" ]]; then
+    output "error" "Failed to display preview, grub2-theme-preview may be broken"
+  fi
   rm -rf "$installDir"
 }
 
