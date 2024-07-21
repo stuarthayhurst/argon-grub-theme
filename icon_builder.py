@@ -136,9 +136,8 @@ if getCommandExitCode(["inkscape", "--version"]):
   exit(1)
 
 if getCommandExitCode(["optipng", "--version"]):
-  print("ERROR: Optipng required to build icons")
-  print("If you're installing without making any changes, use './install.sh'")
-  exit(1)
+  print("WARNING: Optipng required to optimise icons")
+  print("This isn't fatal, but icons may require more disk space")
 
 #Figure out inkscape generation option
 inkscapeVersion = getCommandOutput(["inkscape", "--version"])[0].split(" ")[1]
