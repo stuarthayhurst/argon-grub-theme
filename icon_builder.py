@@ -12,6 +12,9 @@ def isSymlinkBroken(path):
   #Either not a symlink, or not broken
   return False
 
+def error(output):
+  print(output, file=sys.stderr)
+
 def getCommandExitCode(command):
   try:
     return subprocess.run(command, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode
@@ -26,7 +29,7 @@ def getCommandOutput(command):
   if "" in errorOutput:
     errorOutput.remove("")
   if len(errorOutput) != 0:
-    print("\nERROR: " + "\n".join(errorOutput) + "\n")
+    error("\nERROR: " + "\n".join(errorOutput) + "\n")
 
   output = rawOutput.stdout.decode("utf-8").split("\n")
   if "" in output:
@@ -114,16 +117,16 @@ def generateIcon(inputFile, outputFile, iconType, iconResolutions):
 
 def checkFiles(buildDir):
   if not os.path.exists(buildDir):
-    print(f"ERROR: Build directory '{buildDir}' doesn't exist, exiting")
+    error(f"ERROR: Build directory '{buildDir}' doesn't exist, exiting")
     exit(1)
 
   for file in glob.glob(f"{buildDir}/svg/*/*.svg"):
     if isSymlinkBroken(file):
-      print(f"ERROR: {file} is a broken symlink, exiting")
+      error(f"ERROR: {file} is a broken symlink, exiting")
       exit(1)
     if "/icons/" in file:
       if not os.path.exists(file.replace("/icons/", "/icons-colourless/")):
-        print(f"ERROR: {file} is missing a colourless counterpart, exiting")
+        error(f"ERROR: {file} is missing a colourless counterpart, exiting")
         exit(1)
 
 #Prevent Inkscape crashing when multiple cores are used
@@ -131,13 +134,13 @@ os.environ["SELF_CALL"] = "1"
 
 #Check Inkscape and optipng are present
 if getCommandExitCode(["inkscape", "--version"]):
-  print("ERROR: Inkscape required to build icons")
-  print("If you're installing without making any changes, use './install.sh'")
+  error("ERROR: Inkscape required to build icons")
+  error("If you're installing without making any changes, use './install.sh'")
   exit(1)
 
 if getCommandExitCode(["optipng", "--version"]):
-  print("WARNING: Optipng required to optimise icons")
-  print("This isn't fatal, but icons may require more disk space")
+  error("WARNING: Optipng required to optimise icons")
+  error("This isn't fatal, but icons may require more disk space")
 
 #Figure out inkscape generation option
 inkscapeVersion = getCommandOutput(["inkscape", "--version"])[0].split(" ")[1]
