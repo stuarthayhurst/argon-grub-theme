@@ -87,6 +87,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
      - `python3 -m venv .venv`
      - `source .venv/bin/activate`
      - `pip3 install grub2-theme-preview`
+     - Install grub2-theme-preview's dependencies using your distro's package manager
  - Run the install script with your desired options, but replace --install / -i with --preview / -p
  - For example: `./install.sh --preview --background Crystals.png --resolution 4k`
 
