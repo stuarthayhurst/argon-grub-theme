@@ -207,8 +207,7 @@ installCore() {
     #Decide if the assets have been cached
     output "success" "Generating $3..." "noNewline"
     if [[ ! -d "./build/$1/${2}px" ]]; then
-      message=$(./icon_builder.py "--custom" "$1" "$2" "build" "$iconType" 2>&1 >/dev/null)
-      if [[ "$?" != "0" ]]; then
+      if ! message=$(./icon_builder.py "--custom" "$1" "$2" "build" "$iconType" 2>&1 >/dev/null); then
         output "error" " failed"
       else
         output "success" " done"
@@ -391,8 +390,7 @@ previewTheme() {
   installCore
 
   output "success" "Installed to $installDir"
-  grub2-theme-preview "$installDir"
-  if [[ "$?" != "0" ]]; then
+  if ! grub2-theme-preview "$installDir"; then
     output "error" "Failed to display preview, grub2-theme-preview may be broken"
   fi
   rm -rf "$installDir"
