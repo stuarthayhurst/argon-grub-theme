@@ -7,7 +7,7 @@ PREVIEWS=$(wildcard ./docs/*.png)
 
 ICON_RESOLUTIONS=32 48 64
 
-.PHONY: prune clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS) $(PREVIEWS)
+.PHONY: clean full-clean compress-backgrounds generate-icons generate-select generate-gif generate-all $(ICONSVGS) $(SELECTSVGS) $(BACKGROUNDS) $(PREVIEWS)
 
 clean:
 	@rm -rvf "./build"
@@ -18,9 +18,9 @@ full-clean:
 	@rm -rvf "./build"
 compress-backgrounds:
 	@$(MAKE) $(BACKGROUNDS)
-generate-icons: prune
+generate-icons:
 	@$(MAKE) $(ICONSVGS)
-generate-select: prune
+generate-select:
 	@$(MAKE) $(SELECTSVGS)
 generate-gif:
 	@echo "Compressing previews..."
@@ -34,8 +34,6 @@ generate-all:
 	@$(MAKE) check
 check:
 	@./icon_builder.py "--check-files" "assets"
-prune:
-	@./clean-svgs.py
 $(ICONSVGS):
 	@./icon_builder.py "--generate" "icon" "$(ICON_RESOLUTIONS)" "$@"
 $(SELECTSVGS):

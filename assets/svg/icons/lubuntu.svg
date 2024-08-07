@@ -1,34 +1,139 @@
-<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns2="http://www.inkscape.org/namespaces/inkscape" width="32" height="32" version="1.1" viewBox="0 0 8.4666667 8.4666672" id="svg371" ns1:docname="lubuntu.svg">
-  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="22.627416" ns2:cx="18.14073" ns2:cy="18.39262" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="svg371" ns2:document-rotation="0">
-    <ns2:grid id="grid1162" type="xygrid" />
-  </ns1:namedview>
-  <ns0:defs id="defs37">
-    <ns0:style id="current-color-scheme" type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style29" />
-    <ns0:style type="text/css" id="style31" />
-    <ns0:style type="text/css" id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-  </ns0:defs>
-  <ns0:g style="fill:#ffffff;fill-opacity:1" transform="matrix(-0.02885528,0,0,0.0288555,30.259629,5.9111644)" id="g898" />
-  <ns0:g style="fill:#ffffff;fill-opacity:1" transform="matrix(0.01499372,0.0246541,0.02465391,-0.01499384,8.7135589,-9.7682363)" id="g900" />
-  <ns0:g style="fill:#ffffff;fill-opacity:1" transform="matrix(0.0144051,-0.0250026,-0.02500241,-0.01440521,5.9599396,16.386349)" id="g902" />
-  <ns0:g id="g892">
-    <ns0:path d="m 4.1822579,3.0769604e-4 a 4.2332976,4.2332976 0 1 1 0,8.46597980396 4.2332976,4.2332976 0 0 1 0,-8.46597980396 z" id="path144" ns2:connector-curvature="0" style="fill:#1d89db;stroke-width:0.962969" />
-    <ns0:g id="g886">
-      <ns0:circle style="fill:#ffffff;stroke-width:1.62099;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke markers fill" id="path875" cx="4.2333336" cy="4.2333336" r="2.9104168" />
-      <ns0:path id="path908" style="fill:#1d89db;fill-opacity:1;stroke:none;stroke-width:0.0656939" d="M 17.324219 9.3183594 C 16.892062 9.336766 16.464534 9.4525263 16.083984 9.6582031 C 15.576581 9.9324475 15.154956 10.364558 14.894531 10.878906 C 14.634065 11.393254 14.535743 11.987672 14.615234 12.558594 C 14.69473 13.129515 14.95271 13.673879 15.34375 14.097656 C 15.140449 13.72072 15.044246 13.286903 15.068359 12.859375 C 15.09239 12.431848 15.236175 12.011962 15.480469 11.660156 C 15.724775 11.308357 16.068555 11.027605 16.460938 10.855469 C 16.853325 10.683344 17.292264 10.621308 17.716797 10.679688 C 18.311258 10.761438 18.870805 11.08219 19.240234 11.554688 L 25.160156 11.554688 L 19.964844 10.837891 C 19.532782 10.017462 18.67798 9.4345131 17.755859 9.3320312 C 17.612524 9.3161019 17.468271 9.3122238 17.324219 9.3183594 z M 8.1210938 10.328125 C 7.7401227 11.079937 7.5907073 11.945068 7.6953125 12.78125 C 7.7999181 13.617439 8.1584355 14.421666 8.7128906 15.056641 C 9.035128 15.425671 9.4311371 15.722922 9.859375 15.960938 L 8.6445312 15.619141 C 8.5882126 16.272161 8.7175619 16.941503 9.0117188 17.527344 C 9.305883 18.113185 9.7646901 18.613726 10.322266 18.958984 C 11.149405 19.471165 12.191123 19.625443 13.130859 19.373047 C 12.189427 19.379351 11.257201 18.911979 10.699219 18.154297 C 10.384196 17.726533 10.184953 17.213889 10.130859 16.685547 L 15.632812 17.583984 L 11.191406 16.335938 C 10.83334 16.162792 10.505171 15.926113 10.232422 15.636719 C 9.8572984 15.238709 9.5859427 14.74423 9.4492188 14.214844 C 9.292608 13.608442 9.3144613 12.957075 9.5136719 12.363281 L 16.074219 16.041016 L 8.1210938 10.328125 z M 18.818359 13.199219 C 18.688563 13.468472 18.599672 13.757562 18.552734 14.052734 C 18.407223 14.968257 18.677902 15.892832 18.949219 16.779297 C 19.220577 17.665754 19.498184 18.58705 19.361328 19.503906 C 19.259096 20.188697 18.924735 20.83095 18.457031 21.341797 C 17.989331 21.852645 17.391545 22.236457 16.75 22.498047 C 15.693239 22.928936 14.505125 23.029152 13.390625 22.783203 L 13.390625 25.832031 L 14.306641 23.65625 C 15.494433 23.927114 16.766787 23.817731 17.890625 23.347656 C 18.695517 23.01099 19.429504 22.485987 19.958984 21.792969 C 20.488469 21.09995 20.805579 20.234878 20.783203 19.363281 C 20.75618 18.315509 20.260533 17.344417 19.78125 16.412109 C 19.301972 15.479802 18.815877 14.501225 18.810547 13.453125 C 18.80989 13.368577 18.812348 13.283559 18.818359 13.199219 z " transform="scale(0.26458334)" />
-    </ns0:g>
-  </ns0:g>
-  <ns0:g transform="matrix(0.01582535,0,0,0.01582535,1.9784813,-5.2075363)" id="g924" style="fill:#ffffff">
-    <ns0:g id="g920" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.2227px;line-height:125%;font-family:FontAwesome;-inkscape-font-specification:FontAwesome;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none" transform="matrix(1.0005173,0,0,0.99948297,0.16863416,0)" />
-    <ns0:g id="g922" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.9884px;line-height:125%;font-family:FontAwesome;-inkscape-font-specification:FontAwesome;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none" transform="matrix(1.0005173,0,0,0.99948297,9,0)" />
-  </ns0:g>
-</ns0:svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="32"
+   height="32"
+   version="1.1"
+   viewBox="0 0 8.4666667 8.4666672"
+   id="svg371"
+   sodipodi:docname="lubuntu.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox="true"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview373"
+     showgrid="false"
+     inkscape:zoom="22.627416"
+     inkscape:cx="18.14073"
+     inkscape:cy="18.39262"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg371"
+     inkscape:document-rotation="0"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:grid
+       id="grid1162"
+       type="xygrid"
+       originx="0"
+       originy="0"
+       spacingy="1"
+       spacingx="1"
+       units="px"
+       visible="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs37">
+    <style
+       id="current-color-scheme"
+       type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style29" />
+    <style
+       type="text/css"
+       id="style31" />
+    <style
+       type="text/css"
+       id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+  </defs>
+  <g
+     style="fill:#ffffff;fill-opacity:1"
+     transform="matrix(-0.02885528,0,0,0.0288555,30.259629,5.9111644)"
+     id="g898" />
+  <g
+     style="fill:#ffffff;fill-opacity:1"
+     transform="matrix(0.01499372,0.0246541,0.02465391,-0.01499384,8.7135589,-9.7682363)"
+     id="g900" />
+  <g
+     style="fill:#ffffff;fill-opacity:1"
+     transform="matrix(0.0144051,-0.0250026,-0.02500241,-0.01440521,5.9599396,16.386349)"
+     id="g902" />
+  <g
+     id="g892">
+    <path
+       d="m 4.1822579,3.0769604e-4 a 4.2332976,4.2332976 0 1 1 0,8.46597980396 4.2332976,4.2332976 0 0 1 0,-8.46597980396 z"
+       id="path144"
+       inkscape:connector-curvature="0"
+       style="fill:#1d89db;stroke-width:0.962969" />
+    <g
+       id="g886">
+      <circle
+         style="fill:#ffffff;stroke-width:1.62099;stroke-linecap:round;stroke-linejoin:round;paint-order:stroke markers fill"
+         id="path875"
+         cx="4.2333336"
+         cy="4.2333336"
+         r="2.9104168" />
+      <path
+         id="path908"
+         style="fill:#1d89db;fill-opacity:1;stroke:none;stroke-width:0.0656939"
+         d="M 17.324219 9.3183594 C 16.892062 9.336766 16.464534 9.4525263 16.083984 9.6582031 C 15.576581 9.9324475 15.154956 10.364558 14.894531 10.878906 C 14.634065 11.393254 14.535743 11.987672 14.615234 12.558594 C 14.69473 13.129515 14.95271 13.673879 15.34375 14.097656 C 15.140449 13.72072 15.044246 13.286903 15.068359 12.859375 C 15.09239 12.431848 15.236175 12.011962 15.480469 11.660156 C 15.724775 11.308357 16.068555 11.027605 16.460938 10.855469 C 16.853325 10.683344 17.292264 10.621308 17.716797 10.679688 C 18.311258 10.761438 18.870805 11.08219 19.240234 11.554688 L 25.160156 11.554688 L 19.964844 10.837891 C 19.532782 10.017462 18.67798 9.4345131 17.755859 9.3320312 C 17.612524 9.3161019 17.468271 9.3122238 17.324219 9.3183594 z M 8.1210938 10.328125 C 7.7401227 11.079937 7.5907073 11.945068 7.6953125 12.78125 C 7.7999181 13.617439 8.1584355 14.421666 8.7128906 15.056641 C 9.035128 15.425671 9.4311371 15.722922 9.859375 15.960938 L 8.6445312 15.619141 C 8.5882126 16.272161 8.7175619 16.941503 9.0117188 17.527344 C 9.305883 18.113185 9.7646901 18.613726 10.322266 18.958984 C 11.149405 19.471165 12.191123 19.625443 13.130859 19.373047 C 12.189427 19.379351 11.257201 18.911979 10.699219 18.154297 C 10.384196 17.726533 10.184953 17.213889 10.130859 16.685547 L 15.632812 17.583984 L 11.191406 16.335938 C 10.83334 16.162792 10.505171 15.926113 10.232422 15.636719 C 9.8572984 15.238709 9.5859427 14.74423 9.4492188 14.214844 C 9.292608 13.608442 9.3144613 12.957075 9.5136719 12.363281 L 16.074219 16.041016 L 8.1210938 10.328125 z M 18.818359 13.199219 C 18.688563 13.468472 18.599672 13.757562 18.552734 14.052734 C 18.407223 14.968257 18.677902 15.892832 18.949219 16.779297 C 19.220577 17.665754 19.498184 18.58705 19.361328 19.503906 C 19.259096 20.188697 18.924735 20.83095 18.457031 21.341797 C 17.989331 21.852645 17.391545 22.236457 16.75 22.498047 C 15.693239 22.928936 14.505125 23.029152 13.390625 22.783203 L 13.390625 25.832031 L 14.306641 23.65625 C 15.494433 23.927114 16.766787 23.817731 17.890625 23.347656 C 18.695517 23.01099 19.429504 22.485987 19.958984 21.792969 C 20.488469 21.09995 20.805579 20.234878 20.783203 19.363281 C 20.75618 18.315509 20.260533 17.344417 19.78125 16.412109 C 19.301972 15.479802 18.815877 14.501225 18.810547 13.453125 C 18.80989 13.368577 18.812348 13.283559 18.818359 13.199219 z "
+         transform="scale(0.26458334)" />
+    </g>
+  </g>
+  <g
+     transform="matrix(0.01582535,0,0,0.01582535,1.9784813,-5.2075363)"
+     id="g924"
+     style="fill:#ffffff">
+    <g
+       id="g920"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.2227px;line-height:125%;font-family:FontAwesome;-inkscape-font-specification:FontAwesome;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none"
+       transform="matrix(1.0005173,0,0,0.99948297,0.16863416,0)" />
+    <g
+       id="g922"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:20.9884px;line-height:125%;font-family:FontAwesome;-inkscape-font-specification:FontAwesome;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none"
+       transform="matrix(1.0005173,0,0,0.99948297,9,0)" />
+  </g>
+</svg>

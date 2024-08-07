@@ -1,21 +1,98 @@
-<ns0:svg xmlns:ns0="http://www.w3.org/2000/svg" xmlns:ns1="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns2="http://www.inkscape.org/namespaces/inkscape" width="32" height="32" version="1.1" viewBox="0 0 8.4666667 8.4666672" id="svg371" ns1:docname="ubuntu.svg">
-  <ns1:namedview ns2:snap-bbox-edge-midpoints="true" ns2:bbox-nodes="true" ns2:snap-bbox="true" pagecolor="#808080" bordercolor="#666666" borderopacity="1" objecttolerance="10" gridtolerance="10" guidetolerance="10" ns2:pageopacity="0" ns2:pageshadow="2" ns2:window-width="1920" ns2:window-height="1016" id="namedview373" showgrid="false" ns2:zoom="8" ns2:cx="12.712944" ns2:cy="22.613654" ns2:window-x="1920" ns2:window-y="27" ns2:window-maximized="1" ns2:current-layer="svg371" ns2:document-rotation="0" units="in">
-    <ns2:grid id="grid1162" type="xygrid" />
-  </ns1:namedview>
-  <ns0:defs id="defs37">
-    <ns0:style id="current-color-scheme" type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style29" />
-    <ns0:style type="text/css" id="style31" />
-    <ns0:style type="text/css" id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-    <ns0:style type="text/css" id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</ns0:style>
-  </ns0:defs>
-  <ns0:path d="m 4.2328085,-1.4267792e-7 a 4.2333335,4.2333335 0 1 0 0,8.46666684267792 4.2333335,4.2333335 0 0 0 0,-8.46666684267792 z M 5.7417349,1.1799371 A 0.56396234,0.56396234 0 0 1 6.1617126,2.0229012 0.56496517,0.56496517 0 1 1 5.7417349,1.1799371 Z m -1.509929,0.5979627 c 0.2279916,0 0.4479797,0.030999 0.6569755,0.088994 A 0.79295691,0.79295691 0 0 0 5.9517338,2.482869 C 6.3697057,2.8938402 6.6417066,3.452827 6.6817045,4.0757833 L 5.876752,4.0867622 A 1.6509248,1.6509248 0 0 0 3.5368572,2.7368595 L 3.1438788,2.0319015 A 2.4469289,2.4469289 0 0 1 4.2328277,1.7779132 Z m -1.3619337,0.4119742 0.41398,0.6929619 a 1.6489193,1.6489193 0 0 0 0,2.7009176 l -0.41398,0.6919593 a 2.4579214,2.4579214 0 0 1 -1.0139481,-1.426925 0.79095124,0.79095124 0 0 0 0,-1.2309472 2.4598501,2.4598501 0 0 1 1.0139481,-1.4279282 z M 1.3539449,3.6678088 a 0.56548588,0.56548588 0 1 1 0,1.1309527 0.56498444,0.56498444 0 0 1 0,-1.1299497 z M 5.876752,4.3787643 6.6817045,4.3917538 A 2.4478932,2.4478932 0 0 1 5.9517338,5.9836743 0.78996767,0.78996767 0 0 0 4.8887814,6.5986464 2.4538717,2.4538717 0 0 1 3.1438596,6.4346552 L 3.5368379,5.7306809 A 1.6499219,1.6499219 0 0 0 5.8767328,4.3787567 Z M 5.6017618,6.1646675 A 0.56619943,0.56619943 0 1 1 5.739753,7.2886194 0.56619943,0.56619943 0 0 1 5.6017618,6.1646675 Z" id="path227" ns2:connector-curvature="0" style="fill:#ffffff;stroke-width:1.68745" />
-</ns0:svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="32"
+   height="32"
+   version="1.1"
+   viewBox="0 0 8.4666667 8.4666672"
+   id="svg371"
+   sodipodi:docname="ubuntu.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     inkscape:snap-bbox-edge-midpoints="true"
+     inkscape:bbox-nodes="true"
+     inkscape:snap-bbox="true"
+     pagecolor="#808080"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview373"
+     showgrid="false"
+     inkscape:zoom="8"
+     inkscape:cx="12.712944"
+     inkscape:cy="22.613654"
+     inkscape:window-x="1920"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg371"
+     inkscape:document-rotation="0"
+     units="in"
+     inkscape:showpageshadow="2"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1">
+    <inkscape:grid
+       id="grid1162"
+       type="xygrid"
+       originx="0"
+       originy="0"
+       spacingy="1"
+       spacingx="1"
+       units="in"
+       visible="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs37">
+    <style
+       id="current-color-scheme"
+       type="text/css">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style13">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style15">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style17">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style19">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style21">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style23">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style25">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style27">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style29" />
+    <style
+       type="text/css"
+       id="style31" />
+    <style
+       type="text/css"
+       id="style33">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+    <style
+       type="text/css"
+       id="style35">.ColorScheme-Text { color:#565656; } .ColorScheme-Highlight { color:#5294e2; }</style>
+  </defs>
+  <path
+     d="m 4.2328085,-1.4267792e-7 a 4.2333335,4.2333335 0 1 0 0,8.46666684267792 4.2333335,4.2333335 0 0 0 0,-8.46666684267792 z M 5.7417349,1.1799371 A 0.56396234,0.56396234 0 0 1 6.1617126,2.0229012 0.56496517,0.56496517 0 1 1 5.7417349,1.1799371 Z m -1.509929,0.5979627 c 0.2279916,0 0.4479797,0.030999 0.6569755,0.088994 A 0.79295691,0.79295691 0 0 0 5.9517338,2.482869 C 6.3697057,2.8938402 6.6417066,3.452827 6.6817045,4.0757833 L 5.876752,4.0867622 A 1.6509248,1.6509248 0 0 0 3.5368572,2.7368595 L 3.1438788,2.0319015 A 2.4469289,2.4469289 0 0 1 4.2328277,1.7779132 Z m -1.3619337,0.4119742 0.41398,0.6929619 a 1.6489193,1.6489193 0 0 0 0,2.7009176 l -0.41398,0.6919593 a 2.4579214,2.4579214 0 0 1 -1.0139481,-1.426925 0.79095124,0.79095124 0 0 0 0,-1.2309472 2.4598501,2.4598501 0 0 1 1.0139481,-1.4279282 z M 1.3539449,3.6678088 a 0.56548588,0.56548588 0 1 1 0,1.1309527 0.56498444,0.56498444 0 0 1 0,-1.1299497 z M 5.876752,4.3787643 6.6817045,4.3917538 A 2.4478932,2.4478932 0 0 1 5.9517338,5.9836743 0.78996767,0.78996767 0 0 0 4.8887814,6.5986464 2.4538717,2.4538717 0 0 1 3.1438596,6.4346552 L 3.5368379,5.7306809 A 1.6499219,1.6499219 0 0 0 5.8767328,4.3787567 Z M 5.6017618,6.1646675 A 0.56619943,0.56619943 0 1 1 5.739753,7.2886194 0.56619943,0.56619943 0 0 1 5.6017618,6.1646675 Z"
+     id="path227"
+     inkscape:connector-curvature="0"
+     style="fill:#ffffff;stroke-width:1.68745" />
+</svg>
