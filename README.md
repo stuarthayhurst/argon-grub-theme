@@ -103,6 +103,9 @@ Required arguments: [--install + --background / --uninstall / --preview]
      - 16:9: (`1920x1080` -> 1080p, `2560x1440` -> 2k, `3840x2160` -> 4k)
      - 16:10: (`1920x1200`, `2240x1400`, `3840x2400`)
    - Make sure to replace `[YOUR_RESOLUTION]` with your resolution and `[THEME]` with the theme
+ - To use a custom colour background, don't pass `--background`
+   - Pass `--resolution [YOUR_RESOLUTION] --custom "[COLOUR_CODE]"`
+   - For example, `--resolution 1920x1080 --custom "#ff00ff"` to use a magenta 1080p background
 
 ## Forcing an icon:
  - Find the name / class of the icon in `assets/svg/icons/`
