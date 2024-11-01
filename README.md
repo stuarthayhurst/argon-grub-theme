@@ -60,6 +60,7 @@ Required arguments: [--install + --background / --uninstall / --preview]
    - `sudo ./install.sh -u`
 
 ## Screenshots:
+_Preview is compressed, the backgrounds are higher quality_
 ![Gallery](docs/Gallery.gif)
  - Some individual images at end of document
 
