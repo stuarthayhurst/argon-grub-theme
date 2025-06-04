@@ -134,7 +134,8 @@ _Preview is compressed, the backgrounds are higher quality_
 ![Grey](docs/6-Grey.png)
 ![Night](docs/7-Colours.png)
 ![Multi-distro Crystals](docs/8-Crystals.png)
-![Magenta](docs/9-Magenta.png)
+![Hills](docs/9-Hills.png)
+![Magenta](docs/10-Magenta.png)
 
 ## Makefile options:
  - Makefile respects core count specified by `-j[Core count]`
