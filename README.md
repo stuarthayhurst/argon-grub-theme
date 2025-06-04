@@ -47,8 +47,8 @@ Required arguments: [--install + --background / --uninstall / --preview]
  - Install the theme for a custom resolution (1024x720), using a solid magenta wallpaper:
    - `sudo ./install.sh --install --resolution 1024x720 --custom "#ff00ff"`
 
- - Preview the theme with a fontsize of 32, a white font colour and black selected font colour:
-   - `./install.sh -p -b Crystals -fs 32 -fc "white,#000000"`
+ - Preview the theme with a fontsize of 32, a white font colour, black selected font colour and white timer colour:
+   - `./install.sh -p -b Crystals -fs 32 -fc "white,#000000,white"`
 
  - Preview the theme with a different font:
    - `./install.sh -p -b Crystals -f Terminus.ttf`

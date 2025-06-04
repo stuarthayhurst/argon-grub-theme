@@ -104,10 +104,15 @@ getResolution() {
 
 #Processes the font colour argument (validating)
 getFontColour() {
-  font_colour="${1%,*}"
-  selected_font_colour="${1#*,}"
-  #Check $font_colour is valid (not another argument)
-  if ! checkArg "$font_colour" || ! checkArg "$selected_font_colour" || [[ "$font_colour" == "" ]] || [[ "$selected_font_colour" == "" ]]; then
+  colour_string="$1"
+  font_colour="${colour_string%%,*}"
+  colour_string="${colour_string#*,}"
+  selected_font_colour="${colour_string%%,*}"
+  colour_string="${colour_string#*,}"
+  timer_font_colour="${colour_string%%,*}"
+  #Check extracted colours are valid (not another argument)
+  if ! checkArg "$font_colour" || ! checkArg "$selected_font_colour" || ! checkArg "$timer_font_colour" || \
+     [[ "$font_colour" == "" ]] || [[ "$selected_font_colour" == "" ]] || [[ "$timer_font_colour" == "" ]]; then
     #Give error message if it failed
     output "warning" "Invalid or no font colour found, ignoring"
     font_colour=""
@@ -282,6 +287,7 @@ installCore() {
   fileContent="${fileContent//"{console_font_name_template}"/"$console_font_name"}"
   fileContent="${fileContent//"{font_colour_template}"/"$font_colour"}"
   fileContent="${fileContent//"{selected_font_colour_template}"/"$selected_font_colour"}"
+  fileContent="${fileContent//"{timer_font_colour_template}"/"$timer_font_colour"}"
   echo "$fileContent" > "$installDir/theme.txt"
 
   #Install background
@@ -401,6 +407,7 @@ warnArgs() {
     argWarnings+="$(output "minor" "No font colour specified, use -fc [VALUE] to set a font colour\n")"
     font_colour="#cccccc"
     selected_font_colour="#ffffff"
+    timer_font_colour="$font_colour"
   fi
   if [[ "$resolution" == "" ]]; then
     argWarnings+="$(output "warning" "No resolution specified, use -r [RESOLUTION] to set a resolution\n")"
@@ -526,6 +533,7 @@ if [[ "$programOperation" == "install" ]] || [[ "$programOperation" == "preview"
   iconType="${iconType:-"coloured"}"; output "list" "Icon type: ${iconType^}"
   output "list" "Font colour: ${font_colour^}"
   output "list" "Selected font colour: ${selected_font_colour^}"
+  output "list" "Timer font colour: ${timer_font_colour^}"
   output "list" "Font size: $fontsize"
   output "list" "Font file: $fontfile"
   forceBoldFont="${forceBoldFont:-"false"}"; output "list" "Force bold: ${forceBoldFont^}"

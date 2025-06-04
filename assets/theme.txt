@@ -38,6 +38,6 @@ terminal-border: "0"
   align = "center"
   id = "__timeout__"
   text = "Booting in %d seconds"
-  color = "{font_colour_template}"
+  color = "{timer_font_colour_template}"
   font = "{font_name_template}"
 }
