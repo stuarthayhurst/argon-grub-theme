@@ -20,6 +20,7 @@ knownWallpapers = {
   "Dawn.png": "dawn.png",
   "Dusk.png": "dusk.png",
   "Grey.png": "grey.png",
+  "Hills.png": "hills.png",
   "Waves.png": "waves.png",
 }
 
