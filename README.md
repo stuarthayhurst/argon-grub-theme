@@ -20,10 +20,10 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -r , --resolution | Select the display resolution <br> - Leave blank to view available resolutions |
 | --icons           | Choose whether to use `coloured` or `colourless` icons |
 | -f , --font       | Specify which font to use (file) <br> - Leave blank to view available fonts |
-| -fc, --fontcolour | Use a specific font colour (HTML (must be quoted) and SVG 1.0 colours supported) <br> - Use the format: -fc "textcolour,selectedcolour" |
+| -fc, --fontcolour | Use a specific font colour (HTML (must be quoted) and SVG 1.0 colours supported) <br> - Use the format: -fc "textcolour,selectedcolour" or -fc "textcolour,selectedcolour,helpcolour" |
 | -fs, --fontsize   | Use a specific font size |
 | -l , --bold       | Force font to be bold |
-| -hl, --help-label | Add a help label to the bottom of the theme |
+| -hl, --help-label | Add a help label to the bottom of the theme <br> - Use -fc to set its colour |
 
 Required arguments: [--install + --background / --uninstall / --preview]
  - **If the repository is updated, `make clean` should be run, to erase cached assets**
