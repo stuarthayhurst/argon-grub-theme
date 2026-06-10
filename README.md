@@ -6,7 +6,7 @@
  - Any donations are greatly appreciated :)
 
 ## Installation:
-Usage:  `sudo ./install.sh [OPTIONS]`
+ - Usage:  `sudo ./install.sh [OPTIONS]`
 
 |  Options:         | Description: |
 |:------------------|:-------------|
@@ -25,8 +25,8 @@ Usage:  `sudo ./install.sh [OPTIONS]`
 | -l , --bold       | Force font to be bold |
 | -hl, --help-label | Add a help label to the bottom of the theme <br> - Use `-fc` to set its colour |
 
-Required arguments: [--install + --background / --uninstall / --preview]
- - **If the repository is updated, `make clean` should be run, to erase cached assets**
+ - Required arguments: `[--install + --background / --uninstall / --preview]`
+   - **If the repository is updated, `make clean` should be run, to erase cached assets**
 
 ## Fixing common problems:
  - Secure Boot can cause some assets (primarily fonts) to fail to load, as they're not signed
